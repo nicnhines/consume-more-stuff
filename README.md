@@ -35,11 +35,11 @@ The instructors will provide a tech lead role, and will need to approve design a
 - Create 'config' folder. Create a 'config.js' file within the config folder with the following structure:
 ``` 
 {
-	database: {
+  database: {
 		user: 'database_user',
 		password: 'user_password',
 		database: 'database_name'
-	}
+  }
 }
 ```
 - run ```knex migrate:latest``` to create the database tables
