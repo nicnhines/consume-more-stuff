@@ -1,4 +1,5 @@
 // Update with your config settings.
+const config = require(`../config/config`);
 
 module.exports = {
 
@@ -6,9 +7,9 @@ module.exports = {
     client: 'pg',
     connection: {
       host: `127.0.0.1`,
-      user: `consume_user`,
-      password: `password`,
-      database: `consume_more_stuff`,
+      user: config.database.user,
+      password: config.database.password,
+      database: config.database.database,
       charset: `utf8`
     },
     migrations: {
