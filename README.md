@@ -44,7 +44,7 @@ The instructors will provide a tech lead role, and will need to approve design a
 ```
 - run ```knex migrate:latest``` to create the database tables
 - run ```knex seed:run``` to insert filler data into the database
-- run server 
+- run back-end server and front-end server from the same terminal with ```npm run dev```
 
 ## Business Requirements
 
