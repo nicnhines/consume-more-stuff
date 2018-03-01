@@ -28,6 +28,8 @@ You will need to work as a team to complete this project. To facilitate team com
 
 The instructors will provide a tech lead role, and will need to approve design and implementation decisions. Data modeling will need to be done by the team, but approved by the tech leads.
 
+## Project Setup
+```npm install```
 
 ## Business Requirements
 
