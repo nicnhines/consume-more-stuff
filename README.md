@@ -36,9 +36,9 @@ The instructors will provide a tech lead role, and will need to approve design a
 ``` 
 {
   database: {
-		user: 'database_user',
-		password: 'user_password',
-		database: 'database_name'
+    user: 'database_user',
+    password: 'user_password',
+    database: 'database_name'
   }
 }
 ```
