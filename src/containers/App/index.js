@@ -40,8 +40,8 @@ const mapStateToProps = state => {
     categories: state.items.categories,
     conditions: state.items.conditions,
     items: state.items.items,
-    currentPage: state.pageDisplay.currentPage,
-    singleItem: state.items.singleItem
+    singleItem: state.items.singleItem,
+    currentPage: state.pageDisplay.currentPage
   }
 }
 
