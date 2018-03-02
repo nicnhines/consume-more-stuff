@@ -39,12 +39,16 @@ router.route('/')
     })
     .save()
     .then((item) => {
+      if (title.trim().length === 0 || description.trim().length === 0 || image_url.trim().length === 0) {
+        res.status(422).json({message:'No Empty Input Fields'})
+      }
       return res.json(item);
     })
     .catch((err) => {
+      console.log(err)
       return handleError(err, res);
   });
-})
+});
 
 router.route('/:id')
   .get((req, res) => {
