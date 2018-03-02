@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './styles.css';
+import '../NavigationBar/styles.css';
 
 import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
+
+import NavigationBar from '../../containers/NavigationBar';
 
 class App extends Component {
 
@@ -22,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className='outer_page_container'>
-        <div>HEADER GOES HERE</div>
+        <NavigationBar />
         <div className='app_content'>
           {this.contentDisplayer()}
         </div>
@@ -36,8 +40,8 @@ const mapStateToProps = state => {
     categories: state.items.categories,
     conditions: state.items.conditions,
     items: state.items.items,
-    currentPage: state.pageDisplay.currentPage,
-    singleItem: state.items.singleItem
+    singleItem: state.items.singleItem,
+    currentPage: state.pageDisplay.currentPage
   }
 }
 
