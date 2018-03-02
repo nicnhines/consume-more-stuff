@@ -16,8 +16,8 @@ router.route('/')
     .catch((err) => {
       return res.status(400).json({
         message: err.message
-      })
-    })
+      });
+    });
   })
   .post((req, res) => {
     let {
@@ -39,16 +39,16 @@ router.route('/')
       category,
       image_url,
       user_id
-      })
-      .save()
-      .then((item) => {
-        return res.json(item);
-      })
-      .catch((err) => {
-        return res.status(400).json({
-          message: err.message
-        })
-  })
+    })
+    .save()
+    .then((item) => {
+      return res.json(item);
+    })
+    .catch((err) => {
+      return res.status(400).json({
+        message: err.message
+    });
+  });
 })
 
 router.route('/:id')
@@ -61,8 +61,8 @@ router.route('/:id')
     .catch((err) => {
       return res.status(400).json({
         message: err.message
-      })
-    })
+      });
+    });
   })
   .put((req, res) => {
     return new Item({id: req.params.id})

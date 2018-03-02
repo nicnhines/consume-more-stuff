@@ -13,9 +13,9 @@ module.exports = router;
 router.route('/:id')
   .get((req, res) => {
     return new User({id: req.params.id})
-      .fetch()
-      .then((user) => {
-        return res.json(user);
+    .fetch()
+    .then((user) => {
+      return res.json(user);
     })
     .catch((err) => {
       return res.status(400).json({
@@ -25,10 +25,10 @@ router.route('/:id')
   })
   .put((req, res) => {
     return new User({id: req.params.id})
-      .fetch()
-      .save(req.body, {require: true})
-      .then((user) => {
-        return res.json(user)
+    .fetch()
+    .save(req.body, {require: true})
+    .then((user) => {
+      return res.json(user)
     })
     .catch((err) => {
       return res.status(400).json({
