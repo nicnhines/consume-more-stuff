@@ -1,5 +1,6 @@
 let handleError = (err, res) => {
-  switch(err) {
+  
+  switch(err.code) {
     case '23514':
      res.status(400).json({message: err.message});
      break;

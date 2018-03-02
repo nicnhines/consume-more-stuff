@@ -42,7 +42,6 @@ router.route('/')
       return res.json(item);
     })
     .catch((err) => {
-      console.log(err)
       return handleError(err, res);
   });
 })
