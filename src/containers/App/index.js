@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadItems } from '../../actions/itemsActions';
+import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 class App extends Component {
@@ -36,7 +36,8 @@ const mapStateToProps = state => {
     categories: state.items.categories,
     conditions: state.items.conditions,
     items: state.items.items,
-    currentPage: state.pageDisplay.currentPage
+    currentPage: state.pageDisplay.currentPage,
+    singleItem: state.items.singleItem
   }
 }
 
@@ -44,6 +45,9 @@ const mapDispatchToProps = dispatch => {
   return {
     loadItems: () => {
       dispatch(loadItems());
+    },
+    loadSingleItem: (id) => {
+      dispatch(loadSingleItem(id))
     },
     setPageToDisplay: page => {
       dispatch(setPageToDisplay(page));
