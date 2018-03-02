@@ -8,7 +8,6 @@ class App extends Component {
 
   componentWillMount() {
     this.props.loadItems();
-    this.props.loadSingleItem(1);
   }
 
   contentDisplayer() {
