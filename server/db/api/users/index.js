@@ -10,19 +10,18 @@ module.exports = router;
 //     console.log('user route smoke test')
 //   })
 
-router
-  .route('/:id')
+router.route('/:id')
   .get((req, res) => {
     return new User({id: req.params.id})
       .fetch()
       .then((user) => {
         return res.json(user);
-      })
-      .catch((err) => {
-        return res.status(400).json({
-          message: err.message
-        });
+    })
+    .catch((err) => {
+      return res.status(400).json({
+        message: err.message
       });
+    });
   })
   .put((req, res) => {
     return new User({id: req.params.id})
@@ -30,12 +29,12 @@ router
       .save(req.body, {require: true})
       .then((user) => {
         return res.json(user)
-      })
-      .catch((err) => {
-        return res.status(400).json({
-          message: err.message
-        });
+    })
+    .catch((err) => {
+      return res.status(400).json({
+        message: err.message
       });
+    });
   });
 
 // router
