@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './styles.css';
 import '../NavigationBar/styles.css';
 import '../HomePage/styles.css';
+import '../CategoryList/styles.css';
 
 import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 import NavigationBar from '../NavigationBar';
-import HomePage from '../HomePage'
+import HomePage from '../HomePage';
+import CategoryList from '../CategoryList';
+import NotFound from '../../components/NotFound';
 
 class App extends Component {
 
   componentWillMount() {
     this.props.loadItems();
-  }
-
-  contentDisplayer() {
-    switch (this.props.currentPage) {
-      case `homePage`:
-        return <HomePage />;
-      default:
-        return <div>HOME PAGE VIEW</div>;
-    }
   }
 
   render() {
@@ -31,7 +26,11 @@ class App extends Component {
         <NavigationBar />
         <div className='page_spacer'></div>
         <div className='app_content'>
-          {this.contentDisplayer()}
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/category/:category" component={CategoryList} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </div>
     );
@@ -67,4 +66,4 @@ const ConnectedApp = connect(
   mapDispatchToProps
 )(App);
 
-export default ConnectedApp;
+export default withRouter(ConnectedApp);

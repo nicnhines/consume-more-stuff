@@ -5,6 +5,10 @@ html, body, #root {
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .outer_page_container {
   display: flex;
   flex-flow: row nowrap;
