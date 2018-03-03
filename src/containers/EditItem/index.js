@@ -8,12 +8,6 @@ class EditItem extends Component {
     super(props);
 
     this.state = {
-      title: this.props.title,
-      description: this.props.description,
-      price: this.props.price,
-      condition: this.props.condition,
-      category: this.props.category,
-      status: this.props.status,
       showDisplay: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +20,13 @@ class EditItem extends Component {
   }
   displayEditForm(event) {
     this.setState({
+      id: this.props.singleItem.id,
+      title: this.props.singleItem.title,
+      description: this.props.singleItem.description,
+      price: this.props.singleItem.price,
+      condition: this.props.singleItem.condition,
+      category: this.props.singleItem.category,
+      status: this.props.singleItem.status,
       showDisplay: true
     })
   }
@@ -41,8 +42,10 @@ class EditItem extends Component {
   }
 
   handleSubmit(event) {
+    console.log('state',this.state)
     event.preventDefault();
     this.props.editItem({
+      id: this.state.id,
       title: this.state.title,
       description: this.state.description,
       price: this.state.price,
@@ -58,7 +61,6 @@ class EditItem extends Component {
       return ( 
       
       <div className="single-item-container"> 
-
       <div className="single-item-title"> Title: { this.props.singleItem.title }</div>
       <div className="single-item-description"> Description: { this.props.singleItem.description }</div>
       <div className="single-item-price"> Price: { this.props.singleItem.price }</div>
@@ -71,14 +73,13 @@ class EditItem extends Component {
      </div>
     </div>
       )} else { return (
-      <div className="editItemForm">
+      <div className="edit-item-form">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <input
               className="addInput"
               name="title"
               onChange={this.handleChange.bind(this)}
-              placeholder="title"
               value={this.state.title} />
           </div>
           <div>
@@ -86,15 +87,13 @@ class EditItem extends Component {
               className="addInput"
               name="description"
               onChange={this.handleChange.bind(this)}
-              placeholder={this.props.description}
               value={this.state.description} />
           </div>
           <div>
             <input
               className="addInput"
               name="price"
-              onChange={this.handleChange.bind(this)}
-              placeholder={this.props.price}
+              onChange={this.handleChange.bind(this)} 
               value={this.state.price} />
           </div>
           <div>
@@ -102,6 +101,7 @@ class EditItem extends Component {
               className="addInput"
               name="condition"
               onChange={this.handleChange.bind(this)}>
+              <option value= ''>{this.props.singleItem.condition}</option>
               <option value="new">New</option>
               <option value="like new">Like New</option>
               <option value="good">Good</option>
@@ -114,6 +114,7 @@ class EditItem extends Component {
               className="addInput"
               name="category"
               onChange={this.handleChange.bind(this)}>
+              <option value= ''>{this.props.singleItem.category}</option>
               <option value="electronics">Electronics</option>
               <option value="vehicles">Vehicles</option>
               <option value="Furniture">Furniture</option>
@@ -126,6 +127,7 @@ class EditItem extends Component {
               className="addInput"
               name="status"
               onChange={this.handleChange.bind(this)}>
+              <option value= ''>{this.props.singleItem.status}</option>
               <option value="published">Published</option>
               <option value="sold">Sold</option>
               <option value="deactivated">Deactivated</option>

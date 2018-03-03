@@ -13,3 +13,7 @@ html, body {
 
 .single-item-description {
   font-family: Courier New, Courier, monospace; }
+
+.edit-item-form {
+  display: flex;
+  justify-content: center; }
