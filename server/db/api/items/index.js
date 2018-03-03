@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Item = require('../../models/Item.js');
+const handleError = require('../errorHelper');
 
 module.exports = router;
-
-// router.route('/').get((req, res) => {   console.log('items smoke test'); });
 
 router.route('/')
   .get((req, res) => {
@@ -14,9 +13,7 @@ router.route('/')
       return res.json(items);
     })
     .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-      });
+      return handleError(err, res);
     });
   })
   .post((req, res) => {
@@ -42,26 +39,29 @@ router.route('/')
     })
     .save()
     .then((item) => {
+      if (title.trim().length === 0 || description.trim().length === 0 || image_url.trim().length === 0) {
+        res.status(422).json({message:'No Empty Input Fields'})
+      }
       return res.json(item);
     })
     .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-    });
+      console.log(err)
+      return handleError(err, res);
   });
-})
+});
 
 router.route('/:id')
   .get((req, res) => {
     return new Item({id: req.params.id})
     .fetch()
     .then((item) => {
+      if(!item){
+        res.status(404).json({message: 'Item Not Found'})
+      }
       return res.json(item);
     })
-    .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-      });
+    .catch((err) => {  
+      return handleError(err, res);
     });
   })
   .put((req, res) => {
@@ -71,8 +71,12 @@ router.route('/:id')
       return res.json(item);
     })
     .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-      });
+      return handleError(err, res);
     });
   });
+
+
+
+
+
+

@@ -4,23 +4,18 @@ const User = require('../../models/User')
 
 module.exports = router;
 
-// router
-//   .route('/')
-//   .get((req, res) => {
-//     console.log('user route smoke test')
-//   })
-
 router.route('/:id')
   .get((req, res) => {
     return new User({id: req.params.id})
     .fetch()
     .then((user) => {
+      if(!user) {
+        res.status(404).json({message: 'User Not Found'})
+      }
       return res.json(user);
     })
     .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-      });
+      return handleError(err, res)
     });
   })
   .put((req, res) => {
@@ -31,9 +26,7 @@ router.route('/:id')
       return res.json(user)
     })
     .catch((err) => {
-      return res.status(400).json({
-        message: err.message
-      });
+      return handleError(err, res);
     });
   });
 
