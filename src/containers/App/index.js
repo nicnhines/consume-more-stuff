@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './styles.css';
 import '../NavigationBar/styles.css';
+import '../HomePage/styles.css';
+import '../CategoryList/styles.css';
 
 import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
-import NavigationBar from '../../containers/NavigationBar';
-import EditItem from '../EditItem';
+import NavigationBar from '../NavigationBar';
+import HomePage from '../HomePage';
+import CategoryList from '../CategoryList';
+import NotFound from '../../components/NotFound';
 
 class App extends Component {
   
@@ -16,22 +21,17 @@ class App extends Component {
     this.props.loadSingleItem(1);
   }
 
-  contentDisplayer() {
-    switch (this.props.currentPage) {
-      case `homePage`:
-        return <div>HOME PAGE VIEW</div>;
-      default:
-        return <div>HOME PAGE VIEW</div>;
-    }
-  }
-
   render() {
     return (
       <div className='outer_page_container'>
         <NavigationBar />
+        <div className='page_spacer'></div>
         <div className='app_content'>
-          {this.contentDisplayer()}
-        <EditItem singleItem={this.props.singleItem}/>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/category/:category" component={CategoryList} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </div>
     );
@@ -67,4 +67,4 @@ const ConnectedApp = connect(
   mapDispatchToProps
 )(App);
 
-export default ConnectedApp;
+export default withRouter(ConnectedApp);
