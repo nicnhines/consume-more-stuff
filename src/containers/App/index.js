@@ -7,17 +7,21 @@ import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 import NavigationBar from '../../containers/NavigationBar';
+import ItemComponent from '../../components/ItemComponent';
 
 class App extends Component {
-
+  
   componentWillMount() {
     this.props.loadItems();
+    this.props.loadSingleItem(1);
   }
 
   contentDisplayer() {
     switch (this.props.currentPage) {
       case `homePage`:
         return <div>HOME PAGE VIEW</div>;
+      case `singleItemPage`:
+        return <ItemComponent singleItem={this.props.singleItem} />;
       default:
         return <div>HOME PAGE VIEW</div>;
     }
