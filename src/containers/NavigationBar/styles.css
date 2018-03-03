@@ -85,3 +85,8 @@
     margin-left: 315px; }
   100% {
     margin-left: -405px; } }
+
+.HELLO {
+  display: flex;
+  justify-content: center;
+}

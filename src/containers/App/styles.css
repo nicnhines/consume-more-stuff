@@ -4,3 +4,11 @@ html, body {
 
 .app_content {
   margin-left: 65px; }
+
+.editItemForm {
+  display: flex;
+ justify-content: center;
+}
+.single-item {
+  background: #EBEBEB;
+}

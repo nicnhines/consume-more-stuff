@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import './styles.css';
 import '../NavigationBar/styles.css';
 
-import { loadItems, loadSingleItem } from '../../actions/itemsActions';
+import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 import NavigationBar from '../../containers/NavigationBar';
 import ItemComponent from '../../components/ItemComponent';
+import EditItem from '../EditItem';
 
 class App extends Component {
   
@@ -34,6 +35,7 @@ class App extends Component {
         <div className='app_content'>
           {this.contentDisplayer()}
         </div>
+        <EditItem />
       </div>
     );
   }

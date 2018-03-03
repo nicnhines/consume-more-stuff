@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default ({ singleItem, editItem }) => {
+const itemComponent = ({ singleItem, editItem, isEditing }) => {
   return (
 
     <div className="single-item">
-
+    {!isEditing &&
+    <div>
       <div className="single-item-title"> Title: { singleItem.title }</div>
       <div className="single-item-description"> Description: { singleItem.description }</div>
       <div className="single-item-price"> Price: { singleItem.price }</div>
@@ -15,11 +16,12 @@ export default ({ singleItem, editItem }) => {
       <div className="edit-item">
      <input type="submit" value="EDIT" onClick={editItem} />
      </div>
-      
+    </div>
+    }  
     </div>
   )
 }
-
+export default itemComponent;
 
 
 
