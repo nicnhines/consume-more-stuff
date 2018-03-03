@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './styles.css';
 import '../NavigationBar/styles.css';
+import '../HomePage/styles.css';
 
 import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
-import NavigationBar from '../../containers/NavigationBar';
+import NavigationBar from '../NavigationBar';
+import HomePage from '../HomePage'
 
 class App extends Component {
 
@@ -17,7 +19,7 @@ class App extends Component {
   contentDisplayer() {
     switch (this.props.currentPage) {
       case `homePage`:
-        return <div>HOME PAGE VIEW</div>;
+        return <HomePage />;
       default:
         return <div>HOME PAGE VIEW</div>;
     }
@@ -27,6 +29,7 @@ class App extends Component {
     return (
       <div className='outer_page_container'>
         <NavigationBar />
+        <div className='page_spacer'></div>
         <div className='app_content'>
           {this.contentDisplayer()}
         </div>
