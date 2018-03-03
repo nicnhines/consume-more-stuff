@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editItem, loadSingleItem } from '../../actions/itemsActions'
-// import itemComponent from '../../components/ItemComponent'
+
 
 class EditItem extends Component {
   constructor(props) {
@@ -21,6 +21,9 @@ class EditItem extends Component {
     this.displayEditForm = this.displayEditForm.bind(this);
   }
 
+  componentWillMount() {
+    this.props.loadSingleItem(1);
+  }
   displayEditForm(event) {
     this.setState({
       showDisplay: true
@@ -51,17 +54,18 @@ class EditItem extends Component {
   }
   render() {
     if(this.state.showDisplay === false){
-    
+   
       return ( 
       
       <div className="HELLO"> 
-      <div className="single-item-title"> Title: { this.props.title }</div>
-      <div className="single-item-description"> Description: { this.props.description }</div>
-      <div className="single-item-price"> Price: { this.props.price }</div>
-      <div className="single-item-condition"> Condition: { this.props.condition }</div>
-      <div className="single-item-category"> Category: { this.props.category }</div>
-      <div className="single-item-status"> Status: { this.props.status }</div>
-      <div className="single-item-image"> Image: { this.props.image_url }</div>
+
+      <div className="single-item-title"> Title: { this.props.singleItem.title }</div>
+      <div className="single-item-description"> Description: { this.props.singleItem.description }</div>
+      <div className="single-item-price"> Price: { this.props.singleItem.price }</div>
+      <div className="single-item-condition"> Condition: { this.props.singleItem.condition }</div>
+      <div className="single-item-category"> Category: { this.props.singleItem.category }</div>
+      <div className="single-item-status"> Status: { this.props.singleItem.status }</div>
+      <div className="single-item-image"> Image: { this.props.singleItem.image_url }</div>
       <div className="edit-item">
      (<input type="submit" value="EDIT" onClick={this.displayEditForm.bind(this)} />)
      </div>
@@ -136,14 +140,23 @@ class EditItem extends Component {
     }
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    items: state.items.items
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
     editItem: (updatedItem) => {
       dispatch(editItem(updatedItem))
+    },
+    loadSingleItem: (id) => {
+      dispatch(loadSingleItem(id))
     }
   }
 }
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(EditItem);

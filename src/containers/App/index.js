@@ -7,7 +7,6 @@ import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 import NavigationBar from '../../containers/NavigationBar';
-import ItemComponent from '../../components/ItemComponent';
 import EditItem from '../EditItem';
 
 class App extends Component {
@@ -21,8 +20,6 @@ class App extends Component {
     switch (this.props.currentPage) {
       case `homePage`:
         return <div>HOME PAGE VIEW</div>;
-      case `singleItemPage`:
-        return <ItemComponent singleItem={this.props.singleItem} />;
       default:
         return <div>HOME PAGE VIEW</div>;
     }
@@ -35,7 +32,7 @@ class App extends Component {
         <div className='app_content'>
           {this.contentDisplayer()}
         </div>
-        <EditItem />
+        <EditItem singleItem={this.props.singleItem}/>
       </div>
     );
   }
