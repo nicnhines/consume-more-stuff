@@ -31,8 +31,8 @@ class App extends Component {
         <NavigationBar />
         <div className='app_content'>
           {this.contentDisplayer()}
-        </div>
         <EditItem singleItem={this.props.singleItem}/>
+        </div>
       </div>
     );
   }

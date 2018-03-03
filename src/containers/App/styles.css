@@ -7,8 +7,6 @@ html, body {
 
 .single-item-container {
   align-items: center;
-  justify-content: center;
-  position: fixed;
   background: #EBEBEB; }
 
 .single-item-description {
