@@ -57,7 +57,7 @@ class EditItem extends Component {
    
       return ( 
       
-      <div className="HELLO"> 
+      <div className="single-item-container"> 
 
       <div className="single-item-title"> Title: { this.props.singleItem.title }</div>
       <div className="single-item-description"> Description: { this.props.singleItem.description }</div>

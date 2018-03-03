@@ -85,13 +85,3 @@
     margin-left: 315px; }
   100% {
     margin-left: -405px; } }
-
-.HELLO {
-  display: flex;
-  justify-content: center;
-}
-
-/* .single-item-title {
-  display: flex;
-  text-align: center;
-} */
