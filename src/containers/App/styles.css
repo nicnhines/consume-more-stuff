@@ -16,3 +16,61 @@ html, body, #root {
     height: stretch; }
   .outer_page_container .app_content {
     width: 100%; }
+
+    /*ADD NEW ITEM FORM */
+
+.addNewItemContainer {
+  width:15rem;
+  border: 1px solid red;
+  padding:0.1rem;
+  height:19rem; 
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.inputField {
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center; 
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  background: none ;
+  border: none;
+  transition: 0.2s;
+}
+
+button:hover {color: grey} 
+
+select {
+  background: none;
+  border:none;
+}
+ 
+.addButton {
+  display: flex;
+  justify-content: center;
+}
+
+.closeForm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+  /*^^ADD NEW ITEM FORM^^*/
