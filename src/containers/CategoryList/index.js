@@ -10,23 +10,28 @@ class CategoryList extends Component {
   }
 
   componentDidMount() {
-    const header = document.getElementById(`category_header`);
-    const mainImage = document.getElementById(`main_image`);
-    window.addEventListener(`scroll`, () => {
-      mainImage.style.opacity = (window.innerHeight - window.scrollY) / window.innerHeight;
-
-      if (window.scrollY >= window.innerHeight && !header.className.includes(`sticky`)) {
-        header.className += ` sticky`;
-      }
-
-      if (window.scrollY < window.innerHeight) {
-        header.className = `category_header`;
-      }
-    });
+    window.addEventListener(`scroll`, this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener(`scroll`);
+    window.removeEventListener(`scroll`, this.handleScroll);
+  }
+
+  handleScroll() {
+    const header = document.getElementById(`category_header`);
+    const mainImage = document.getElementById(`main_image`);
+    const height = window.innerHeight;
+    const scrollPosition = window.scrollY;
+
+    mainImage.style.opacity = (height - scrollPosition) / height;
+
+    if (scrollPosition >= height && !header.className.includes(`sticky`)) {
+      header.className += ` sticky`;
+    }
+
+    if (scrollPosition < height) {
+      header.className = `category_header`;
+    }
   }
 
   render() {
@@ -49,12 +54,14 @@ class CategoryList extends Component {
           </div> 
         </div>   
         <div id='category_header' className='category_header'>
-          <span>all items</span>
-          <span>filter</span>
+          <span className='all_items_button'>all items</span>
+          <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
         </div>
-        {items.map(item => 
-          <CategoryListItem key={item.id} />
-        )}
+        <div className='category_list_items_container'>
+          {items.map(item => 
+            <CategoryListItem key={item.id} item={item}/>
+          )}
+        </div>
       </div>
     );
   }
