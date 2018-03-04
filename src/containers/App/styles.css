@@ -66,6 +66,7 @@ select {
 .addButton {
   display: flex;
   justify-content: center;
+  
 }
 
 .closeForm {

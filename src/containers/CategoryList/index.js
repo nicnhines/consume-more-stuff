@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import CategoryListItem from '../../components/CategoryListItem';
+import ConnectedNewItem from '../../components/NewItem';
 
 class CategoryList extends Component {
   constructor(props) {
@@ -38,23 +39,26 @@ class CategoryList extends Component {
     const items = this.props.items.filter(item => item.category === currentCategory);
 
     return (
-      <div className='category_list_container'>
-        <div id='main_image' 
-          className='category_main_image'
-        ></div>
-        <div className='category_spacer'>
-          <div className='category_information_container'>
-              <h2>{currentCategory}</h2>
-              <p>{aboutParagraph}</p>
-          </div> 
-        </div>   
-        <div id='category_header' className='category_header'>
-          <span>all items</span>
-          <span>filter</span>
+      <div>
+        <div className='category_list_container'>
+          <div id='main_image' 
+            className='category_main_image'
+          ></div>
+          <div className='category_spacer'>
+            <div className='category_information_container'>
+                <h2>{currentCategory}</h2>
+                <p>{aboutParagraph}</p>
+            </div> 
+          </div>   
+          <div id='category_header' className='category_header'>
+            <span>all items</span>
+            <span><ConnectedNewItem /></span>
+            
+          </div>
+          {items.map(item => 
+            <CategoryListItem key={item.id} />
+          )}
         </div>
-        {items.map(item => 
-          <CategoryListItem key={item.id} />
-        )}
       </div>
     );
   }

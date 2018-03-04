@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addItem, loadItems } from '../../actions/itemsActions';
-import CategoryList from '../CategoryList';
+import { addItem, loadItems } from '../actions/itemsActions';
 
 class NewItem extends Component {
   constructor(props) {

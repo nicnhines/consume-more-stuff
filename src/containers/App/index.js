@@ -13,7 +13,6 @@ import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
 import CategoryList from '../CategoryList';
 import NotFound from '../../components/NotFound';
-import ConnectedNewItem from '../NewItem';
 
 class App extends Component {
 
