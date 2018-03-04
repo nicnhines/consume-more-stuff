@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
 
-  .category_main_image {
+  .category_main_image, .fade_out {
     display: flex;
     flex-flow: row nowrap;
     position: fixed;
@@ -10,7 +10,11 @@
     left: 65px;
     right: 0;
     height: 100vh;
-    background: red;
+  }
+
+  .fade_out {
+    background-color: black;
+    opacity: 0;    
   }
 
   .category_spacer {
