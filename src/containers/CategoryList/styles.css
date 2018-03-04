@@ -1,15 +1,17 @@
 .category_list_container {
   position: relative;
   width: 100%; }
-  .category_list_container .category_main_image {
+  .category_list_container .category_main_image, .category_list_container .fade_out {
     display: flex;
     flex-flow: row nowrap;
     position: fixed;
     top: 0;
     left: 65px;
     right: 0;
-    height: 100vh;
-    background: red; }
+    height: 100vh; }
+  .category_list_container .fade_out {
+    background-color: black;
+    opacity: 0; }
   .category_list_container .category_spacer {
     display: flex;
     justify-content: center;
