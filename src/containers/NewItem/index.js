@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addItem, loadItems } from '../../actions/itemsActions';
-import CategoryPage from '../../components/CategoryPage';
+import CategoryList from '../CategoryList';
 
 class NewItem extends Component {
   constructor(props) {
