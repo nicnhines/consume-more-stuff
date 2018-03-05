@@ -7,16 +7,18 @@ class EditItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = {  
       showDisplay: false
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.displayEditForm = this.displayEditForm.bind(this);
   }
 
   componentWillMount() {
-    this.props.loadSingleItem(1);
+    const itemId = this.props.match.params.id;
+    this.props.loadSingleItem(itemId);
   }
   displayEditForm(event) {
     this.setState({
@@ -27,6 +29,7 @@ class EditItem extends Component {
       condition: this.props.singleItem.condition,
       category: this.props.singleItem.category,
       status: this.props.singleItem.status,
+      image: this.props.singleItem.image_url,
       showDisplay: true
     })
   }
@@ -46,6 +49,7 @@ class EditItem extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    console.log(`hhhh`,this.state.title)
     this.props.editItem({
       id: this.state.id,
       title: this.state.title,
@@ -55,17 +59,16 @@ class EditItem extends Component {
       category: this.state.category,
       status: this.state.status
     });
-    // <Redirect push to="/" /> 
-    // console.log(`dfjkajlda`)
+    this.hideEditForm();
   }
   render() {
     if(this.state.showDisplay === false){
-   
+      console.log(`jjjj`, this.props.singleItem)
       return ( 
       <div className="single-item-container"> 
       <div className="item-content">
       <div className="single-item-image"> 
-      <img src={`https://images.unsplash.com/photo-1504384171965-be2509a826af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f88da65ead999eb46fccddb0ce411720&auto=format&fit=crop&w=1500&q=80`} /> </div>
+      <img src={this.props.singleItem.image_url} /> </div>
       <div className="top-row">
       <div className="single-item-title"><h2>ITEM</h2>{ this.props.singleItem.title }</div>
       <div className="single-item-price"> <h2>PRICE</h2>{ this.props.singleItem.price }</div>
@@ -84,30 +87,23 @@ class EditItem extends Component {
       <div className="edit-item-form">
         <form onSubmit={this.handleSubmit.bind(this)}>
         <div>
-          <button onClick={this.hideEditForm.bind(this)}> X</button>
+          <button type="button" onClick={this.hideEditForm.bind(this)}>X</button>
           </div>
-          <div>
             <input
               className="addInput"
               name="title"
               onChange={this.handleChange.bind(this)}
               value={this.state.title} />
-          </div>
-          <div>
             <textarea
               className="addInput"
               name="description"
               onChange={this.handleChange.bind(this)}
               value={this.state.description} />
-          </div>
-          <div>
             <input
               className="addInput"
               name="price"
               onChange={this.handleChange.bind(this)} 
               value={this.state.price} />
-          </div>
-          <div>
             <select
               className="addInput"
               name="condition"
@@ -119,8 +115,6 @@ class EditItem extends Component {
               <option value="fair">Fair</option>
               <option value="salvage">Salvage</option>
             </select>
-          </div>
-          <div>
             <select
               className="addInput"
               name="category"
@@ -132,8 +126,6 @@ class EditItem extends Component {
               <option value="apparel">Apparel</option>
               <option value="other">Other</option>
             </select>
-          </div>
-          <div>
             <select
               className="addInput"
               name="status"
@@ -143,10 +135,9 @@ class EditItem extends Component {
               <option value="sold">Sold</option>
               <option value="deactivated">Deactivated</option>
             </select>
-          </div>
           <input
             type="submit"
-            value="EDIT" onClick={this.hideEditForm.bind(this)}/>
+            value="EDIT" />
         </form>
       </div>
       )
@@ -156,7 +147,8 @@ class EditItem extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.items.items
+    items: state.items.items,
+    singleItem: state.items.singleItem
   }
 }
 const mapDispatchToProps = dispatch => {

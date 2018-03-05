@@ -19,7 +19,7 @@ class App extends Component {
   
   componentWillMount() {
     this.props.loadItems();
-    this.props.loadSingleItem(1);
+    this.props.loadSingleItem();
   }
 
   render() {
@@ -31,9 +31,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
-            <Route exact path="/items/:id" render={() =>
-            <EditItem singleItem={this.props.singleItem}/>
-            }/>
+            <Route exact path="/items/:id" component={EditItem}/>
             <Route component={NotFound} />
           </Switch>
         </div>

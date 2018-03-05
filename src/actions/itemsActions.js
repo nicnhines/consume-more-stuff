@@ -56,10 +56,10 @@ export const editItem = (updatedItem) => {
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
     .then(updatedItemDetails => {
-      dispatch({
-        type: EDIT_ITEM,
-        updatedItem: updatedItemDetails.data
-      })
+      console.log(`itemdata`, updatedItemDetails)
+      dispatch(
+        loadSingleItem(updatedItem.id)
+      )
     })
     .catch(err => {
       console.log(err)
