@@ -13,6 +13,7 @@ import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
 import CategoryList from '../CategoryList';
 import NotFound from '../../components/NotFound';
+import EditItem from '../EditItem';
 
 class App extends Component {
   
@@ -30,6 +31,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
+            <Route exact path="/items/:id" render={() =>
+            <EditItem singleItem={this.props.singleItem}/>
+            }/>
             <Route component={NotFound} />
           </Switch>
         </div>

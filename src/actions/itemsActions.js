@@ -53,7 +53,6 @@ export const makeItemEditable = (id, editing) => {
 }
 
 export const editItem = (updatedItem) => {
-  console.log('UPDATEDITEM', updatedItem)
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
     .then(updatedItemDetails => {

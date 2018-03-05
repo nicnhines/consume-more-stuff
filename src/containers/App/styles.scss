@@ -5,23 +5,92 @@ html, body, #root {
   width: 100%;
 }
 
-.app_content {
-  margin-left: 65px;
-}
 
 .single-item-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
   align-items: center;
-  // justify-content: center;
   background: #EBEBEB;
+  // border: 1px solid red;
+  margin: 0 auto;
+}
+.item-content {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 410px;
+}
+.single-item-image {
+  img {
+    width: 90%;
+    margin: 17px
+  }
 }
 
-.single-item-description {
-  font-family: Courier New, Courier, monospace
-}
+.top-row {
+  border-bottom: white 2px solid;
+  display: flex;
+  justify-content: space-between;
 
+.single-item-title {
+  font-size: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: .4em;
+  color: #000;
+  font-family: cf_asty,Helvetica,Arial,sans-serif;
+  line-height: 1.4285;
+  letter-spacing: .05em;
+}
+.single-item-price {
+  font-size: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: .4em;
+  color: #000;
+  font-family: cf_asty,Helvetica,Arial,sans-serif;
+  line-height: 1.4285;
+  letter-spacing: .05em;
+}
+.single-item-condition {
+  font-size: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: .4em;
+  color: #000;
+  font-family: cf_asty,Helvetica,Arial,sans-serif;
+  line-height: 1.4285;
+  letter-spacing: .05em;
+}
+}
+.middle-row {
+  border-bottom: white 2px solid;
+  display: flex;
+  justify-content: space-between;
+
+  .single-item-description {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: .4em;
+  color: #000;
+  font-family: cf_asty,Helvetica,Arial,sans-serif;
+  line-height: 1.4285;
+  letter-spacing: .05em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+}
+// .edit-item {
+
+// }
 .edit-item-form {
   display: flex;
   justify-content: center;
+  border: 1px solid red;
+  width: 16rem;
+  margin: 0 auto;
 }
 * {
   box-sizing: border-box;
@@ -39,5 +108,6 @@ html, body, #root {
 
   .app_content {
     width: 100%;
+    background: #EBEBEB;
   }
 }

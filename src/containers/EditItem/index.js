@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editItem, loadSingleItem } from '../../actions/itemsActions'
-
+import { Route, Redirect } from 'react-router-dom';
 
 class EditItem extends Component {
   constructor(props) {
@@ -30,7 +30,11 @@ class EditItem extends Component {
       showDisplay: true
     })
   }
-
+  hideEditForm(event) {
+    this.setState({
+      showDisplay: false
+    })
+  }
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -40,9 +44,7 @@ class EditItem extends Component {
       [name]: value
     })
   }
-
   handleSubmit(event) {
-    console.log('state',this.state)
     event.preventDefault();
     this.props.editItem({
       id: this.state.id,
@@ -52,29 +54,38 @@ class EditItem extends Component {
       condition: this.state.condition,
       category: this.state.category,
       status: this.state.status
-    })
-
+    });
+    // <Redirect push to="/" /> 
+    // console.log(`dfjkajlda`)
   }
   render() {
     if(this.state.showDisplay === false){
    
       return ( 
-      
       <div className="single-item-container"> 
-      <div className="single-item-title"> Title: { this.props.singleItem.title }</div>
-      <div className="single-item-description"> Description: { this.props.singleItem.description }</div>
-      <div className="single-item-price"> Price: { this.props.singleItem.price }</div>
-      <div className="single-item-condition"> Condition: { this.props.singleItem.condition }</div>
-      <div className="single-item-category"> Category: { this.props.singleItem.category }</div>
-      <div className="single-item-status"> Status: { this.props.singleItem.status }</div>
-      <div className="single-item-image"> Image: { this.props.singleItem.image_url }</div>
+      <div className="item-content">
+      <div className="single-item-image"> 
+      <img src={`https://images.unsplash.com/photo-1504384171965-be2509a826af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f88da65ead999eb46fccddb0ce411720&auto=format&fit=crop&w=1500&q=80`} /> </div>
+      <div className="top-row">
+      <div className="single-item-title"><h2>ITEM</h2>{ this.props.singleItem.title }</div>
+      <div className="single-item-price"> <h2>PRICE</h2>{ this.props.singleItem.price }</div>
+      <div className="single-item-condition"> <h2>CONDITION</h2> { this.props.singleItem.condition }</div>
+      </div>
+      <div className="middle-row">
+      <div className="single-item-description">{ this.props.singleItem.description }</div>
+      </div>
+      
       <div className="edit-item">
-     (<input type="submit" value="EDIT" onClick={this.displayEditForm.bind(this)} />)
+     <input type="submit" value="EDIT" onClick={this.displayEditForm.bind(this)} />
      </div>
+    </div>
     </div>
       )} else { return (
       <div className="edit-item-form">
         <form onSubmit={this.handleSubmit.bind(this)}>
+        <div>
+          <button onClick={this.hideEditForm.bind(this)}> X</button>
+          </div>
           <div>
             <input
               className="addInput"
@@ -135,7 +146,7 @@ class EditItem extends Component {
           </div>
           <input
             type="submit"
-            value="EDIT" />
+            value="EDIT" onClick={this.hideEditForm.bind(this)}/>
         </form>
       </div>
       )
