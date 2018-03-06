@@ -52,7 +52,7 @@ class NavigationBar extends Component {
         <div className={`navigation_menu ${this.state.displayMenu ? null : `hide_menu`}`}>
           <h6 className='navigation_menu_title'>MENU</h6>
           <div className='navigation_menu_links'>
-            <span><NavLink to="/login" onClick={this.handleHideMenu.bind(this)}>LOGIN</NavLink></span>
+            <span><NavLink to="/login"  onClick={this.handleHideMenu.bind(this)}>LOGIN</NavLink></span>
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
             <span>ALL ITEMS</span>
           </div>
