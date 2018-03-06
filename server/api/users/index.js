@@ -17,7 +17,7 @@ router.route('/:id')
   }
 
   return new User({ id: req.params.id })
-  .fetch()
+  .fetch({ withRelated: `items` })
   .then((user) => {
     return res.json(user);
   })

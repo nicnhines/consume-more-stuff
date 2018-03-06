@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setPageToDisplay } from '../../actions/pageDisplayActions';
-
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -60,9 +58,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setPageToDisplay: page => {
-      dispatch(setPageToDisplay(page));
-    }
   }
 }
 

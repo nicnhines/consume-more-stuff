@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import './styles.css';
 import '../NavigationBar/styles.css';
 import '../HomePage/styles.css';
 import '../CategoryList/styles.css';
+import '../LoginPage/styles.css'
 
 import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
@@ -12,6 +14,7 @@ import { setPageToDisplay } from '../../actions/pageDisplayActions';
 import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
 import CategoryList from '../CategoryList';
+import LoginPage from '../LoginPage';
 import NotFound from '../../components/NotFound';
 import EditItem from '../EditItem';
 
@@ -32,6 +35,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
             <Route exact path="/items/:id" component={EditItem}/>
+            <Route exact path='/login' component={LoginPage} />
             <Route component={NotFound} />
           </Switch>
         </div>
