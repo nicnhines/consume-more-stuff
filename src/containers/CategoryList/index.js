@@ -3,10 +3,27 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import CategoryListItem from '../../components/CategoryListItem';
+import ConnectedNewItem from '../../components/NewItem';
 
 class CategoryList extends Component {
   constructor(props) {
     super(props);
+
+    this.state ={
+      displayAddForm: false
+    };
+  }
+
+  displayAddForm(event) {
+    this.setState({
+      displayAddForm: true
+    });
+  }
+
+  hideAddForm(event) {
+    this.setState({
+      displayAddForm: false
+    });
   }
 
   componentDidMount() {
@@ -35,6 +52,7 @@ class CategoryList extends Component {
   }
 
   render() {
+    console.log(this.state.displayAddForm)
     const currentCategory = this.props.match.params.category;
     const aboutParagraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in consectetur leo, quis tempus sem. Nunc volutpat enim at tempor tempor. Ut augue odio, tempus sed dui et, ullamcorper consectetur sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie et tortor eu dapibus. Nullam eu posuere erat, suscipit euismod nunc. Aliquam fringilla a ante vitae viverra. In non vestibulum elit, eu molestie augue.`;
     if (!this.props.categories.includes(currentCategory)) {
@@ -45,9 +63,15 @@ class CategoryList extends Component {
 
     return (
       <div className='category_list_container'>
+      {this.state.displayAddForm  && <div className="form-bg">
+      <ConnectedNewItem hideAddForm={this.hideAddForm.bind(this)}/></div> }
         <div id='main_image' 
           className='category_main_image'
+<<<<<<< HEAD
+
+=======
           style={{backgroundImage: `url(${url})`}}
+>>>>>>> 499fb9199aaa4d74f08e9cf594112e71a9f1ab4d
         ></div>
         <div id='fade_out' className='fade_out'></div>
         <div className='category_spacer'>
@@ -58,13 +82,14 @@ class CategoryList extends Component {
         </div>   
         <div id='category_header' className='category_header'>
           <span className='all_items_button'>all items</span>
+          <span className='all_items_button' onClick={this.displayAddForm.bind(this)}>add item</span>
           <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
         </div>
         <div className='category_list_items_container'>
           {items.map(item => 
             <CategoryListItem key={item.id} item={item}/>
           )}
-        </div>
+          </div>
       </div>
     );
   }
