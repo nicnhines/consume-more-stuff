@@ -7,19 +7,17 @@ export const EDIT_ITEM = `EDIT_ITEM`;
 export const ADD_ITEM = `ADD_ITEM`;
 export const EDITING = `EDITING`;
 
-export const loadItems = (newItem) => {
+export const loadItems = () => {
   return dispatch => {
-    Axios.post(HOST, newItem)
-    .then(newItemDetails => {
-       if(newItemDetails.data && newItemDetails.data.id) {
-          return dispatch(loadItems())
-       }
-     })
-     .catch((err) => {
-       console.log(err)
-     });
-   };
- };
+    return Axios.get(HOST)
+    .then(items => {
+      dispatch({
+        type: LOAD_ITEMS,
+        items: items.data
+      });
+    })
+  }
+}
 
 export const loadSingleItem = id => {
   return dispatch => {
