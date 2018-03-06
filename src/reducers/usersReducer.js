@@ -1,7 +1,6 @@
 import { LOAD_SINGLE_USER, EDIT_USER } from '../actions/usersActions';
 
 const initialState = {
-  items: [],
   singleUser: {}
 }
 

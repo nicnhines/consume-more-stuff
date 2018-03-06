@@ -8,18 +8,21 @@ import '../CategoryList/styles.css';
 
 import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
+import { loadSingleUser } from '../../actions/usersActions';
 
 import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
 import CategoryList from '../CategoryList';
 import NotFound from '../../components/NotFound';
 import EditItem from '../EditItem';
+import User from '../User';
 
 class App extends Component {
   
   componentWillMount() {
     this.props.loadItems();
     this.props.loadSingleItem();
+    this.props.loadSingleUser();
   }
 
   render() {
@@ -32,6 +35,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
             <Route exact path="/items/:id" component={EditItem}/>
+            <Route path="/users/:id" component={User}/>
             <Route component={NotFound} />
           </Switch>
         </div>
@@ -60,6 +64,9 @@ const mapDispatchToProps = dispatch => {
     },
     setPageToDisplay: page => {
       dispatch(setPageToDisplay(page));
+    },
+    loadSingleUser: id => {
+      dispatch(loadSingleUser(id));
     }
   }
 }
