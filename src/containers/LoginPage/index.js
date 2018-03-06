@@ -100,7 +100,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    validationError: state.authentication.error
+    validationError: state.authentication.loginError
   }
 };
 

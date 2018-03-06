@@ -4,6 +4,7 @@ const HOST = `/api`;
 
 export const SET_USER_ID = `SET_USER_ID`;
 export const SET_USER_VALIDATION_ERROR = `SET_USER_VALIDATION_ERROR`;
+export const SET_USER_REGISTRATION_ERROR = `SET_USER_REGISTRATION_ERROR`;
 
 export const login = (username, password, callback) => {
   return dispatch => {
@@ -26,6 +27,29 @@ export const login = (username, password, callback) => {
       return dispatch({
         type: SET_USER_VALIDATION_ERROR,
         error: true
+      });
+    });
+  };
+};
+
+export const register = (email, username, password, callback) => {
+  return dispatch => {
+    return Axios.post(`${HOST}/register`, { email, username, password })
+    .then(user => {
+      dispatch({
+        type: SET_USER_REGISTRATION_ERROR,
+        error: false
+      });
+    })
+    .then(() => {
+      callback();
+    })
+    .catch(err => {
+      let error = ``;
+      error = `A user with that ${err.response.data.key} already exists. Please try again.`
+      return dispatch({
+        type: SET_USER_REGISTRATION_ERROR,
+        error: error
       });
     });
   };
