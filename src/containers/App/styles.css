@@ -2,7 +2,8 @@ html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: 'LightWebFont'; }
 
 * {
   box-sizing: border-box; }
@@ -12,21 +13,33 @@ html, body, #root {
   flex-flow: row nowrap;
   height: 100%; }
   .outer_page_container .page_spacer {
-    min-width: 66px;
+    min-width: 65px;
     height: stretch; }
   .outer_page_container .app_content {
     width: 100%; }
 
     /*ADD NEW ITEM FORM */
 
+.form-bg {
+  height: 100%;
+  position: fixed;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
 .addNewItemContainer {
   width:15rem;
-  border: 1px solid red;
-  padding:0.1rem;
   height:19rem; 
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  background: #EBEBEB;
+  align-items: center;
+  box-shadow: 7px 7px 2px 1px rgba(53, 45, 45, 0.164);
+  margin-top: 10rem;
+  transition: 0.3s;
+  
 }
 
 .inputField {
@@ -34,6 +47,7 @@ html, body, #root {
   border-bottom: 1px solid black;
   text-align: center; 
   display:flex;
+  background:#EBEBEB;
   justify-content: center;
   margin: 0 auto;
 }
@@ -69,9 +83,21 @@ select {
   
 }
 
-.closeForm {
+.close-btn {
   display: flex;
-  justify-content: flex-end;
+  margin-left: 100%;
 }
 
+
   /*^^ADD NEW ITEM FORM^^*/
+@font-face {
+  font-family: 'RegularWebFont';
+  src: url("../../regular.woff2"); }
+
+@font-face {
+  font-family: 'LightWebFont';
+  src: url("../../light.woff2"); }
+
+@font-face {
+  font-family: 'MediumWebFont';
+  src: url("../../medium.woff2"); }
