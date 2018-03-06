@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addItem, loadItems } from '../actions/itemsActions';
+import { addItem } from '../actions/itemsActions';
 
 class NewItem extends Component {
   constructor(props) {
@@ -120,7 +120,7 @@ class NewItem extends Component {
   };
 
 
-const mapStateToProps = (state) => ({ items: state.items });
+const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: item => dispatch(addItem(item))

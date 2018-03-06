@@ -67,11 +67,7 @@ class CategoryList extends Component {
       <ConnectedNewItem hideAddForm={this.hideAddForm.bind(this)}/></div> }
         <div id='main_image' 
           className='category_main_image'
-<<<<<<< HEAD
-
-=======
           style={{backgroundImage: `url(${url})`}}
->>>>>>> 499fb9199aaa4d74f08e9cf594112e71a9f1ab4d
         ></div>
         <div id='fade_out' className='fade_out'></div>
         <div className='category_spacer'>

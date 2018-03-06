@@ -31,7 +31,7 @@ class NavigationBar extends Component {
   }
 
   handleHideMenu(event) {
-    this.setState({ displayCategories: false });eeee
+    this.setState({ displayCategories: false });
     this.setState({ displayMenu: false });
   }
   
