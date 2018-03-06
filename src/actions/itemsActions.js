@@ -27,17 +27,3 @@ export const loadSingleItem = (id) => {
     }) 
   }
 }
-
-export const addItem = (newItem) => {
-  return dispatch => {
-   Axios.post(HOST, newItem)
-   .then(newItemDetails => {
-      if(newItemDetails.data && newItemDetails.data.id) {
-         return dispatch(loadItems())
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    });
-  };
-};
