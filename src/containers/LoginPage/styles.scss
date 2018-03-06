@@ -6,37 +6,76 @@
   height: 100vh;
   background: #EBEBEB;
 
-  .login_form {
+  .login_form_container {
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
     width: 450px;
     height: 310px;
     border: 1px solid white;
     padding: 36px 36px 66px 36px;
-  }
 
-  h6 {
-    margin-top: 0;
-    font-size: 12px;
-    margin-bottom: 35px;
-    text-transform: uppercase;
-  }
+    .login_form {
+      display: flex;
+      flex-flow: column nowrap;
+  
+      h6 {
+        margin-top: 0;
+        font-size: 12px;
+        margin-bottom: 35px;
+        text-transform: uppercase;
+      }
+    
+      input[type="text"], input[type="password"] {
+        border: 0;
+        outline: 0;
+        padding-bottom: 13px;
+        margin-bottom: 40px;
+        background: none;
+        border-bottom: 1px solid black;
+      }
 
-  input[type="text"], input[type="password"] {
-    border: 0;
-    outline: 0;
-    padding-bottom: 13px;
-    margin-bottom: 40px;
-    background: none;
-    border-bottom: 1px solid black;
-  }
+      input[type="submit"] {
+        position: absolute;
+        border: none;
+        outline: none;
+        bottom: 0;
+        align-self: center;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        width: 140px;
+        margin-bottom: -33px;
+        letter-spacing: 1px;
+        background: black;
+        color: #D0D0D0;
+        cursor: pointer;
+      }
+    }
 
-  input[type="submit"] {
-    border: none;
-    outline: none;
-    width: 140px;
-    letter-spacing: 1px;
-    background: black;
-    color: #D0D0D0;
+    .login_form_links_container {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+    }
+
+    .validation_error_container {
+      position: absolute;
+      width: 450px;
+      padding: 12px 36px 12px 36px;
+      top: 0;
+      margin-left: -37px;
+      margin-top: -64px;
+      border: 1px solid white;
+      text-transform: uppercase;
+      font-size: 12px;
+
+      p {
+        margin: 0;
+      }
+    }
   }
 }
