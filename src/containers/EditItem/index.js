@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editItem, loadSingleItem } from '../../actions/itemsActions'
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class EditItem extends Component {
   constructor(props) {
@@ -18,7 +18,10 @@ class EditItem extends Component {
 
   componentWillMount() {
     const itemId = this.props.match.params.id;
-    this.props.loadSingleItem(itemId);
+    if(this.props.match && this.props.match.params && itemId){
+      this.props.loadSingleItem(itemId);
+    }
+    // this.props.loadSingleItem(itemId);
   }
   displayEditForm(event) {
     this.setState({
@@ -192,3 +195,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(EditItem);
+

@@ -1,4 +1,4 @@
-import { LOAD_ITEMS, LOAD_SINGLE_ITEM, EDIT_ITEM, ADD_ITEM, EDITING } from '../actions/itemsActions';
+import { LOAD_ITEMS, LOAD_SINGLE_ITEM, EDIT_ITEM, ADD_ITEM } from '../actions/itemsActions';
 
 const initialState = {
   conditions: [`new`, `like new`, `good`, `fair`, `salvage`],
@@ -18,10 +18,6 @@ export default (state = initialState, action = {}) => {
     case ADD_ITEM:
       return { ...state, items: action.item }
       
-    case EDITING:
-      if(state.id === action.id) {
-        return { ...state, isEditing: action.editing}
-      } 
 
     case EDIT_ITEM:
       return { ...state, singleItem: action.updatedItem}
