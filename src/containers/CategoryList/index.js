@@ -36,11 +36,11 @@ class CategoryList extends Component {
 
   handleScroll() {
     const header = document.getElementById(`category_header`);
-    const mainImage = document.getElementById(`main_image`);
+    const fader = document.getElementById(`fade_out`);
     const height = window.innerHeight;
     const scrollPosition = window.scrollY;
 
-    mainImage.style.opacity = (height - scrollPosition) / height;
+    fader.style.opacity = 1 - (height - scrollPosition) / height;
 
     if (scrollPosition >= height && !header.className.includes(`sticky`)) {
       header.className += ` sticky`;
@@ -59,6 +59,7 @@ class CategoryList extends Component {
       return <Redirect to='/' />;
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
+    const url = items.length ? items[0].image_url : undefined;
 
     return (
       <div className='category_list_container'>
@@ -66,8 +67,13 @@ class CategoryList extends Component {
       <ConnectedNewItem hideAddForm={this.hideAddForm.bind(this)}/></div> }
         <div id='main_image' 
           className='category_main_image'
+<<<<<<< HEAD
 
+=======
+          style={{backgroundImage: `url(${url})`}}
+>>>>>>> 499fb9199aaa4d74f08e9cf594112e71a9f1ab4d
         ></div>
+        <div id='fade_out' className='fade_out'></div>
         <div className='category_spacer'>
           <div className='category_information_container'>
               <h2>{currentCategory}</h2>
