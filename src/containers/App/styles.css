@@ -81,7 +81,7 @@ html, body, #root {
 
 .edit-item-form {
   width: 15rem;
-  height: 20rem;
+  height: 19rem;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -131,12 +131,11 @@ html, body, #root {
     background: #EBEBEB; }
 
 /*ADD NEW ITEM FORM */
-.form-bg {
-  height: 100%;
-  position: fixed;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 99; }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none; }
 
 .addNewItemContainer {
   width: 15rem;
@@ -149,45 +148,32 @@ html, body, #root {
   box-shadow: 7px 7px 2px 1px rgba(53, 45, 45, 0.164);
   margin-top: 10rem;
   transition: 0.3s; }
-
-.inputField {
-  border: none;
-  border-bottom: 1px solid black;
-  text-align: center;
-  display: flex;
-  background: #EBEBEB;
-  justify-content: center;
-  margin: 0 auto; }
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none; }
-
-.submitButton {
-  display: flex;
-  justify-content: center; }
-
-button {
-  background: none;
-  border: none;
-  transition: 0.2s; }
-
-button:hover {
-  color: grey; }
-
-select {
-  background: none;
-  border: none; }
-
-.addButton {
-  display: flex;
-  justify-content: center; }
-
-.close-btn {
-  display: flex;
-  margin-left: 100%; }
+  .addNewItemContainer .inputField {
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    display: flex;
+    background: #EBEBEB;
+    justify-content: center;
+    margin: 0 auto; }
+  .addNewItemContainer .submitButton {
+    display: flex;
+    justify-content: center; }
+  .addNewItemContainer button {
+    background: none;
+    border: none;
+    transition: 0.2s; }
+  .addNewItemContainer button:hover {
+    color: grey; }
+  .addNewItemContainer select {
+    background: none;
+    border: none; }
+  .addNewItemContainer .addButton {
+    display: flex;
+    justify-content: center; }
+  .addNewItemContainer .close-btn {
+    display: flex;
+    margin-left: 100%; }
 
 /*^^ADD NEW ITEM FORM^^*/
 @font-face {

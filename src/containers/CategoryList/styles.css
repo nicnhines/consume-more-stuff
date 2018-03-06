@@ -84,3 +84,9 @@
         border-left: 1px solid white; }
       .category_list_container .category_list_items_container .item_container:last-child {
         margin: 0 auto; }
+  .category_list_container .form-bg {
+    height: 100%;
+    position: fixed;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99; }
