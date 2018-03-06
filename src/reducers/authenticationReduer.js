@@ -1,9 +1,10 @@
-import { SET_USER_ID, SET_USER_VALIDATION_ERROR } from '../actions/authenticationActions';
+import { SET_USER_ID, SET_USER_VALIDATION_ERROR, SET_USER_REGISTRATION_ERROR } from '../actions/authenticationActions';
 
 
 const initialState = {
   user_id: null,
-  error: ``
+  loginError: false,
+  registrationError: false
 };
 
 export default (state = initialState, action = {}) => {
@@ -11,7 +12,9 @@ export default (state = initialState, action = {}) => {
     case SET_USER_ID:
       return { ...state, user_id: action.id };
     case SET_USER_VALIDATION_ERROR:
-      return { ...state, error: action.error };
+      return { ...state, loginError: action.error };
+    case SET_USER_REGISTRATION_ERROR:
+      return { ...state, registrationError: action.error }
     default:
       return state;
   }

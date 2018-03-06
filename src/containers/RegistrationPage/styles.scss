@@ -1,4 +1,4 @@
-.login_page_container {
+.registration_page_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,16 +6,16 @@
   height: 100vh;
   background: #EBEBEB;
 
-  .login_form_container {
+  .registration_form_container {
     display: flex;
     flex-flow: column nowrap;
     position: relative;
     width: 450px;
-    height: 310px;
+    height: 360px;
     border: 1px solid white;
     padding: 36px 36px 66px 36px;
 
-    .login_form {
+    .registration_form {
       display: flex;
       flex-flow: column nowrap;
   
@@ -26,8 +26,9 @@
         text-transform: uppercase;
       }
     
-      .login_username_container, .login_password_container {
+      .registration_email_container, .registration_username_container, .registration_password_container {
         position: relative;
+
         input[type="text"], input[type="password"] {
           border: 0;
           outline: 0;
@@ -42,7 +43,7 @@
           }
         }
 
-        .login_form_error {
+        .registration_form_error {
           position: absolute;
           margin: 0;
           top: 0;
@@ -71,17 +72,7 @@
       }
     }
 
-    .login_form_links_container {
-      display: flex;
-      justify-content: space-between;
-
-      p {
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-    }
-
-    .validation_error_container {
+    .registration_error_container {
       position: absolute;
       width: 450px;
       padding: 12px 36px 12px 36px;
@@ -94,6 +85,20 @@
 
       p {
         margin: 0;
+      }
+    }
+
+    .login_link {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: -88px;
+      align-self: center;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: black;
+        font-size: 12px;
       }
     }
   }

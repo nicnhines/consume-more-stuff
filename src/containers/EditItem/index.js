@@ -84,7 +84,7 @@ class EditItem extends Component {
     </div>
     </div>
       )} else { return (
-        <div className="form-bg">
+        <div className="form-background">
 
       <div className="edit-item-form">
         <form onSubmit={ this.handleSubmit.bind(this) }>
