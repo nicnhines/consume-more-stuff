@@ -16,7 +16,6 @@
     margin-bottom: 250px;
     z-index: 0;
     background-size: cover;
-    background-position: center center;
   }
 
   .current_category_content_container {
@@ -37,13 +36,14 @@
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      margin-left: 33px;
+      margin-left: 65px;
 
       .highlighted_item {
         width: 550px;
         height: 330px;
         bottom: 0;
         background-size: cover;
+        background-position: center center;
         margin-bottom: 55px;
         z-index: 1;
       }

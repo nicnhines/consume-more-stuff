@@ -2,7 +2,8 @@ html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: 'LightWebFont'; }
 
 * {
   box-sizing: border-box; }
@@ -12,7 +13,19 @@ html, body, #root {
   flex-flow: row nowrap;
   height: 100%; }
   .outer_page_container .page_spacer {
-    min-width: 66px;
+    min-width: 65px;
     height: stretch; }
   .outer_page_container .app_content {
     width: 100%; }
+
+@font-face {
+  font-family: 'RegularWebFont';
+  src: url("../../regular.woff2"); }
+
+@font-face {
+  font-family: 'LightWebFont';
+  src: url("../../light.woff2"); }
+
+@font-face {
+  font-family: 'MediumWebFont';
+  src: url("../../medium.woff2"); }
