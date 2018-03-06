@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Item = require('../../db/models/Item.js');
 const handleError = require('../Utilities/errorHandler');
-const isAuthenticated = require('../utilities/authenticator');
+const isAuthenticated = require('../Utilities/authenticator');
 
 module.exports = router;
 
