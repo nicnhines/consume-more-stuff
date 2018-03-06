@@ -26,13 +26,32 @@
         text-transform: uppercase;
       }
     
-      input[type="text"], input[type="password"] {
-        border: 0;
-        outline: 0;
-        padding-bottom: 13px;
-        margin-bottom: 40px;
-        background: none;
-        border-bottom: 1px solid black;
+      .login_username_container, .login_password_container {
+        position: relative;
+        input[type="text"], input[type="password"] {
+          border: 0;
+          outline: 0;
+          width: 100%;
+          padding-bottom: 13px;
+          margin-bottom: 40px;
+          background: none;
+          border-bottom: 1px solid black;
+
+          &.input_error {
+            border-bottom: 1px solid red;
+          }
+        }
+
+        .login_form_error {
+          position: absolute;
+          margin: 0;
+          top: 0;
+          right: 0;
+          margin-top: 4px;
+          text-transform: uppercase;
+          font-size: 11px;
+          color: red;
+        }
       }
 
       input[type="submit"] {
