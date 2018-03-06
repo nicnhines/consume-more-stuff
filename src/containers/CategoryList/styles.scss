@@ -116,4 +116,12 @@
       }
     }
   }
+
+  .form-bg {
+    height: 100%;
+    position: fixed;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
 }
