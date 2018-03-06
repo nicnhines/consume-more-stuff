@@ -3,7 +3,7 @@ import { SET_USER_ID, SET_USER_VALIDATION_ERROR } from '../actions/authenticatio
 
 const initialState = {
   user_id: null,
-  error: ``
+  error: false
 };
 
 export default (state = initialState, action = {}) => {
