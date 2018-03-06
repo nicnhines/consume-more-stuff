@@ -63,12 +63,12 @@ class EditItem extends Component {
   }
   render() {
     if(this.state.showDisplay === false){
-      console.log(`jjjj`, this.props.singleItem)
+
       return ( 
       <div className="single-item-container"> 
       <div className="item-content">
       <div className="single-item-image"> 
-      <img src={this.props.singleItem.image_url} /> </div>
+      <img src={ this.props.singleItem.image_url } /> </div>
       <div className="top-row">
       <div className="single-item-title"><h2>ITEM</h2>{ this.props.singleItem.title }</div>
       <div className="single-item-price"> <h2>PRICE</h2>{ this.props.singleItem.price }</div>
@@ -79,36 +79,49 @@ class EditItem extends Component {
       </div>
       
       <div className="edit-item">
-     <input type="submit" value="EDIT" onClick={this.displayEditForm.bind(this)} />
+      <button type="Submit" onClick={ this.displayEditForm.bind(this) }><strong>EDIT</strong></button>
      </div>
     </div>
     </div>
       )} else { return (
+        <div className="form-bg">
+
       <div className="edit-item-form">
-        <form onSubmit={this.handleSubmit.bind(this)}>
-        <div>
-          <button type="button" onClick={this.hideEditForm.bind(this)}>X</button>
-          </div>
+        <form onSubmit={ this.handleSubmit.bind(this) }>
+       
+          <button type="button" className="close-btn" onClick={ this.hideEditForm.bind(this) }>x</button>
+          <br />
             <input
-              className="addInput"
+              type="text"
               name="title"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.title} />
-            <textarea
-              className="addInput"
-              name="description"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.description} />
+              className="inputField"
+              value={ this.state.title } 
+              onChange={ this.handleChange.bind(this) }
+              />
+              <br />
+              <br />
             <input
-              className="addInput"
+              type="text"
+              name="description"
+              className="inputField"
+              value={ this.state.description } 
+              onChange={ this.handleChange.bind(this) }
+              />
+              <br />
+              <br />
+            <input
+              type="integer"
               name="price"
-              onChange={this.handleChange.bind(this)} 
-              value={this.state.price} />
+              className="inputField"
+              value={ this.state.price } 
+              onChange={ this.handleChange.bind(this) } 
+              />
+              <br />
+              <br />
             <select
-              className="addInput"
               name="condition"
-              onChange={this.handleChange.bind(this)}>
-              <option value= ''>{this.props.singleItem.condition}</option>
+              onChange={ this.handleChange.bind(this) }>
+              <option value= ''>{ this.props.singleItem.condition }</option>
               <option value="new">New</option>
               <option value="like new">Like New</option>
               <option value="good">Good</option>
@@ -116,29 +129,43 @@ class EditItem extends Component {
               <option value="salvage">Salvage</option>
             </select>
             <select
-              className="addInput"
               name="category"
-              onChange={this.handleChange.bind(this)}>
-              <option value= ''>{this.props.singleItem.category}</option>
+              onChange={ this.handleChange.bind(this) }>
+              <option value= ''>{ this.props.singleItem.category }</option>
               <option value="electronics">Electronics</option>
               <option value="vehicles">Vehicles</option>
               <option value="Furniture">Furniture</option>
               <option value="apparel">Apparel</option>
               <option value="other">Other</option>
             </select>
+            <br />
+            <br />
             <select
-              className="addInput"
               name="status"
-              onChange={this.handleChange.bind(this)}>
-              <option value= ''>{this.props.singleItem.status}</option>
+              onChange={ this.handleChange.bind(this) }>
+              <option value= ''>{ this.props.singleItem.status }</option>
               <option value="published">Published</option>
               <option value="sold">Sold</option>
               <option value="deactivated">Deactivated</option>
             </select>
-          <input
-            type="submit"
-            value="EDIT" />
+            <br />
+            <br />
+            <input 
+            type="text"
+            image="image_url"
+            placeholder="IMAGE URL"
+            className="inputField"
+            value={ this.props.singleItem.image_url }
+            // <img src={ this.props.singleItem.image_url } />
+            onChange={ this.handleChange.bind(this) }
+            />
+            <br />
+            <div className="submitButton">
+          <button
+            type="Submit"><strong>EDIT</strong></button>
+            </div>
         </form>
+      </div>
       </div>
       )
     }
