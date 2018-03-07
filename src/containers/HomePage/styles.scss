@@ -59,8 +59,39 @@
         z-index: 2;
         text-align: center;
         cursor: pointer;
+        text-decoration: none;
+      }
+      
+      .discover_text {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        justify-content: center;
+        /*-webkit-transition: opacity 0.1s ease-in-out;
+        -moz-transition: opacity 0.1s ease-in-out;
+        -o-transition: opacity 0.1s ease-in-out;*/
+        &:hover {
+          animation: discover 1s;
+        }
+      }
+      .discover_text_top {
+        opacity: 1;
+        background: none;
+        &:hover {
+          animation: discover_top 1s;
+        }
       }
     }
+  }
+
+  @keyframes discover {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(-20px);}
+  }
+
+  @keyframes discover_top {
+    from { transform: translateY(20px); }
+    to { transform: translateY(20px); }
   }
 
   .home_navigation_bar {
@@ -75,8 +106,12 @@
 
       &:hover {
         cursor: pointer;
+        transition: 0.25s;
+        color: grey;
       }
     }
   }
 }
+
+
 

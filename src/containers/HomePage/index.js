@@ -38,8 +38,9 @@ class HomePage extends Component {
               className='highlighted_item'
               style={{backgroundImage: `url(${highlightedItem.image_url})`}}>
             </div>
-            <Link to={`/category/${ this.state.currentCategory }`}>
-            <span className='discover_button'>DISCOVER</span>
+            <Link to={`/category/${ this.state.currentCategory }`} className='discover_button'>
+            <p className='discover_text'>DISCOVER</p>
+            <p className='discover_text_top'>DISCOVER</p>
             </Link>
           </div>}
         </div>
