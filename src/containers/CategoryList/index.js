@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { loadItems } from '../../actions/itemsActions';
 import CategoryListItem from '../../components/CategoryListItem';
 import ConnectedAddItemForm from '../AddItemForm';
 
@@ -103,9 +102,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadItems: () => {
-      dispatch(loadItems());
-    }
   }
 }
 
