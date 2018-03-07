@@ -9,7 +9,7 @@ import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
 
-import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
+import { loadItems } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
 import NavigationBar from '../NavigationBar';
@@ -24,7 +24,6 @@ class App extends Component {
   
   componentWillMount() {
     this.props.loadItems();
-    this.props.loadSingleItem();
   }
 
   render() {
@@ -61,9 +60,6 @@ const mapDispatchToProps = dispatch => {
   return {
     loadItems: () => {
       dispatch(loadItems());
-    },
-    loadSingleItem: (id) => {
-      dispatch(loadSingleItem(id))
     },
     setPageToDisplay: page => {
       dispatch(setPageToDisplay(page));
