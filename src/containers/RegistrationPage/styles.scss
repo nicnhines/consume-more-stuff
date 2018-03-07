@@ -93,12 +93,17 @@
       bottom: 0;
       margin-bottom: -88px;
       align-self: center;
+      
 
       a {
         text-decoration: none;
         text-transform: uppercase;
         color: black;
         font-size: 12px;
+        &:hover {
+          transition: 0.25s;
+          color: grey;
+        }
       }
     }
   }

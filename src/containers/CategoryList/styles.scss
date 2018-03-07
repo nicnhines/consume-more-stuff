@@ -66,10 +66,18 @@
 
     .all_items_button {
       margin-left: 20px;
+      &:hover {
+        transition: 0.25s;
+        color: grey;
+      }
     }
     
     .add_item_button {
       text-align: center;
+      &:hover {
+        transition: 0.25;
+        color: grey;
+      }
     }
 
     .search_bar {
@@ -106,7 +114,7 @@
       width: 50%;
       background: #EBEBEB;
       border-bottom: 1px solid white;
-      z-index:11;
+      
 
       &:nth-child(2n) {
         border-left: 1px solid white;

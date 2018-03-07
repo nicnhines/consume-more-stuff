@@ -84,7 +84,7 @@ class LoginPage extends Component {
               value='LOGIN' />
           </form>
           <div className='login_form_links_container'>
-            <Link to='/register'><p>register</p></Link>
+            <Link to='/register' className='register_button'><p>register</p></Link>
             <p>forgot password</p>
           </div>
           {this.props.validationError &&
