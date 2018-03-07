@@ -62,7 +62,6 @@ class CategoryList extends Component {
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
     const url = items.length ? items[0].image_url : `test`;
-    console.log(items);
 
     return (
       <div className='category_list_container'>

@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 1; }
     .home_page_container .current_category_content_container h2 {
       align-self: flex-end;
