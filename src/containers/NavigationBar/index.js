@@ -45,7 +45,7 @@ class NavigationBar extends Component {
           <h6 className='navigation_categories_title'>CATEGORIES</h6>
           <div className='navigation_categories_links'>
             {this.props.categories.map((category, index) => {
-              return <span key={index}><NavLink to={`category/${category}`} onClick={this.handleHideMenu.bind(this)} >{ category }</NavLink></span>;
+              return <span key={index}><NavLink exact to={`category/${category}`} onClick={this.handleHideMenu.bind(this)} >{ category }</NavLink></span>;
             })}
           </div>
         </div>

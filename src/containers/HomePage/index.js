@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class HomePage extends Component {
               className='highlighted_item'
               style={{backgroundImage: `url(${highlightedItem.image_url})`}}>
             </div>
+            <Link to={`/category/${ this.state.currentCategory }`}>
             <span className='discover_button'>DISCOVER</span>
+            </Link>
           </div>}
         </div>
         <div className='home_navigation_bar'>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import { login } from '../../actions/authenticationActions';
 
@@ -84,7 +84,7 @@ class LoginPage extends Component {
               value='LOGIN' />
           </form>
           <div className='login_form_links_container'>
-            <p>register</p>
+            <Link to='/register'><p>register</p></Link>
             <p>forgot password</p>
           </div>
           {this.props.validationError &&
