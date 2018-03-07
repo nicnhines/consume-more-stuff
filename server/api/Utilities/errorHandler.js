@@ -1,4 +1,5 @@
 let handleError = (err, res) => {
+  console.log(err);
   switch (err.code) {
     case '23514':
       res.status(400).json({ message: 'Must Choose Condition and/or Category' });
@@ -21,6 +22,7 @@ let handleError = (err, res) => {
       break;
     default:
       res.status(400).json({ message: err.message });
+      break;
   }
 }
 

@@ -17,11 +17,12 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log(this.props);
     let highlightedItem = this.props.items.filter(item =>
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
+    console.log(highlightedItem);
+
     return (
       <div className='home_page_container'>
         <div 
