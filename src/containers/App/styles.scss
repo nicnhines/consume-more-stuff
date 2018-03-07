@@ -3,6 +3,7 @@ html, body, #root {
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: 'LightWebFont';
 }
 
 * {
@@ -15,11 +16,33 @@ html, body, #root {
   height: 100%;
   
   .page_spacer {
-    min-width: 66px;
+    min-width: 65px;
     height: stretch;
   }
 
   .app_content {
     width: 100%;
   }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+@font-face {
+  font-family: 'RegularWebFont';
+  src: url("../../regular.woff2");
+}
+
+@font-face {
+  font-family: 'LightWebFont';
+  src: url("../../light.woff2");
+}
+
+@font-face {
+  font-family: 'MediumWebFont';
+  src: url("../../medium.woff2");
 }

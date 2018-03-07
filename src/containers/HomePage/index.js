@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setPageToDisplay } from '../../actions/pageDisplayActions';
-
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +21,7 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
+
     return (
       <div className='home_page_container'>
         <div 
@@ -60,9 +59,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setPageToDisplay: page => {
-      dispatch(setPageToDisplay(page));
-    }
   }
 }
 
