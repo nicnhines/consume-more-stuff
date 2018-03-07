@@ -42,7 +42,7 @@ router.route('/')
   .save()
   .then((item) => {
     if (title.trim().length === 0 || description.trim().length === 0 || image_url.trim().length === 0) {
-      res.status(400).json({ message:'No Empty Input Fields' });
+      return res.status(400).json({ message:'No Empty Input Fields' });
     }
     return res.json(item);
   })
