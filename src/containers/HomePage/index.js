@@ -21,7 +21,6 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
-    console.log(highlightedItem);
 
     return (
       <div className='home_page_container'>
