@@ -15,12 +15,12 @@ html, body, #root {
   background: #EBEBEB;
   // border: 1px solid red;
   margin: 0 auto;
-}
+
 .item-content {
   display: flex;
   flex-flow: column nowrap;
   width: 410px;
-}
+
 .single-item-image {
   img {
     width: 90%;
@@ -82,6 +82,13 @@ html, body, #root {
   padding-bottom: 20px;
 }
 }
+  .edit-item {
+    padding: 28px 0;
+    text-transform: uppercase;
+    width: 200px;
+  }
+}
+}
 
 .edit-item-form {
   display: flex;
@@ -115,9 +122,4 @@ select:focus,
 textarea:focus,
 button:focus {
   outline: none;
-}
-.edit-item {
-  padding: 28px 0;
-  text-transform: uppercase;
-  width: 200px;
 }
