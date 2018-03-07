@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 const UserListItem = ({ item, title, user_id }) => {
   return (
     <div className="item-list-container">
-    <div className="item-list">
       <img src = {item.image_url} />
-    </div>
     </div>
   )
 }
