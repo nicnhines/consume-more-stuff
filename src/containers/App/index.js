@@ -8,10 +8,11 @@ import '../HomePage/styles.css';
 import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
+import '../User/styles.css'
 
-import { loadItems, loadSingleItem, editItem} from '../../actions/itemsActions';
+import { loadItems } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
-import { loadSingleUser } from '../../actions/usersActions';
+
 
 import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
@@ -26,8 +27,6 @@ class App extends Component {
   
   componentWillMount() {
     this.props.loadItems();
-    this.props.loadSingleItem();
-    this.props.loadSingleUser();
   }
 
   render() {
@@ -57,7 +56,7 @@ const mapStateToProps = state => {
     conditions: state.items.conditions,
     items: state.items.items,
     singleItem: state.items.singleItem,
-    currentPage: state.pageDisplay.currentPage
+    currentPage: state.pageDisplay.currentPage,
   }
 }
 
@@ -66,15 +65,9 @@ const mapDispatchToProps = dispatch => {
     loadItems: () => {
       dispatch(loadItems());
     },
-    loadSingleItem: (id) => {
-      dispatch(loadSingleItem(id))
-    },
     setPageToDisplay: page => {
       dispatch(setPageToDisplay(page));
     },
-    loadSingleUser: id => {
-      dispatch(loadSingleUser(id));
-    }
   }
 }
 

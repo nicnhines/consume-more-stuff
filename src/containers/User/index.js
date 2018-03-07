@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadSingleUser } from '../../actions/usersActions';
-import { loadItems, addItem } from '../../actions/itemsActions';
-import ConnectedNewItem from '../../components/NewItem';
-import UserListItem from '../../components/UserListItem';
+import { loadItems } from '../../actions/itemsActions';
 import { Link, Redirect } from 'react-router-dom';
+
+import UserListItem from '../../components/UserListItem';
+import ConnectedNewItem from '../../components/NewItem';
 
 class User extends Component {
   constructor(props) {
@@ -29,25 +30,31 @@ class User extends Component {
   componentWillMount() {
     const userId = this.props.match.params.id;
     this.props.loadSingleUser(userId)
+    this.props.loadItems();
   }
 
   render() {
-    const userId = this.props.match.params.id;
+    const userId = this.props.match.params.singleUser;
+    const items = this.props.items.filter(item =>{
+      console.log(item)
+     return item.user_id === 2
+    });
+
+    const UserItem = items.map(item => {
+      return <UserListItem key={ item.id } item={ item }/>
+    })
     
-    const items = this.props.items.filter(item => item.user_id === userId);
-    const url = items.length ? items[0].image_url : undefined;
     return (
       <div className="user-profile-container">
+      <div className="single-user-username"> Welcome { this.props.singleUser.username } </div>
+      
       {this.state.displayAddForm  && <div className="form-bg">
-      <ConnectedNewItem hideAddForm={this.hideAddForm.bind(this)}/></div> }
+      <ConnectedNewItem hideAddForm={ this.hideAddForm.bind(this) }/></div> }
       <div className='user_list_items_container'>
-          {items.map(item => 
-            <UserListItem key={item.id} item={item}/>
-          )}
-          </div>
-      <span className='all_items_button' onClick={this.displayAddForm.bind(this)}>add item</span>
-      <div className="single-user-username">{this.props.singleUser.username} </div>
-      <div className="single-user-email">{this.props.singleUser.email} </div>
+      {UserItem}
+      </div>
+      <span className='all_items_button' onClick={ this.displayAddForm.bind(this) }>add item</span>
+      
       </div>
     )
   }
@@ -62,6 +69,9 @@ const mapDispatchToProps = dispatch => {
   return {
     loadSingleUser: (id) => {
       dispatch(loadSingleUser(id))
+    },
+    loadItems: () => {
+      dispatch(loadItems())
     }
   }
 }

@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import EditItem from '../containers/EditItem';
 
-export default ({ item }) => {
-  const {
-    image_url
-  } = item;
-
+const UserListItem = ({ item, title, user_id }) => {
+  console.log(`nnnn`, item)
   return (
-    <div className='item_container'
-      style={{backgroundImage: `url(${image_url})`}}>
-    </div>
-  );
+    <ul className="item-list">
+    {/* {usersItems} */}
+      <h1>hi</h1>
+    </ul>
+  )
 }
+
+
+ export default UserListItem;

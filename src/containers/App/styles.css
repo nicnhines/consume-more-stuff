@@ -149,3 +149,27 @@ button:focus {
 @font-face {
   font-family: 'MediumWebFont';
   src: url("../../medium.woff2"); }
+
+/* User Profile */
+.user-profile-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  background: #EBEBEB;
+  margin: 0 auto; }
+  .user-profile-container .single-user-username {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: .4em;
+    color: #000;
+    font-family: 'RegularWebFont';
+    line-height: 1.4285;
+    letter-spacing: .05em;
+    width: 20%; }
+  .user-profile-container .all_items_button, .user-profile-container .add_item_button {
+    padding: 28px 0;
+    text-transform: uppercase;
+    width: 200px; }

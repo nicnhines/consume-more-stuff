@@ -63,7 +63,6 @@ class EditItem extends Component {
   }
   render() {
     if(this.state.showDisplay === false){
-      console.log(`jjjj`, this.props.singleItem)
       return ( 
       <div className="single-item-container"> 
       <div className="item-content">
