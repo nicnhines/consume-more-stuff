@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
           condition: `like new`,
           category: `electronics`,
           image_url: `https://placeimg.com/400/400/animals`,
-          user_id: 4
+          user_id: 1
         },
         {
           title: `truck`,
@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
           condition: `fair`,
           category: `vehicles`,
           image_url: `https://placeimg.com/400/400/nature`,
-          user_id: 4
+          user_id: 2
         },
         {
           title: `couch`,
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
           condition: `salvage`,
           category: `furniture`,
           image_url: `https://placeimg.com/400/400/people`,
-          user_id: 4
+          user_id: 3
         },
         {
           title: `t-shirt`,
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
           condition: `new`,
           category: `apparel`,
           image_url: `https://placeimg.com/400/400/tech`,
-          user_id: 4
+          user_id: 1
         },
         {
           title: `books`,
@@ -48,7 +48,7 @@ exports.seed = function(knex, Promise) {
           condition: `good`,
           category: `other`,
           image_url: `https://placeimg.com/400/400/nature`,
-          user_id: 4
+          user_id: 2
         },
       ]);
     });

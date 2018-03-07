@@ -50,9 +50,8 @@ export const editItem = (updatedItem) => {
         loadSingleItem(updatedItem.id)
       )
     })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-}
-
+    .catch((err) => {
+      console.log(err.response);
+    });
+  };
+};

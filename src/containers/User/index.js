@@ -5,7 +5,7 @@ import { loadItems } from '../../actions/itemsActions';
 import { Link, Redirect } from 'react-router-dom';
 
 import UserListItem from '../../components/UserListItem';
-import ConnectedNewItem from '../../components/NewItem';
+import ConnectedAddItemForm from '../AddItemForm';
 
 class User extends Component {
   constructor(props) {
@@ -37,7 +37,8 @@ class User extends Component {
     const userId = this.props.match.params.singleUser;
     const items = this.props.items.filter(item =>{
       console.log(item)
-     return item.user_id === 2
+      console.log(`singleUser`, this.props.singleUser.id)
+     return item.user_id === this.props.singleUser.id;
     });
 
     const UserItem = items.map(item => {
@@ -49,7 +50,7 @@ class User extends Component {
       <div className="single-user-username"> Welcome { this.props.singleUser.username } </div>
       
       {this.state.displayAddForm  && <div className="form-bg">
-      <ConnectedNewItem hideAddForm={ this.hideAddForm.bind(this) }/></div> }
+      <ConnectedAddItemForm hideAddForm={ this.hideAddForm.bind(this) }/></div> }
       <div className='user_list_items_container'>
       {UserItem}
       </div>
