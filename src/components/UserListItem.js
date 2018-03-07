@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserListItem = ({ item, title, user_id }) => {
-  console.log(`nnnn`, item)
   return (
     <div className="item-list-container">
     <div className="item-list">

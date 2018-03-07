@@ -7,47 +7,52 @@ html, body, #root {
 
 .user-profile-container {
   display: flex;
-  justify-content: center;
   width: 100%;
   height: 100vh;
-  align-items: center;
   background: #EBEBEB;
+  border: 1px solid red;
   margin: 0 auto; }
-  .user-profile-container .single-user-username {
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: .4em;
-    color: #000;
-    font-family: 'RegularWebFont';
-    line-height: 1.4285;
-    letter-spacing: .05em;
-    width: 20%; }
-  .user-profile-container .all_items_button, .user-profile-container .add_item_button {
-    padding: 28px 0;
-    text-transform: uppercase;
-    width: 200px; }
-
-.all_items_button {
-  margin-left: 20px; }
-
-.add_item_button {
-  text-align: center; }
-
-.user_list_item_container {
-  display: flex; }
-  .user_list_item_container .item-list-container {
-    position: relative;
+  .user-profile-container .header {
     display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    height: 100vh;
-    background: #EBEBEB; }
-    .user_list_item_container .item-list-container .item-list {
+    justify-content: space-between;
+    width: 100vw;
+    height: 5rem; }
+    .user-profile-container .header .single-user-username {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .4em;
+      color: #000;
+      font-family: 'RegularWebFont';
+      line-height: 1.4285;
+      letter-spacing: .05em;
+      width: 20%;
+      height: 10%;
+      padding: 20px; }
+    .user-profile-container .header .add_item_button {
+      display: flex;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 20px;
+      height: 20%;
+      width: 20%; }
+  .user-profile-container .user_list_item_container {
+    display: flex;
+    border: 1px solid red;
+    margin-top: 15rem; }
+    .user-profile-container .user_list_item_container .item-list-container {
       position: relative;
-      height: 50%;
-      width: 50%;
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      height: 100vh;
       background: #EBEBEB; }
-      .user_list_item_container .item-list-container .item-list img {
-        width: 90%;
-        margin: 10px; }
+      .user-profile-container .user_list_item_container .item-list-container .item-list {
+        margin-top: 15rem;
+        position: relative;
+        height: 50%;
+        width: 50%;
+        background: #EBEBEB; }
+        .user-profile-container .user_list_item_container .item-list-container .item-list img {
+          width: 90%;
+          margin: 10px; }

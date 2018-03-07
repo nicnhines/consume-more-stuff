@@ -97,3 +97,8 @@ select:focus,
 textarea:focus,
 button:focus {
   outline: none; }
+
+.edit-item {
+  padding: 28px 0;
+  text-transform: uppercase;
+  width: 200px; }

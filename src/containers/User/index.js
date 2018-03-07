@@ -36,25 +36,24 @@ class User extends Component {
   render() {
     const userId = this.props.match.params.singleUser;
     const items = this.props.items.filter(item =>{
-      console.log(item)
-      console.log(`singleUser`, this.props.singleUser.id)
+
      return item.user_id === this.props.singleUser.id;
     });
-
     const UserItem = items.map(item => {
       return <UserListItem key={ item.id } item={ item }/>
     })
     
     return (
       <div className="user-profile-container">
+      <div className="header">
       <div className="single-user-username"> Welcome { this.props.singleUser.username } </div>
-      
+      <span className='add_item_button' onClick={ this.displayAddForm.bind(this) }>add item</span>
+      </div>
       {this.state.displayAddForm  && <div className="form-bg">
       <ConnectedAddItemForm hideAddForm={ this.hideAddForm.bind(this) }/></div> }
       <div className='user_list_items_container'>
       {UserItem}
       </div>
-      <span className='all_items_button' onClick={ this.displayAddForm.bind(this) }>add item</span>
       
       </div>
     )
