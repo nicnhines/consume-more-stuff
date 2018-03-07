@@ -5,7 +5,6 @@ export const LOAD_ITEMS = `LOAD_ITEMS`;
 export const LOAD_SINGLE_ITEM = `LOAD_SINGLE_ITEM`;
 export const EDIT_ITEM = `EDIT_ITEM`;
 export const ADD_ITEM = `ADD_ITEM`;
-export const EDITING = `EDITING`;
 
 export const loadItems = () => {
   return dispatch => {
@@ -42,16 +41,6 @@ export const addItem = (newItem) => {
   }
 }
 
-export const makeItemEditable = (id, editing) => {
-  return (dispatch) => {
-    return dispatch({
-      type: editing,
-      id: id,
-      editing: editing
-    })
-  }
-}
-
 export const editItem = (updatedItem) => {
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
@@ -66,3 +55,4 @@ export const editItem = (updatedItem) => {
     })
   }
 }
+

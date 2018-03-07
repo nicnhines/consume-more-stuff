@@ -8,6 +8,7 @@ const bcrypt = require(`bcrypt`);
 const User = require(`../db/models/User`);
 const userRoute = require('./users');
 const itemRoute = require('./items');
+const handleError = require(`./Utilities/errorHandler`);
 
 const saltRounds = 12;
 
@@ -63,7 +64,7 @@ router.post(`/register`, (req, res) => {
       .then(user => {
         return res.json(user);
       })
-      .catch(err => res.status(400).json({ message: err.message }));
+      .catch(err => handleError(err, res));
     });
   });
 });
