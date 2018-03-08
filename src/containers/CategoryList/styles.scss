@@ -101,10 +101,12 @@
 
     .item_container {
       position: relative;
-      height: 270px;
+      height: 400px;
       width: 50%;
       background: #EBEBEB;
       border-bottom: 1px solid white;
+      background-size: cover;
+      background-position: center center;
 
       &:nth-child(2n) {
         border-left: 1px solid white;

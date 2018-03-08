@@ -6,7 +6,7 @@ class HomePage extends Component {
     super(props);
 
     this.state = {
-      currentCategory: `electronics`
+      currentCategory: `light fixtures`
     }
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);

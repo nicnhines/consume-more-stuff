@@ -2,7 +2,7 @@ import { LOAD_ITEMS, LOAD_SINGLE_ITEM } from '../actions/itemsActions';
 
 const initialState = {
   conditions: [`new`, `like new`, `good`, `fair`, `salvage`],
-  categories: [`electronics`, `vehicles`, `furniture`, `apparel`, `other`],
+  categories: [`light fixtures`, `art`, `furniture`, `jewelry`, `sculptures`, `scarves`],
   items: [],
   singleItem: {}
 }

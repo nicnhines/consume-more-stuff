@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.text(`description`).notNullable();
     table.integer(`price`).notNullable();
     table.enu(`condition`, [`new`, `like new`, `good`, `fair`, `salvage`]).notNullable();
-    table.enu(`category`, [`electronics`, `vehicles`, `furniture`, `apparel`, `other`]).notNullable();
+    table.enu(`category`, [`light fixtures`, `art`, `furniture`, `jewelry`, `sculptures`, `scarves`]).notNullable();
     table.enu(`status`, [`published`, `sold`, `deactivated`]).defaultTo(`published`).notNullable();
     table.string(`image_url`).notNullable();
     table.timestamp(`created_at`).defaultTo(knex.fn.now()).notNullable();
