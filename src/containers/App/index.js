@@ -8,6 +8,7 @@ import '../HomePage/styles.css';
 import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
+import '../AddItemForm/styles.css';
 
 import { loadItems, loadSingleItem } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
@@ -20,7 +21,6 @@ import RegistrationPage from '../RegistrationPage';
 import NotFound from '../../components/NotFound';
 
 class App extends Component {
-
   componentWillMount() {
     this.props.loadItems();
   }

@@ -37,7 +37,7 @@ export const addItem = (newItem) => {
       }
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err.response);
     });
   };
 };
