@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { loadItems } from '../../actions/itemsActions';
 import CategoryListItem from '../../components/CategoryListItem';
 import ConnectedAddItemForm from '../AddItemForm';
 
@@ -63,6 +62,7 @@ class CategoryList extends Component {
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
     const url = items.length ? items[0].image_url : `test`;
+    console.log(items);
 
     return (
       <div className='category_list_container'>
@@ -103,9 +103,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadItems: () => {
-      dispatch(loadItems());
-    }
   }
 }
 
