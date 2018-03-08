@@ -108,7 +108,7 @@ class RegistrationPage extends Component {
             </div>
           }
           <div className='login_link'>
-            <Link to='/login'>{'\u2190'}back to login</Link>
+            <Link to='/login' className='back_to_login'>{'\u2190'}back to login</Link>
           </div>
         </div>
       </div>
