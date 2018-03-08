@@ -33,52 +33,67 @@ html, body, #root {
   width: 100vw;
   height: 5rem;
   border: 1px solid blue;
-  .single-user-username {
-    border: 1px solid black;
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: .4em;
-    color: #000;
-    font-family: 'RegularWebFont';
-    line-height: 1.4285;
-    letter-spacing: .05em;
-    width: 20%;
-    height: 40%;
-    padding: 20px;
+    .single-user-username {
+      border: 1px solid black;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .4em;
+      color: #000;
+      font-family: 'RegularWebFont';
+      line-height: 1.4285;
+      letter-spacing: .05em;
+      width: 20%;
+      height: 40%;
+      padding: 20px;
+    }
+      .add_item_button {
+        border: 1px solid black;
+        display: flex;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 20px;
+        height: 40%;
+        width: 20%;
+      }
   }
-  
-  .add_item_button {
-    border: 1px solid black;
-    display: flex;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 20px;
-    height: 40%;
-    width: 20%;
-  }
-}
 }  
 .item-container {
   display: flex;
   align-items: center;
+  flex-flow: row;
   margin: 0 auto;
+  margin-top: 10rem;
   border: 1px solid green;
+  width: 80%;
+  
   .item-list-container {
     border: 1px solid purple;
-    display: flex;
-    justify-content: center;
     margin: 0;
-    flex-flow: row wrap;
     height: 90%;
     width: 100%;
     background: #EBEBEB;
-   
-    
+
+    .react-item-container {
+      border: 1px solid red;
+      width:20px;
+      height: 100%;
+    }
+ 
     img {
       margin: 10px;
       @include width-height(90%, 150px);
       object-fit: cover;
     }
+  
+    .arrow {
+    width: 30px;
+    height:30px;
+    cursor: pointer;
+    z-index: 80;
+    }
   }
+
 }
+
+

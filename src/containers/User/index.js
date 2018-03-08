@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { loadSingleUser } from '../../actions/usersActions';
 import { loadItems } from '../../actions/itemsActions';
 import { Link, Redirect } from 'react-router-dom';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import UserListItem from '../../components/UserListItem';
 import ConnectedAddItemForm from '../AddItemForm';
@@ -12,8 +13,29 @@ class User extends Component {
     super(props);
 
     this.state = {
-      displayAddForm: false
-    };
+      displayAddForm: false,
+      itemsInView: this.props.itemsInView,
+      active: this.props.active,
+      direction: ''
+    }
+    this.rightClick = this.moveRight.bind(this)
+    this.leftClick = this.moveLeft.bind(this)
+  }
+  moveLeft() {
+    let newActive = this.state.active
+    newActive--
+    this.setState({
+      active: newActive < 0 ? this.state.itemsInView.length - 1 : newActive,
+      direction: 'left'
+    })
+  }
+
+  moveRight() {
+    let newActive = this.state.active
+    this.setState({
+      active: (newActive + 1) % this.state.itemsInView.length,
+      direction: 'right'
+    })
   }
 
   displayAddForm(event) {
@@ -52,9 +74,18 @@ class User extends Component {
         {this.state.displayAddForm && <div className="form-bg">
           <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
         <div className="item-container">
-          {UserItem}
+          <div className="arrow arrow-left" onClick={this.leftClick}>
+          <button>left</button>
+          </div>
+            <div className="react-item-container">
+              <CSSTransitionGroup transitionName={this.state.direction}>
+                {UserItem}
+              </CSSTransitionGroup>
+            </div>
+          <div className="arrow arrow-right" onClick={this.rightClick}>
+          <button>right</button>
+          </div>
         </div>
-
       </div>
     )
   }

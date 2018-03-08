@@ -45,19 +45,28 @@ html, body, #root {
 .item-container {
   display: flex;
   align-items: center;
+  flex-flow: row;
   margin: 0 auto;
-  border: 1px solid green; }
+  margin-top: 10rem;
+  border: 1px solid green;
+  width: 80%; }
   .item-container .item-list-container {
     border: 1px solid purple;
-    display: flex;
-    justify-content: center;
     margin: 0;
-    flex-flow: row wrap;
     height: 90%;
     width: 100%;
     background: #EBEBEB; }
+    .item-container .item-list-container .react-item-container {
+      border: 1px solid red;
+      width: 20px;
+      height: 100%; }
     .item-container .item-list-container img {
       margin: 10px;
       width: 90%;
       height: 150px;
       object-fit: cover; }
+    .item-container .item-list-container .arrow {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 80; }
