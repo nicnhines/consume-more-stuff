@@ -10,25 +10,22 @@
   border-right: 1px solid white;
   z-index: 10; }
   .header .base_navigation_bar .home_button {
-    display: flex;
-    align-items: flex;
     position: absolute;
-    margin-top: 2rem;
     top: 0;
+    margin-top: 2rem; }
+  .header .base_navigation_bar span, .header .base_navigation_bar .home_button {
     color: inherit;
     text-decoration: none; }
-    .header .base_navigation_bar .home_button:hover {
+    .header .base_navigation_bar span:hover, .header .base_navigation_bar .home_button:hover {
+      cursor: pointer;
       transition: 0.25s;
       color: grey; }
-  .header .base_navigation_bar span:hover {
-    cursor: pointer;
-    transition: 0.25s;
-    color: grey; }
 
 .header .navigation_menu, .header .navigation_categories {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
   position: fixed;
   background: #EBEBEB;
   height: 100%;
@@ -36,13 +33,13 @@
   border-right: 1px solid white;
   z-index: 10; }
   .header .navigation_menu h6, .header .navigation_categories h6 {
+    position: absolute;
+    top: 0;
     font-size: 16px; }
   .header .navigation_menu .navigation_menu_links, .header .navigation_menu .navigation_categories_links, .header .navigation_categories .navigation_menu_links, .header .navigation_categories .navigation_categories_links {
     display: flex;
     flex-flow: column nowrap;
-    position: relative;
-    width: 100%;
-    top: 50%; }
+    width: 100%; }
     .header .navigation_menu .navigation_menu_links span, .header .navigation_menu .navigation_menu_links a, .header .navigation_menu .navigation_categories_links span, .header .navigation_menu .navigation_categories_links a, .header .navigation_categories .navigation_menu_links span, .header .navigation_categories .navigation_menu_links a, .header .navigation_categories .navigation_categories_links span, .header .navigation_categories .navigation_categories_links a {
       text-align: center;
       padding: 15px 0; }
@@ -61,15 +58,12 @@
   width: 250px;
   margin-left: 65px;
   animation: menu_slide_out .3s ease-out; }
-  .header .navigation_menu .navigation_menu_links {
-    margin-top: -164px; }
 
 .header .navigation_categories {
   width: 400px;
   margin-left: 315px;
   animation: categories_slide_out .5s ease-out; }
   .header .navigation_categories .navigation_categories_links {
-    margin-top: -212px;
     text-transform: uppercase; }
 
 .header .hide_menu {
