@@ -1,5 +1,4 @@
 .category_list_container {
-  position: relative;
   width: 100%;
 
   .category_main_image, .fade_out {
@@ -14,7 +13,7 @@
 
   .fade_out {
     background-color: black;
-    opacity: 0;    
+    opacity: 0;
   }
 
   .category_spacer {
@@ -62,6 +61,11 @@
       padding: 28px 0;
       text-transform: uppercase;
       width: 200px;
+      &:hover {
+        transition: 0.25;
+        color: grey;
+        cursor: pointer;
+      }
     }
 
     .all_items_button {
@@ -96,6 +100,7 @@
     position: relative;
     display: flex;
     flex-flow: row wrap;
+    align-content: flex-start;
     padding-top: 76px;
     min-height: 100vh;
     background: #EBEBEB;
@@ -118,10 +123,29 @@
   }
 
   .form-bg {
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
+    left: 0;
+    height: 100vh;
     width: 100vw;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    background: #EBEBEB;
+    z-index: 20;
+    animation: fadein .4s ease-out;
+
+    &.fadeout {
+      animation: fadeout .6s ease-out;
+    }
   }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }

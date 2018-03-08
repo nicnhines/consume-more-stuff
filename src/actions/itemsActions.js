@@ -41,8 +41,6 @@ export const addItem = (newItem) => {
   }
 }
 
-
-
 export const editItem = (updatedItem) => {
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
@@ -56,4 +54,3 @@ export const editItem = (updatedItem) => {
     })
   }
 }
- 

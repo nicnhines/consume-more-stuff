@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
 
@@ -45,20 +45,21 @@ class NavigationBar extends Component {
           <h6 className='navigation_categories_title'>CATEGORIES</h6>
           <div className='navigation_categories_links'>
             {this.props.categories.map((category, index) => {
-              return <span key={index}><NavLink to={`category/${category}`} onClick={this.handleHideMenu.bind(this)} >{ category }</NavLink></span>;
+              return <Link to={`/category/${category}`} onClick={this.handleHideMenu} key={index}>{ category }</Link>;
             })}
           </div>
         </div>
         <div className={`navigation_menu ${this.state.displayMenu ? null : `hide_menu`}`}>
           <h6 className='navigation_menu_title'>MENU</h6>
           <div className='navigation_menu_links'>
-            <span><NavLink to="/login"  onClick={this.handleHideMenu.bind(this)}>LOGIN</NavLink></span>
+            <Link to="/login" onClick={this.handleHideMenu}>LOGIN</Link>
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
             <span>ALL ITEMS</span>
           </div>
         </div>
         <div className='base_navigation_bar'>
-          <span onClick={this.handleDisplayMenu}>Expand</span>
+          <Link to='/' className='home_button' onClick={this.handleHideMenu}>Home</Link> 
+          <span onClick={this.handleDisplayMenu} className='expand_button'>Expand</span>
         </div>
       </div>      
     );

@@ -4,6 +4,26 @@ const Item = require('../../db/models/Item.js');
 const handleError = require('../Utilities/errorHandler');
 const isAuthenticated = require('../Utilities/authenticator');
 
+// Amazon S3
+const multer = require(`multer`);
+const multers3 = require(`multer-s3`);
+const fs = require(`fs`);
+const AWS = require(`aws-sdk`);
+
+AWS.config.loadFromPath(__dirname + `/../../../config/awsConfig.json`);
+const s3 = new AWS.S3();
+
+const upload = multer({
+  storage: multers3({
+    s3: s3,
+    bucket: `consume.more.stuff.image.bucket`,
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString());
+    }
+  })
+});
+
+
 module.exports = router;
 
 router.route('/')
@@ -17,7 +37,7 @@ router.route('/')
     return handleError(err, res);
   });
 })
-.post(isAuthenticated, (req, res) => {
+.post(isAuthenticated, upload.array(`upl`, 1), (req, res) => {
   let {
     id,
     title,
@@ -25,9 +45,9 @@ router.route('/')
     price,
     condition,
     category,
-    image_url,
   } = req.body;
   let user_id = req.user.id;
+  let image_url = req.files[0].location
 
   return new Item({
     id,
@@ -42,7 +62,7 @@ router.route('/')
   .save()
   .then((item) => {
     if (title.trim().length === 0 || description.trim().length === 0 || image_url.trim().length === 0) {
-      res.status(400).json({ message:'No Empty Input Fields' });
+      return res.status(400).json({ message:'No Empty Input Fields' });
     }
     return res.json(item);
   })
@@ -90,7 +110,6 @@ router.route('/:id')
     return handleError(err, res);
   });
 });
-
 
 
 
