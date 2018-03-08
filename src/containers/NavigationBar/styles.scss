@@ -1,6 +1,7 @@
 .header {
   .base_navigation_bar {
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -10,9 +11,20 @@
     border-right: 1px solid white;
     z-index: 10;
 
-    span {
+    .home_button {
+      position: absolute;
+      top: 0;
+      margin-top: 2rem;
+    }
+
+    span, .home_button {
+      color: inherit;
+      text-decoration: none;
+
       &:hover {
         cursor: pointer;
+        transition: 0.25s;
+        color: grey;
       }
     }
   }
@@ -21,6 +33,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
     position: fixed;
     background: #EBEBEB;
     height: 100%;
@@ -29,23 +42,35 @@
     z-index: 10;
 
     h6 {
+      position: absolute;
+      top: 0;
       font-size: 16px;
     }
 
     .navigation_menu_links, .navigation_categories_links {
       display: flex;
       flex-flow: column nowrap;
-      position: relative;
       width: 100%;
-      top: 50%;
-      
-      span {
+
+      span, a {
         text-align: center;
         padding: 15px 0;
-      
+
         &:hover {
           cursor: pointer;
+          transition: 0.25s;
+          color: black;
         }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+      }
+
+      &:hover {
+        color: grey;
       }
     }
   }
@@ -54,10 +79,6 @@
     width: 250px;
     margin-left: 65px;
     animation: menu_slide_out .3s ease-out;
-
-    .navigation_menu_links {
-      margin-top: -164px;
-    }
   }
 
   .navigation_categories {
@@ -66,7 +87,6 @@
     animation: categories_slide_out .5s ease-out;
 
     .navigation_categories_links {
-      margin-top: -212px;
       text-transform: uppercase;
     }
   }

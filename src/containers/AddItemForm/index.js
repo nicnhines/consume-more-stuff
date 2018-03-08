@@ -13,15 +13,12 @@ class AddItemForm extends Component {
       price: ``,
       condition: '',
       category: '',
-      image_url: 'https://placeimg.com/550/300/nature',
       titleError: false,
       descriptionError: false,
       priceError: false,
       conditionError: false,
       categoryError: false,
-
-      file: ``,
-      imagePreviewUrl: ``
+      imageFile: ``
     };
   };
 
@@ -33,14 +30,15 @@ class AddItemForm extends Component {
 
   handleImageChange(event) {
     event.preventDefault();
-    let reader = new FileReader();
+    if (!event.target.files[0]) {
+      return;
+    }
     let file = event.target.files[0];
-    this.setState({ file: file });
+    let reader = new FileReader();
 
     reader.onloadend = () => {
       this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
+        imageFile: reader.result,
       });
     }
     reader.readAsDataURL(file);

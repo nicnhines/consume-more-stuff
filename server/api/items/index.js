@@ -4,6 +4,9 @@ const Item = require('../../db/models/Item.js');
 const handleError = require('../Utilities/errorHandler');
 const isAuthenticated = require('../Utilities/authenticator');
 
+const upload = require(`../Utilities/uploadToBucket`);
+
+
 module.exports = router;
 
 router.route('/')
@@ -17,7 +20,7 @@ router.route('/')
     return handleError(err, res);
   });
 })
-.post(isAuthenticated, (req, res) => {
+.post(isAuthenticated, upload, (req, res) => {
   let {
     id,
     title,
@@ -25,7 +28,7 @@ router.route('/')
     price,
     condition,
     category,
-    image_url,
+    image_url
   } = req.body;
   let user_id = req.user.id;
 
@@ -90,7 +93,6 @@ router.route('/:id')
     return handleError(err, res);
   });
 });
-
 
 
 

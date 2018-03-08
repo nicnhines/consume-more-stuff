@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { loadItems } from '../../actions/itemsActions';
 import CategoryListItem from '../../components/CategoryListItem';
 import ConnectedAddItemForm from '../AddItemForm';
 
@@ -70,8 +69,8 @@ class CategoryList extends Component {
           <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
         <div id='main_image'
           className='category_main_image'
-          style={{ backgroundImage: `url(${url})` }}
-        ></div>
+          style={{ backgroundImage: `url(${url})` }}>
+        </div>
         <div id='fade_out' className='fade_out'></div>
         <div className='category_spacer'>
           <div className='category_information_container'>
@@ -81,7 +80,7 @@ class CategoryList extends Component {
         </div>
         <div id='category_header' className='category_header'>
           <span className='all_items_button'>all items</span>
-          <span className='all_items_button' onClick={this.displayAddForm.bind(this)}>add item</span>
+          <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
           <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
         </div>
         <div className='category_list_items_container'>
@@ -103,9 +102,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadItems: () => {
-      dispatch(loadItems());
-    }
   }
 }
 
