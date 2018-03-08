@@ -76,12 +76,8 @@ class User extends Component {
         <div className="item-container">
           <div className="arrow arrow-left" onClick={this.leftClick}>
           <button>left</button>
-          </div>
-            <div className="react-item-container">
-              <CSSTransitionGroup transitionName={this.state.direction}>
-                {UserItem}
-              </CSSTransitionGroup>
-            </div>
+          </div> 
+              { UserItem }
           <div className="arrow arrow-right" onClick={this.rightClick}>
           <button>right</button>
           </div>
@@ -90,6 +86,8 @@ class User extends Component {
     )
   }
 }
+
+
 const mapStateToProps = state => {
   return {
     items: state.items.items,
