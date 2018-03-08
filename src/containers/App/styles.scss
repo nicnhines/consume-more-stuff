@@ -99,10 +99,14 @@
 //   flex-flow: row nowrap;
 //   height: 100%;
   
-//   .page_spacer {
-//     min-width: 65px;
-//     height: stretch;
-//   }
+  .page_spacer {
+    min-width: 65px;
+  }
+
+  .app_content {
+    width: 100%;
+  }
+
 
 //   .app_content {
 //     width: 100%;
