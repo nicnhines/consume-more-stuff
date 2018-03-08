@@ -47,16 +47,14 @@
       padding: 28px 0;
       text-transform: uppercase;
       width: 200px; }
+      .category_list_container .category_header .all_items_button:hover, .category_list_container .category_header .add_item_button:hover {
+        transition: 0.25;
+        color: grey;
+        cursor: pointer; }
     .category_list_container .category_header .all_items_button {
       margin-left: 20px; }
-      .category_list_container .category_header .all_items_button:hover {
-        transition: 0.25s;
-        color: grey; }
     .category_list_container .category_header .add_item_button {
       text-align: center; }
-      .category_list_container .category_header .add_item_button:hover {
-        transition: 0.25;
-        color: grey; }
     .category_list_container .category_header .search_bar {
       outline: 0;
       border: 0;
@@ -76,6 +74,7 @@
     position: relative;
     display: flex;
     flex-flow: row wrap;
+    align-content: flex-start;
     padding-top: 76px;
     min-height: 100vh;
     background: #EBEBEB; }

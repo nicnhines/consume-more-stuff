@@ -13,8 +13,7 @@ html, body, #root {
   flex-flow: row nowrap;
   height: 100%; }
   .outer_page_container .page_spacer {
-    min-width: 65px;
-    height: stretch; }
+    min-width: 65px; }
   .outer_page_container .app_content {
     width: 100%; }
 

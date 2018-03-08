@@ -45,20 +45,20 @@ class NavigationBar extends Component {
           <h6 className='navigation_categories_title'>CATEGORIES</h6>
           <div className='navigation_categories_links'>
             {this.props.categories.map((category, index) => {
-              return <span key={index}><Link to={`/category/${category}`} onClick={this.handleHideMenu.bind(this)} >{ category }</Link></span>;
+              return <Link to={`/category/${category}`} onClick={this.handleHideMenu} key={index}>{ category }</Link>;
             })}
           </div>
         </div>
         <div className={`navigation_menu ${this.state.displayMenu ? null : `hide_menu`}`}>
           <h6 className='navigation_menu_title'>MENU</h6>
           <div className='navigation_menu_links'>
-            <span><Link to="/login" onClick={this.handleHideMenu.bind(this)}>LOGIN</Link></span>
+            <Link to="/login" onClick={this.handleHideMenu}>LOGIN</Link>
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
             <span>ALL ITEMS</span>
           </div>
         </div>
         <div className='base_navigation_bar'>
-          <Link to='/' className='home_button'>Home</Link> 
+          <Link to='/' className='home_button' onClick={this.handleHideMenu}>Home</Link> 
           <span onClick={this.handleDisplayMenu} className='expand_button'>Expand</span>
         </div>
       </div>      

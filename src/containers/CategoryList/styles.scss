@@ -13,7 +13,7 @@
 
   .fade_out {
     background-color: black;
-    opacity: 0;    
+    opacity: 0;
   }
 
   .category_spacer {
@@ -61,22 +61,19 @@
       padding: 28px 0;
       text-transform: uppercase;
       width: 200px;
+      &:hover {
+        transition: 0.25;
+        color: grey;
+        cursor: pointer;
+      }
     }
 
     .all_items_button {
       margin-left: 20px;
-      &:hover {
-        transition: 0.25s;
-        color: grey;
-      }
     }
     
     .add_item_button {
       text-align: center;
-      &:hover {
-        transition: 0.25;
-        color: grey;
-      }
     }
 
     .search_bar {
@@ -103,6 +100,7 @@
     position: relative;
     display: flex;
     flex-flow: row wrap;
+    align-content: flex-start;
     padding-top: 76px;
     min-height: 100vh;
     background: #EBEBEB;
@@ -113,7 +111,6 @@
       width: 50%;
       background: #EBEBEB;
       border-bottom: 1px solid white;
-      
 
       &:nth-child(2n) {
         border-left: 1px solid white;

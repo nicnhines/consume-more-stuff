@@ -43,19 +43,19 @@
     position: relative;
     width: 100%;
     top: 50%; }
-    .header .navigation_menu .navigation_menu_links a, .header .navigation_menu .navigation_categories_links a, .header .navigation_categories .navigation_menu_links a, .header .navigation_categories .navigation_categories_links a {
-      text-decoration: none;
-      color: inherit; }
-      .header .navigation_menu .navigation_menu_links a:hover, .header .navigation_menu .navigation_categories_links a:hover, .header .navigation_categories .navigation_menu_links a:hover, .header .navigation_categories .navigation_categories_links a:hover {
-        transition: 0.25s;
-        color: grey; }
-    .header .navigation_menu .navigation_menu_links span, .header .navigation_menu .navigation_categories_links span, .header .navigation_categories .navigation_menu_links span, .header .navigation_categories .navigation_categories_links span {
+    .header .navigation_menu .navigation_menu_links span, .header .navigation_menu .navigation_menu_links a, .header .navigation_menu .navigation_categories_links span, .header .navigation_menu .navigation_categories_links a, .header .navigation_categories .navigation_menu_links span, .header .navigation_categories .navigation_menu_links a, .header .navigation_categories .navigation_categories_links span, .header .navigation_categories .navigation_categories_links a {
       text-align: center;
       padding: 15px 0; }
-      .header .navigation_menu .navigation_menu_links span:hover, .header .navigation_menu .navigation_categories_links span:hover, .header .navigation_categories .navigation_menu_links span:hover, .header .navigation_categories .navigation_categories_links span:hover {
+      .header .navigation_menu .navigation_menu_links span:hover, .header .navigation_menu .navigation_menu_links a:hover, .header .navigation_menu .navigation_categories_links span:hover, .header .navigation_menu .navigation_categories_links a:hover, .header .navigation_categories .navigation_menu_links span:hover, .header .navigation_categories .navigation_menu_links a:hover, .header .navigation_categories .navigation_categories_links span:hover, .header .navigation_categories .navigation_categories_links a:hover {
         cursor: pointer;
         transition: 0.25s;
-        color: grey; }
+        color: black; }
+    .header .navigation_menu .navigation_menu_links a, .header .navigation_menu .navigation_categories_links a, .header .navigation_categories .navigation_menu_links a, .header .navigation_categories .navigation_categories_links a {
+      text-decoration: none;
+      color: inherit;
+      width: 100%; }
+    .header .navigation_menu .navigation_menu_links:hover, .header .navigation_menu .navigation_categories_links:hover, .header .navigation_categories .navigation_menu_links:hover, .header .navigation_categories .navigation_categories_links:hover {
+      color: grey; }
 
 .header .navigation_menu {
   width: 250px;

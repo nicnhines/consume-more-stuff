@@ -17,6 +17,14 @@ class HomePage extends Component {
     this.setState({ currentCategory: this.props.categories[event.target.dataset.index] });
   }
 
+  applySlideUp() {
+    document.getElementById(`discover_1`).className = `slide_up_to_middle`;
+    document.getElementById(`discover_2`).className += ` slide_up_to_edge`;
+    setTimeout(() => { 
+      document.getElementById(`discover_2`).className = `discover_button`;
+    }, 200);
+  }
+
   render() {
     let highlightedItem = this.props.items.filter(item =>
       item.category === this.state.currentCategory
@@ -38,10 +46,12 @@ class HomePage extends Component {
               className='highlighted_item'
               style={{backgroundImage: `url(${highlightedItem.image_url})`}}>
             </div>
-            <Link to={`/category/${ this.state.currentCategory }`} className='discover_button'>
-            <p className='discover_text'>DISCOVER</p>
-            <p className='discover_text_top'>DISCOVER</p>
-            </Link>
+            <div id='discover_container' className='discover_container' onMouseLeave={this.applySlideUp}>
+              <p id='discover_1'>DISCOVER</p>
+              <Link to={`/category/${ this.state.currentCategory }`} className='discover_button' id='discover_2'>
+                DISCOVER
+              </Link>
+            </div>
           </div>}
         </div>
         <div className='home_navigation_bar'>
