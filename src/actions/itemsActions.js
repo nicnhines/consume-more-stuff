@@ -37,7 +37,7 @@ export const addItem = (newItem) => {
       if(newItemDetails.data && newItemDetails.data.id) {
         dispatch(loadItems())
       }
-    })
+    });
   }
 }
 
