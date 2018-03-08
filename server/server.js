@@ -9,8 +9,8 @@ const apiRouter = require('./api');
  
 const PORT = process.env.PORT || 8080;
 
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ limit:'50mb', extended: true }));
+server.use(bodyParser.json({ limit: '50mb' }));
 
 server.use(session({
   store: new Redis(),
