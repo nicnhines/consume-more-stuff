@@ -78,3 +78,6 @@
         text-transform: uppercase;
         color: black;
         font-size: 12px; }
+        .registration_page_container .registration_form_container .login_link a:hover {
+          transition: 0.25s;
+          color: grey; }
