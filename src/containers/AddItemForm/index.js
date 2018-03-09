@@ -59,14 +59,8 @@ class AddItemForm extends Component {
       return;
     }
 
-    this.props.addItem(this.state)
-    this.setState({
-      title: '',
-      description: '',
-      price: '',
-      condition: '',
-      category: '',
-      image_url: ''
+    this.props.addItem(this.state, (id) => {
+      this.props.redirectAfterAdd(id);
     });
   };
 
@@ -100,10 +94,12 @@ class AddItemForm extends Component {
           <div className='condition_category_container'>
             <input
               type="number"
+              min='0'
+              step='1'
               name="price"
               placeholder="PRICE"
               value={this.state.price}
-              onChange={this.handleChange.bind(this)} 
+              onChange={this.handleChange.bind(this)}
               className={this.state.priceError ? `input_error` : ``} />
             <select
               name="condition"
@@ -154,7 +150,9 @@ class AddItemForm extends Component {
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: item => dispatch(addItem(item))
+  addItem: (item, callback) => {
+    dispatch(addItem(item, callback));
+  } 
 });
 
 const ConnectedAddItemForm = connect(mapStateToProps, mapDispatchToProps)(AddItemForm);

@@ -54,7 +54,6 @@ class NavigationBar extends Component {
           <div className='navigation_menu_links'>
             <Link to="/login" onClick={this.handleHideMenu}>LOGIN</Link>
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
-            <span>ALL ITEMS</span>
           </div>
         </div>
         <div className='base_navigation_bar'>
