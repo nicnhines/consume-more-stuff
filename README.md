@@ -28,6 +28,23 @@ You will need to work as a team to complete this project. To facilitate team com
 
 The instructors will provide a tech lead role, and will need to approve design and implementation decisions. Data modeling will need to be done by the team, but approved by the tech leads.
 
+## Project Setup
+- clone repo
+- run ```npm install```
+- Create database with appropriate owner
+- Create 'config' folder. Create a 'config.js' file within the config folder with the following structure:
+``` 
+{
+  database: {
+    user: 'database_user',
+    password: 'user_password',
+    database: 'database_name'
+  }
+}
+```
+- run ```knex migrate:latest``` to create the database tables
+- run ```knex seed:run``` to insert filler data into the database
+- run back-end server and front-end server from the same terminal with ```npm run dev```
 
 ## Business Requirements
 
