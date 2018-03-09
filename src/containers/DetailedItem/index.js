@@ -41,7 +41,8 @@ class DetailedItemPage extends Component {
       condition,
       description,
       category,
-      image_url
+      image_url,
+      user_id
     } = this.props.singleItem;
 
     return (
@@ -77,7 +78,7 @@ class DetailedItemPage extends Component {
               className='back_to_category'>
               {`\u2190back to ${category}`}
             </Link>
-            {localStorage.getItem(`user_id`) && <p onClick={this.displayEditForm}>Edit Item</p>}
+            {localStorage.getItem(`user_id`) == user_id && <p onClick={this.displayEditForm}>Edit Item</p>}
           </div>
         </div>
       </div>

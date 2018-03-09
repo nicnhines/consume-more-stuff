@@ -59,7 +59,7 @@ class NavigationBar extends Component {
         <div className={`navigation_menu ${this.state.displayMenu ? null : `hide_menu`}`}>
           <h6 className='navigation_menu_title'>MENU</h6>
           <div className='navigation_menu_links'>
-            {user_id ? <Link to={`users/${user_id}`} onClick={this.handleHideMenu}>MY PROFILE</Link> :
+            {user_id ? <Link to={`/users/${user_id}`} onClick={this.handleHideMenu}>MY PROFILE</Link> :
               <Link to="/login" onClick={this.handleHideMenu}>LOGIN</Link>}
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
             {user_id && <Link to="/" onClick={this.handleLogout.bind(this)}>LOGOUT</Link>}
@@ -69,7 +69,7 @@ class NavigationBar extends Component {
           <Link to='/' className='home_button' onClick={this.handleHideMenu}>Home</Link> 
           <span onClick={this.handleDisplayMenu} className='expand_button'>Expand</span>
         </div>
-      </div>      
+      </div>    
     );
   }
 }
