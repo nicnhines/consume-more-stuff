@@ -7,7 +7,7 @@ class HomePage extends Component {
     super(props);
 
     this.state = {
-      currentCategory: `electronics`
+      currentCategory: `lighting`
     }
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -30,13 +30,13 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
-
+    let url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${this.state.currentCategory}.jpg`
     return (
       <div className='home_page_container'>
         <div 
           className='background_image'
           style={this.props.items.length ? 
-          {backgroundImage: `url("${this.props.items[0].image_url}")`} : null}>
+          {backgroundImage: `url("${url}")`} : null}>
         </div>
         <div className='current_category_content_container'>
           <h2>{this.state.currentCategory}</h2>
