@@ -87,7 +87,20 @@
       background: #EBEBEB;
       border-bottom: 1px solid white;
       background-size: cover;
-      background-position: center center; }
+      background-position: center center;
+      text-decoration: none; }
+      .category_list_container .category_list_items_container .item_container p {
+        margin-top: 0;
+        text-transform: uppercase;
+        color: white;
+        mix-blend-mode: difference;
+        font-size: 14px;
+        margin-top: 2%;
+        margin-left: 2%;
+        opacity: 0;
+        text-decoration: none; }
+      .category_list_container .category_list_items_container .item_container:hover > p {
+        opacity: 1; }
       .category_list_container .category_list_items_container .item_container:nth-child(2n) {
         border-left: 1px solid white; }
       .category_list_container .category_list_items_container .item_container:last-child {
