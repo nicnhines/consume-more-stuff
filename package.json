@@ -40,5 +40,6 @@
     "server": "cd server && nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "homepage": "http://c20.winners.consumemorestuff.com"
 }

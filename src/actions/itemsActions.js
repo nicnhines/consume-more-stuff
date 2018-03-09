@@ -30,13 +30,20 @@ export const loadSingleItem = id => {
   }
 }
 
-export const addItem = (newItem) => {
+export const addItem = (newItem, callback) => {
   return dispatch => {
-    return Axios.post(HOST, newItem)
+    Axios.post(HOST, newItem)
     .then(newItemDetails => {
       if(newItemDetails.data && newItemDetails.data.id) {
-        dispatch(loadItems())
+         dispatch(loadItems());
+         return newItemDetails.data.id
       }
+    })
+    .then(id => {
+      callback(id);
+    })
+    .catch((err) => {
+      console.log(err.response);
     });
   }
 }
