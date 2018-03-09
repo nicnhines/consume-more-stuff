@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addItem } from '../../actions/itemsActions';
+import { addItem, editItem } from '../../actions/itemsActions';
 
 class AddEditItemForm extends Component {
   constructor(props) {
@@ -49,13 +49,15 @@ class AddEditItemForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const isEdit = this.props.isEdit;
     let isError = false;
     const inputs = [`title`, `description`, `price`, `condition`, `category`, `imageFile`];
     inputs.forEach(input => {
       if (!this.state[input]) {
-        console.log(input);
-        this.setState({ [`${input}Error`]: true });
-        isError = true;
+        if (!(isEdit && input === `imageFile`)) {
+          this.setState({ [`${input}Error`]: true });
+          isError = true;
+        }
       }
     })
 
@@ -63,7 +65,34 @@ class AddEditItemForm extends Component {
       return;
     }
 
-    this.props.addItem(this.state, (id) => {
+    const {
+      title,
+      description,
+      price,
+      condition,
+      category,
+    } = this.state;
+    const newItem = {
+      title,
+      description,
+      price,
+      condition,
+      category
+    };
+
+    if (!isEdit || this.state.imageFile) {
+      newItem.imageFile = this.state.imageFile;
+    }
+
+    if (isEdit) {
+      newItem.id = this.props.singleItem.id;
+      
+      return this.props.editItem(newItem, () => {
+        this.props.hideForm();
+      });
+    }
+
+    return this.props.addItem(newItem, (id) => {
       this.props.redirectAfterAdd(id);
     });
   };
@@ -163,7 +192,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item, callback) => {
     dispatch(addItem(item, callback));
-  } 
+  },
+  editItem: (item, callback) => {
+    dispatch(editItem(item, callback));
+  }
 });
 
 const ConnectedAddEditItemForm = connect(mapStateToProps, mapDispatchToProps)(AddEditItemForm);

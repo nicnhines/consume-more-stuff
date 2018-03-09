@@ -61,7 +61,7 @@ class CategoryList extends Component {
 
   render() {
     if (this.state.redirectToImage) {
-      return <Redirect to={`/images/${this.state.redirectToImage}`} />
+      return <Redirect to={`/items/${this.state.redirectToImage}`} />
     }
 
     const currentCategory = this.props.match.params.category;

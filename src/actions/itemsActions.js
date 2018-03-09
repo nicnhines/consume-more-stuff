@@ -54,7 +54,8 @@ export const editItem = (updatedItem) => {
     .then(updatedItemDetails => {
       dispatch(
         loadSingleItem(updatedItem.id)
-      )
+      );
+      dispatch(loadItems());
     })
     .catch(err => {
       console.log(err)
