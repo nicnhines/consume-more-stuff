@@ -10,7 +10,7 @@ class EditItem extends Component {
     this.state = {  
       showDisplay: false
     }
-
+    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.displayEditForm = this.displayEditForm.bind(this);

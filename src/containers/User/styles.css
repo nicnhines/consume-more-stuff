@@ -32,25 +32,35 @@
       text-transform: uppercase;
       padding: 20px;
       height: 40%;
-      width: 20%; }
+      width: 20%;
+      cursor: pointer; }
       .user-profile-container .header .add_item_button:hover {
         color: grey; }
 
-.main {
+.sell-sold {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 15rem;
+  margin-top: 2rem; }
+  .sell-sold button {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer; }
+    .sell-sold button:hover {
+      color: grey; }
+
+.main {
+  display: flex;
   justify-content: center; }
-  .main .sell-sold {
-    display: flex;
-    flex-direction: row; }
   .main .item-container {
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 0;
-    margin-right: 0;
-    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-top: 0;
     margin-bottom: 13rem;
     margin-left: 10px;
     height: 100%;
@@ -58,7 +68,6 @@
     overflow: auto;
     white-space: nowrap; }
     .main .item-container .slider {
-      border: 1px solid green;
       display: flex;
       width: 60rem;
       transition: transform 450ms;
@@ -72,13 +81,11 @@
           opacity: 1; }
       .main .item-container .slider .slider:hover {
         transform: translate3d(-80px, 0, 0); }
-      .main .item-container .slider .slider:hover
-.item-list-container {
+      .main .item-container .slider .slider:hover .item-list-container {
         opacity: 0.3; }
       .main .item-container .slider .item-list-container:hover ~ .item-list-container {
         transform: translate3d(160px, 0, 0); }
       .main .item-container .slider .item-list-container {
-        border: 1px solid purple;
         position: relative;
         display: inline-block;
         width: 400px;
@@ -109,7 +116,10 @@
           position: absolute;
           bottom: 0;
           padding: 10px;
-          color: white; }
+          color: white;
+          opacity: 0; }
+          .main .item-container .slider .item_detail .item_title:hover {
+            opacity: 1; }
 
 .add_item_form_container {
   display: flex;

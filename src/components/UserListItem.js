@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserListItem = ({ id, item, title, user_id }) => {
+const UserListItem = ({ id, item, title,status, user_id }) => {
+  
   return (
+
     <div className="item-list-container">
     <Link to={`/items/${item.id}`}>
-        <img  className="img_detail" src = {item.image_url} />
+        <img  className="img_detail" src = {item.image_url} alt="" />
         <div className="item_detail">
+          {item.status}
           <div className="item_title">
             {item.title}
           </div>

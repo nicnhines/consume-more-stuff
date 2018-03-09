@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadSingleUser } from '../../actions/usersActions';
 import { loadItems } from '../../actions/itemsActions';
-import { Link, Redirect } from 'react-router-dom';
 
 import UserListItem from '../../components/UserListItem';
 import ConnectedAddItemForm from '../AddItemForm';
@@ -14,13 +13,27 @@ class User extends Component {
     this.state = {
       displayAddForm: false,
       id: this.props.id,
-      sold: false 
+      status: this.props.status,
+      filter: ""
     }
+    
   }
 
-  displaySellOrSold(event) {
+  displayAllItems(event) {
+    this.setState({
+      filter: ""
+    })
+  }
+
+  displaySold(event) {
+    this.setState({
+      filter: "sold"
+    })
+  }
+
+  displaySell(event) {
     this.setState ({
-      sold:true
+      filter: "published"
     })
   }
 
@@ -38,22 +51,30 @@ class User extends Component {
   componentWillMount() {
     const userId = this.props.match.params.id;
     this.props.loadSingleUser(userId)
-    this.props.loadItems();
   }
 
   render() {
-    const userId = this.props.match.params.singleUser;
-    const items = this.props.items.filter(item => {
-
-      return item.user_id === this.props.singleUser.id;
-    });
-    const UserItem = items.map(item => {
-      return <UserListItem key={item.id} item={item} />
-    });
-
-    const status = this.props.items.status;
-    console.log('status', this.props.status)
-
+    if(!this.props.singleUser.id) {
+      return <div></div>;
+    }
+    let items = this.props.singleUser.items;
+    console.log('items',items)
+    let sellView = this.state.filter;
+    
+    const UserItem = items.filter(item => {
+      if(this.state.filter === "published"){ 
+      return item.status === "published";
+      } if(this.state.filter === "sold") {
+        return item.status === "sold";
+      }
+      if(this.state.filter === "") {
+        return item;
+      }
+    })
+    .map(item => {
+          return <UserListItem key={item.id} item={item} />
+      });
+    
     return (
       <div className="user-profile-container">
         <div className="header">
@@ -62,15 +83,16 @@ class User extends Component {
         </div>
         {this.state.displayAddForm && <div className="form-bg">
           <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
-        <div className="main">
-        <div className="sell-sold">
-        <button>selling</button>
-        <button>sold</button>
+        <div id="sell-sold" className="sell-sold">
+          <button onClick={this.displaySell.bind(this)}>all</button>
+          <button onClick={this.displaySold.bind(this)}>sold</button>
+          <button onClick={this.displaySell.bind(this)}>selling</button>
         </div>
+        <div className="main">
           <div className="item-container">
             <div className='slider'>
-            { UserItem }
-            </div>
+              { UserItem }
+            </div>           
           </div>
         </div>
       </div>

@@ -10,7 +10,8 @@ class CategoryList extends Component {
     super(props);
 
     this.state = {
-      displayAddForm: false
+      displayAddForm: false,
+      redirectToImage: false
     };
   }
 
@@ -31,10 +32,14 @@ class CategoryList extends Component {
   hideAddForm(event) {
     setTimeout(() => {
       this.setState({
-        displayAddForm: false
+        displayAddForm: false,
       });
     }, 500);
     document.getElementById(`add_item_form`).className += ` fadeout`;
+  }
+
+  handleRedirectAfterAdd(id) {
+    this.setState({ redirectToImage: id });
   }
 
   handleScroll() {
@@ -55,18 +60,26 @@ class CategoryList extends Component {
   }
 
   render() {
+    if (this.state.redirectToImage) {
+      return <Redirect to={`/images/${this.state.redirectToImage}`} />
+    }
+
     const currentCategory = this.props.match.params.category;
     const aboutParagraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in consectetur leo, quis tempus sem. Nunc volutpat enim at tempor tempor. Ut augue odio, tempus sed dui et, ullamcorper consectetur sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie et tortor eu dapibus. Nullam eu posuere erat, suscipit euismod nunc. Aliquam fringilla a ante vitae viverra. In non vestibulum elit, eu molestie augue.`;
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
-    const url = items.length ? items[0].image_url : `test`;
+    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`
 
     return (
       <div className='category_list_container'>
         {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
-          <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
+          <ConnectedAddItemForm 
+            hideAddForm={this.hideAddForm.bind(this)} 
+            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
+            currentCategory={currentCategory}
+          /></div>}
         <div id='main_image'
           className='category_main_image'
           style={{ backgroundImage: `url(${url})` }}>

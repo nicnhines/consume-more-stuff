@@ -15,8 +15,6 @@ $tileHeight: ($tileWidth / (16/9));
 $growFactor: 1.4;
 $moveLeft: -($tileWidth * ($growFactor - 1) / 2);
 $moveRight: $tileWidth *($growFactor - 1);
-
-
 .user-profile-container {
   display: flex;
   flex-direction: column;
@@ -53,6 +51,7 @@ $moveRight: $tileWidth *($growFactor - 1);
       padding: 20px;
       height: 40%;
       width: 20%;
+      cursor: pointer;
       &:hover {
         color: grey;
       }
@@ -60,22 +59,33 @@ $moveRight: $tileWidth *($growFactor - 1);
   }
 }
 
-.main {
+.sell-sold {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  .sell-sold {
-    display: flex;
-    flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 15rem;
+  margin-top: 2rem;
+  button {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover {
+      color: grey;
+    }
   }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
   .item-container {
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 0;
-    margin-right: 0;
-    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-top: 0;
     margin-bottom: 13rem;
     margin-left: 10px;
     height: 100%;
@@ -83,9 +93,7 @@ $moveRight: $tileWidth *($growFactor - 1);
     overflow: auto;
     white-space: nowrap;
     .slider {
-      border: 1px solid green;
       display: flex;
-      
       width: 60rem;
       transition: (transform 450ms);
       white-space: nowrap;
@@ -101,16 +109,13 @@ $moveRight: $tileWidth *($growFactor - 1);
       .slider:hover {
         transform: translate3d($moveLeft, 0, 0);
       }
-      .slider:hover
-      .item-list-container {
+      .slider:hover .item-list-container {
         opacity: 0.3;
       }
-    
       .item-list-container:hover~.item-list-container {
         transform: translate3d($moveRight, 0, 0)
       }
       .item-list-container {
-        border: 1px solid purple;
         position: relative;
         display: inline-block;
         width: $tileWidth;
@@ -130,6 +135,7 @@ $moveRight: $tileWidth *($growFactor - 1);
         width: $tileWidth;
         height: $tileHeight;
         object-fit: cover;
+        &:hover {}
       }
       .item_detail {
         position: absolute;
@@ -145,6 +151,10 @@ $moveRight: $tileWidth *($growFactor - 1);
           bottom: 0;
           padding: 10px;
           color: white;
+          opacity: 0;
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }
