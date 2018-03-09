@@ -70,7 +70,7 @@ class CategoryList extends Component {
       return <Redirect to='/' />;
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
-    const url = items.length ? items[0].image_url : `test`;
+    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`
 
     return (
       <div className='category_list_container'>
