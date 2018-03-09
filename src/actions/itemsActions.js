@@ -28,14 +28,17 @@ export const loadSingleItem = (id) => {
   }
 }
 
-export const addItem = (newItem) => {
+export const addItem = (newItem, callback) => {
   return dispatch => {
-    console.log(newItem.imageFile);
-   Axios.post(HOST, newItem)
-   .then(newItemDetails => {
+    Axios.post(HOST, newItem)
+    .then(newItemDetails => {
       if(newItemDetails.data && newItemDetails.data.id) {
-         return dispatch(loadItems())
+         dispatch(loadItems());
+         return newItemDetails.data.id
       }
+    })
+    .then(id => {
+      callback(id);
     })
     .catch((err) => {
       console.log(err.response);

@@ -12,13 +12,14 @@ class AddItemForm extends Component {
       description: '',
       price: ``,
       condition: '',
-      category: '',
+      category: this.props.currentCategory,
+      imageFile: ``,
       titleError: false,
       descriptionError: false,
       priceError: false,
       conditionError: false,
       categoryError: false,
-      imageFile: ``
+      imageFileError: false
     };
   };
 
@@ -47,9 +48,10 @@ class AddItemForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     let isError = false;
-    const inputs = [`title`, `description`, `price`, `condition`, `category`];
+    const inputs = [`title`, `description`, `price`, `condition`, `category`, `imageFile`];
     inputs.forEach(input => {
       if (!this.state[input]) {
+        console.log(input);
         this.setState({ [`${input}Error`]: true });
         isError = true;
       }
@@ -59,14 +61,8 @@ class AddItemForm extends Component {
       return;
     }
 
-    this.props.addItem(this.state)
-    this.setState({
-      title: '',
-      description: '',
-      price: '',
-      condition: '',
-      category: '',
-      image_url: ''
+    this.props.addItem(this.state, (id) => {
+      this.props.redirectAfterAdd(id);
     });
   };
 
@@ -84,7 +80,7 @@ class AddItemForm extends Component {
               onChange={this.handleChange.bind(this)} 
               className={this.state.titleError ? `input_error` : ``} />
               {this.state.titleError &&
-                <p className='add_item_form_error'>required</p>}
+                <p className='add_item_form_error'>required *</p>}
           </div>
           <div className='form_input_container'>
             <input
@@ -95,15 +91,17 @@ class AddItemForm extends Component {
               onChange={this.handleChange.bind(this)}
               className={this.state.descriptionError ? `input_error` : ``} />
               {this.state.descriptionError &&
-                <p className='add_item_form_error'>required</p>}
+                <p className='add_item_form_error'>required *</p>}
           </div>
           <div className='condition_category_container'>
             <input
               type="number"
+              min='0'
+              step='1'
               name="price"
               placeholder="PRICE"
               value={this.state.price}
-              onChange={this.handleChange.bind(this)} 
+              onChange={this.handleChange.bind(this)}
               className={this.state.priceError ? `input_error` : ``} />
             <select
               name="condition"
@@ -119,7 +117,7 @@ class AddItemForm extends Component {
             </select>
             <select
               name="category"
-              value={this.state.category}
+              defaultValue={this.state.category}
               onChange={this.handleChange.bind(this)}
               className={this.state.categoryError ? `input_error` : ``} >
               <option value="">CATEGORY</option>
@@ -135,6 +133,8 @@ class AddItemForm extends Component {
             name='file'
             accept='image/*'
             onChange={this.handleImageChange.bind(this)} />
+          {this.state.imageFileError &&
+              <p className='add_item_form_error_image'>required *</p>}
           <input
             type='submit'
             value='SUBMIT' />
@@ -151,10 +151,14 @@ class AddItemForm extends Component {
 };
 
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  categories: state.items.categories
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  addItem: item => dispatch(addItem(item))
+  addItem: (item, callback) => {
+    dispatch(addItem(item, callback));
+  } 
 });
 
 const ConnectedAddItemForm = connect(mapStateToProps, mapDispatchToProps)(AddItemForm);
