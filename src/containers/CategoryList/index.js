@@ -93,7 +93,7 @@ class CategoryList extends Component {
         </div>
         <div id='category_header' className='category_header'>
           <span className='all_items_button'>all items</span>
-          <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
+          {localStorage.getItem(`user_id`) && <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>}
           <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
         </div>
         <div className='category_list_items_container'>

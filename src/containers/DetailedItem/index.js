@@ -77,7 +77,7 @@ class DetailedItemPage extends Component {
               className='back_to_category'>
               {`\u2190back to ${category}`}
             </Link>
-            <p onClick={this.displayEditForm}>Edit Item</p>
+            {localStorage.getItem(`user_id`) && <p onClick={this.displayEditForm}>Edit Item</p>}
           </div>
         </div>
       </div>
