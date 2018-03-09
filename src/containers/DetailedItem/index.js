@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editItem, loadSingleItem } from '../../actions/itemsActions'
 
@@ -19,6 +20,7 @@ class EditItem extends Component {
     const itemId = this.props.match.params.id;
     this.props.loadSingleItem(itemId);
   }
+
   displayEditForm(event) {
     this.setState({
       id: this.props.singleItem.id,
@@ -60,6 +62,14 @@ class EditItem extends Component {
     this.hideEditForm();
   }
   render() {
+    const {
+      title,
+      price,
+      condition,
+      description,
+      category
+    } = this.props.singleItem;
+
     if (this.state.showDisplay === false) {
       return (
         <div className="single_item_container">
@@ -74,14 +84,21 @@ class EditItem extends Component {
                 <h4>price</h4>
                 <p>{this.props.singleItem.price}</p>
               </div>
-              <div className="single_item_condition"> <h4>CONDITION</h4><p>{this.props.singleItem.condition}</p></div>
+              <div className="single_item_condition">
+                <h4>CONDITION</h4>
+                <p>{this.props.singleItem.condition}</p>
+              </div>
             </div>
-            <div className="middle-row">
-              <div className="single-item-description">{this.props.singleItem.description}</div>
+            <div className="middle_row">
+              <p>{this.props.singleItem.description}</p>
             </div>
-
-            <div className="edit-item">
-              <button type="Submit" onClick={this.displayEditForm.bind(this)}><strong>EDIT</strong></button>
+            <div className='bottom_row'>
+              <Link 
+                to={`/category/${category}`} 
+                className='back_to_category'>
+                {`\u2190back to ${category}`}
+              </Link>
+              <p onClick={this.displayEditForm}>Edit Item</p>
             </div>
           </div>
         </div>
