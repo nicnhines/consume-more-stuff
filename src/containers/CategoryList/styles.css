@@ -7,7 +7,9 @@
     top: 0;
     left: 65px;
     right: 0;
-    height: 100vh; }
+    height: 100vh;
+    background-size: cover;
+    background-position: center center; }
   .category_list_container .fade_out {
     background-color: black;
     opacity: 0; }

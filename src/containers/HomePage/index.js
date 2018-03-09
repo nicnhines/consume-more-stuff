@@ -7,7 +7,7 @@ class HomePage extends Component {
     super(props);
 
     this.state = {
-      currentCategory: `light fixtures`
+      currentCategory: `lighting`
     }
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -30,7 +30,7 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
-
+    
     return (
       <div className='home_page_container'>
         <div 

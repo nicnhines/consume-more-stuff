@@ -123,11 +123,10 @@ class AddItemForm extends Component {
               onChange={this.handleChange.bind(this)}
               className={this.state.categoryError ? `input_error` : ``} >
               <option value="">CATEGORY</option>
-              <option value="light fixtures">Light Fixtures</option>
+              <option value="lighting">Lighting</option>
               <option value="art">Art</option>
               <option value="furniture">Furniture</option>
               <option value="jewelry">Jewelry</option>
-              <option value="sculptures">Sculptures</option>
               <option value="scarves">Scarves</option>
             </select>
           </div>
