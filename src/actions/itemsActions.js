@@ -32,8 +32,9 @@ export const loadSingleItem = id => {
 
 export const addItem = (newItem) => {
   return dispatch => {
-    return Axios.post(HOST, newItem)
-    .then(newItemDetails => {
+    console.log(newItem.imageFile);
+   Axios.post(HOST, newItem)
+   .then(newItemDetails => {
       if(newItemDetails.data && newItemDetails.data.id) {
         dispatch(loadItems())
       }

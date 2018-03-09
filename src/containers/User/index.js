@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { loadSingleUser } from '../../actions/usersActions';
 import { loadItems } from '../../actions/itemsActions';
 import { Link, Redirect } from 'react-router-dom';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import UserListItem from '../../components/UserListItem';
 import ConnectedAddItemForm from '../AddItemForm';
@@ -16,7 +15,8 @@ class User extends Component {
       displayAddForm: false,
       itemsInView: this.props.itemsInView,
       active: this.props.active,
-      direction: ''
+      direction: '',
+      id: this.props.id
     }
     this.rightClick = this.moveRight.bind(this)
     this.leftClick = this.moveLeft.bind(this)
@@ -73,13 +73,11 @@ class User extends Component {
         </div>
         {this.state.displayAddForm && <div className="form-bg">
           <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
-        <div className="item-container">
-          <div className="arrow arrow-left" onClick={this.leftClick}>
-          <button>left</button>
-          </div> 
-              { UserItem }
-          <div className="arrow arrow-right" onClick={this.rightClick}>
-          <button>right</button>
+        <div className="main">
+          <div className="item-container">
+          <div className='slider'>
+            { UserItem }
+            </div>
           </div>
         </div>
       </div>
