@@ -8,7 +8,6 @@ export const loadSingleUser = id => {
   return dispatch => {
     return Axios.get(`${HOST}/${id}`)
     .then(user => {
-      console.log(`USER`, user)
       dispatch({
         type: LOAD_SINGLE_USER,
         user: user.data

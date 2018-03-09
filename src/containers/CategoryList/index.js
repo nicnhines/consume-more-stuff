@@ -12,7 +12,7 @@ class CategoryList extends Component {
     this.state = {
       displayAddForm: false,
       redirectToImage: false,
-      search: ''
+      search: ``
     };
   }
 
@@ -42,14 +42,16 @@ class CategoryList extends Component {
   handleRedirectAfterAdd(id) {
     this.setState({ redirectToImage: id });
   }
+
   updateSearch(event) {
     this.setState({
       search: event.target.value
     });
   }
+
   reset() {
     this.setState({
-      search: ''
+      search: ``
     });
   }
 
@@ -81,11 +83,11 @@ class CategoryList extends Component {
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;
     }
+    
     const items = this.props.items.filter(item => item.category === currentCategory)
-      .filter(item => {
-        return item.title.indexOf(this.state.search) !== -1 || item.description.indexOf(this.state.search) !== -1
-      });
-
+    .filter(item => {
+      return item.title.indexOf(this.state.search) !== -1 || item.description.indexOf(this.state.search) !== -1
+    });
     const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`;
 
 
@@ -110,7 +112,7 @@ class CategoryList extends Component {
         </div>
         <div id='category_header' className='category_header'>
           <span className='all_items_button' onClick={this.reset.bind(this)}>all items</span>
-          <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
+          {localStorage.getItem(`user_id`) && <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>}
           <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} value={this.state.search} onChange={this.updateSearch.bind(this)} />
         </div>
         <div className='category_list_items_container'>
