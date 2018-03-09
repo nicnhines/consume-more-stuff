@@ -13,28 +13,14 @@ class User extends Component {
 
     this.state = {
       displayAddForm: false,
-      itemsInView: this.props.itemsInView,
-      active: this.props.active,
-      direction: '',
-      id: this.props.id
+      id: this.props.id,
+      sold: false 
     }
-    this.rightClick = this.moveRight.bind(this)
-    this.leftClick = this.moveLeft.bind(this)
-  }
-  moveLeft() {
-    let newActive = this.state.active
-    newActive--
-    this.setState({
-      active: newActive < 0 ? this.state.itemsInView.length - 1 : newActive,
-      direction: 'left'
-    })
   }
 
-  moveRight() {
-    let newActive = this.state.active
-    this.setState({
-      active: (newActive + 1) % this.state.itemsInView.length,
-      direction: 'right'
+  displaySellOrSold(event) {
+    this.setState ({
+      sold:true
     })
   }
 
@@ -63,7 +49,10 @@ class User extends Component {
     });
     const UserItem = items.map(item => {
       return <UserListItem key={item.id} item={item} />
-    })
+    });
+
+    const status = this.props.items.status;
+    console.log('status', this.props.status)
 
     return (
       <div className="user-profile-container">
@@ -74,8 +63,12 @@ class User extends Component {
         {this.state.displayAddForm && <div className="form-bg">
           <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
         <div className="main">
+        <div className="sell-sold">
+        <button>selling</button>
+        <button>sold</button>
+        </div>
           <div className="item-container">
-          <div className='slider'>
+            <div className='slider'>
             { UserItem }
             </div>
           </div>

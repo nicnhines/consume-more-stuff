@@ -1,32 +1,22 @@
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100%;
-  font-family: 'LightWebFont'; }
-
 .user-profile-container {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: #EBEBEB;
-  border: 1px solid red;
   margin: 0 auto; }
   .user-profile-container .header {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     width: 100%;
-    height: 5rem;
-    border: 1px solid #16168f; }
+    height: 3rem;
+    border-bottom: 1px solid white; }
     .user-profile-container .header .single-user-username {
-      border: 1px solid black;
       font-size: 12px;
       text-transform: uppercase;
+      text-align: center;
       font-weight: 600;
       margin-bottom: .4em;
       color: #000;
@@ -37,40 +27,43 @@ body,
       height: 40%;
       padding: 20px; }
     .user-profile-container .header .add_item_button {
-      border: 1px solid black;
       display: flex;
       text-align: center;
       text-transform: uppercase;
       padding: 20px;
       height: 40%;
       width: 20%; }
+      .user-profile-container .header .add_item_button:hover {
+        color: grey; }
 
 .main {
   display: flex;
   flex-direction: row;
   justify-content: center; }
+  .main .sell-sold {
+    display: flex;
+    flex-direction: row; }
   .main .item-container {
+    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 9rem;
+    margin-top: 5rem;
     margin-bottom: 13rem;
     margin-left: 10px;
     height: 100%;
-    border: 1px solid green;
-    width: 70%;
+    width: 99%;
     overflow: auto;
     white-space: nowrap; }
     .main .item-container .slider {
+      border: 1px solid green;
       display: flex;
-      border: 1px solid red;
-      justify-content: center;
-      width: 80rem;
+      width: 60rem;
       transition: transform 450ms;
       white-space: nowrap;
-      margin: 70.3125px 0;
+      margin: 112.5px 0;
       padding-bottom: 10px; }
       .main .item-container .slider .slider:hover .item-list-container {
         opacity: 0.3; }
@@ -78,15 +71,18 @@ body,
           transform: scale(1.4);
           opacity: 1; }
       .main .item-container .slider .slider:hover {
-        transform: translate3d(-50px, 0, 0); }
+        transform: translate3d(-80px, 0, 0); }
+      .main .item-container .slider .slider:hover
+.item-list-container {
+        opacity: 0.3; }
       .main .item-container .slider .item-list-container:hover ~ .item-list-container {
-        transform: translate3d(100px, 0, 0); }
+        transform: translate3d(160px, 0, 0); }
       .main .item-container .slider .item-list-container {
-        position: relative;
         border: 1px solid purple;
+        position: relative;
         display: inline-block;
-        width: 250px;
-        height: 140.625px;
+        width: 400px;
+        height: 225px;
         margin-right: 10px;
         font-size: 20px;
         cursor: pointer;
@@ -97,8 +93,8 @@ body,
           transform: scale(1.4);
           box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.3); }
       .main .item-container .slider img {
-        width: 250px;
-        height: 140.625px;
+        width: 400px;
+        height: 225px;
         object-fit: cover; }
       .main .item-container .slider .item_detail {
         position: absolute;
@@ -108,7 +104,7 @@ body,
         top: 0;
         opacity: 0.9;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-        transition: 450ms opacity 1; }
+        transition: 450ms opacity 0; }
         .main .item-container .slider .item_detail .item_title {
           position: absolute;
           bottom: 0;
