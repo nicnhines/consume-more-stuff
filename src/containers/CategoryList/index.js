@@ -76,7 +76,8 @@ class CategoryList extends Component {
     }
 
     const currentCategory = this.props.match.params.category;
-    const aboutParagraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in consectetur leo, quis tempus sem. Nunc volutpat enim at tempor tempor. Ut augue odio, tempus sed dui et, ullamcorper consectetur sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie et tortor eu dapibus. Nullam eu posuere erat, suscipit euismod nunc. Aliquam fringilla a ante vitae viverra. In non vestibulum elit, eu molestie augue.`;
+    const aboutParagraph = `We are a curator of design, taste and style in the luxury lifestyle market, offering furniture, lighting, art, jewelry and scarves. Our collection of timeless, updated classics provide a unique point of view and an unmatched combination of inspired deisn and unparalleled quality.`;
+    
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;
     }
