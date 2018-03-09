@@ -77,7 +77,9 @@ class CategoryList extends Component {
         {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
           <ConnectedAddItemForm 
             hideAddForm={this.hideAddForm.bind(this)} 
-            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} /></div>}
+            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
+            currentCategory={currentCategory}
+          /></div>}
         <div id='main_image'
           className='category_main_image'
           style={{ backgroundImage: `url(${url})` }}>
