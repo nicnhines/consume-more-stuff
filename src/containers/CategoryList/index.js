@@ -71,7 +71,7 @@ class CategoryList extends Component {
     }
     const items = this.props.items.filter(item => item.category === currentCategory);
     const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`
-
+    const title = items.title;
     return (
       <div className='category_list_container'>
         {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
@@ -98,7 +98,7 @@ class CategoryList extends Component {
         </div>
         <div className='category_list_items_container'>
           {items.map(item =>
-            <CategoryListItem key={item.id} item={item} />
+            <CategoryListItem key={item.id} item={item}/>
           )}
         </div>
       </div>
