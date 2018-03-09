@@ -11,7 +11,8 @@ class CategoryList extends Component {
 
     this.state = {
       displayAddForm: false,
-      redirectToImage: false
+      redirectToImage: false,
+      search: ''
     };
   }
 
@@ -41,6 +42,16 @@ class CategoryList extends Component {
   handleRedirectAfterAdd(id) {
     this.setState({ redirectToImage: id });
   }
+  updateSearch(event) {
+    this.setState({
+      search: event.target.value
+    });
+  }
+  reset() {
+    this.setState({
+      search: ''
+    });
+  }
 
   handleScroll() {
     const header = document.getElementById(`category_header`);
@@ -69,15 +80,20 @@ class CategoryList extends Component {
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;
     }
-    const items = this.props.items.filter(item => item.category === currentCategory);
-    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`
-    const title = items.title;
+    const items = this.props.items.filter(item => item.category === currentCategory)
+      .filter(item => {
+        return item.title.indexOf(this.state.search) !== -1 || item.description.indexOf(this.state.search) !== -1
+      });
+
+    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`;
+
+
     return (
       <div className='category_list_container'>
         {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
-          <ConnectedAddItemForm 
-            hideAddForm={this.hideAddForm.bind(this)} 
-            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
+          <ConnectedAddItemForm
+            hideAddForm={this.hideAddForm.bind(this)}
+            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)}
             currentCategory={currentCategory}
           /></div>}
         <div id='main_image'
@@ -92,13 +108,13 @@ class CategoryList extends Component {
           </div>
         </div>
         <div id='category_header' className='category_header'>
-          <span className='all_items_button'>all items</span>
+          <span className='all_items_button' onClick={this.reset.bind(this)}>all items</span>
           <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
-          <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
+          <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} value={this.state.search} onChange={this.updateSearch.bind(this)} />
         </div>
         <div className='category_list_items_container'>
           {items.map(item =>
-            <CategoryListItem key={item.id} item={item}/>
+            <CategoryListItem key={item.id} item={item} />
           )}
         </div>
       </div>
