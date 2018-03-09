@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 
 import { addItem } from '../../actions/itemsActions';
 
-class AddItemForm extends Component {
+class AddEditItemForm extends Component {
   constructor(props) {
     super(props);
+    
+    const isEdit = this.props.isEdit;
 
     this.state = {
-      title: '',
-      description: '',
-      price: ``,
-      condition: '',
-      category: this.props.currentCategory,
+      title: isEdit ? this.props.singleItem.title : ``,
+      description: isEdit ? this.props.singleItem.description : ``,
+      price: isEdit ? this.props.singleItem.price : ``,
+      condition: isEdit ? this.props.singleItem.condition : ``,
+      category: isEdit ? this.props.singleItem.category : this.props.currentCategory,
       imageFile: ``,
       titleError: false,
       descriptionError: false,
@@ -67,10 +69,12 @@ class AddItemForm extends Component {
   };
 
   render() {
+    const isEdit = this.props.isEdit;
+
     return (
       <div className="add_item_form_container">
         <form className='add_item_form' onSubmit={this.handleSubmit.bind(this)}>
-          <h6>add item</h6>
+          <h6>{isEdit ? `edit item` : `add item`}</h6>
           <div className='form_input_container'>
             <input
               type="text"
@@ -138,7 +142,7 @@ class AddItemForm extends Component {
           <input
             type='submit'
             value='SUBMIT' />
-          <div className='close_button_container' onClick={this.props.hideAddForm}>
+          <div className='close_button_container' onClick={this.props.hideForm}>
             <div className='close_button'>
               <div className='left_x'></div>
               <div className='right_x'></div>
@@ -152,7 +156,8 @@ class AddItemForm extends Component {
 
 
 const mapStateToProps = (state) => ({
-  categories: state.items.categories
+  categories: state.items.categories,
+  singleItem: state.items.singleItem
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -161,6 +166,6 @@ const mapDispatchToProps = (dispatch) => ({
   } 
 });
 
-const ConnectedAddItemForm = connect(mapStateToProps, mapDispatchToProps)(AddItemForm);
+const ConnectedAddEditItemForm = connect(mapStateToProps, mapDispatchToProps)(AddEditItemForm);
 
-export default ConnectedAddItemForm;
+export default ConnectedAddEditItemForm;

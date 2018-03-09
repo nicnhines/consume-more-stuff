@@ -8,7 +8,7 @@ import '../HomePage/styles.css';
 import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
-import '../AddItemForm/styles.css';
+import '../AddEditItemForm/styles.css';
 import '../DetailedItem/styles.css';
 
 import { loadItems } from '../../actions/itemsActions';
