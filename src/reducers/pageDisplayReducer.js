@@ -1,7 +1,7 @@
 import { SET_PAGE_TO_DISPLAY } from '../actions/pageDisplayActions';
 
 const initialState = {
-  currentPage: `homePage`
+  currentPage: `singleItemPage`
 }
 
 export default (state = initialState, action = {}) => {

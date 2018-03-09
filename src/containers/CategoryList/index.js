@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import CategoryListItem from '../../components/CategoryListItem';
-import ConnectedAddItemForm from '../AddItemForm';
+import ConnectedAddEditItemForm from '../AddEditItemForm';
 
 class CategoryList extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class CategoryList extends Component {
         displayAddForm: false,
       });
     }, 500);
-    document.getElementById(`add_item_form`).className += ` fadeout`;
+    document.getElementById(`add_edit_item_form`).className += ` fadeout`;
   }
 
   handleRedirectAfterAdd(id) {
@@ -61,7 +61,7 @@ class CategoryList extends Component {
 
   render() {
     if (this.state.redirectToImage) {
-      return <Redirect to={`/images/${this.state.redirectToImage}`} />
+      return <Redirect to={`/items/${this.state.redirectToImage}`} />
     }
 
     const currentCategory = this.props.match.params.category;
@@ -74,9 +74,9 @@ class CategoryList extends Component {
 
     return (
       <div className='category_list_container'>
-        {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
-          <ConnectedAddItemForm 
-            hideAddForm={this.hideAddForm.bind(this)} 
+        {this.state.displayAddForm && <div className="form-bg" id='add_edit_item_form'>
+          <ConnectedAddEditItemForm 
+            hideForm={this.hideAddForm.bind(this)} 
             redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
             currentCategory={currentCategory}
           /></div>}
