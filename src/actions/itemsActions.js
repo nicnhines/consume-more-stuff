@@ -48,7 +48,7 @@ export const addItem = (newItem, callback) => {
   }
 }
 
-export const editItem = (updatedItem) => {
+export const editItem = (updatedItem, callback) => {
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
     .then(updatedItemDetails => {
@@ -56,6 +56,9 @@ export const editItem = (updatedItem) => {
         loadSingleItem(updatedItem.id)
       );
       dispatch(loadItems());
+    })
+    .then(() => {
+      callback();
     })
     .catch(err => {
       console.log(err)

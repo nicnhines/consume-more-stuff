@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ConnectedAddEditItemForm from '../AddEditItemForm';
 import { editItem, loadSingleItem } from '../../actions/itemsActions'
 
-class EditItem extends Component {
+class DetailedItemPage extends Component {
   constructor(props) {
     super(props);
 
@@ -104,5 +104,5 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditItem);
+)(DetailedItemPage);
 
