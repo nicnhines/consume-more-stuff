@@ -5,6 +5,7 @@ const Redis = require(`connect-redis`)(session);
 const bodyParser = require(`body-parser`);
 const server = express();
 const apiRouter = require('./api');
+const path = require(`path`);
 
  
 const PORT = process.env.PORT || 8080;
@@ -24,6 +25,10 @@ server.use(passport.initialize());
 server.use(passport.session());
 
 server.use('/api', apiRouter);
+
+server.use(`*`, (req, res) => {
+  res.sendFile(path.join(__dirname, `..`, `public`, `index.html`));
+});
 
 
 server.listen(PORT, () => {
