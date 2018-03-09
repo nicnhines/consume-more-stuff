@@ -9,6 +9,8 @@
     left: 65px;
     right: 0;
     height: 100vh;
+    background-size: cover;
+    background-position: center center;
   }
 
   .fade_out {
@@ -107,10 +109,29 @@
 
     .item_container {
       position: relative;
-      height: 270px;
+      height: 400px;
       width: 50%;
       background: #EBEBEB;
       border-bottom: 1px solid white;
+      background-size: cover;
+      background-position: center center;
+      text-decoration: none;
+
+      p {
+        margin-top: 0;
+        text-transform: uppercase;
+        color: white;
+        mix-blend-mode: difference;
+        font-size: 14px;
+        margin-top: 2%;
+        margin-left: 2%;
+        opacity: 0;
+        text-decoration: none;
+      }
+
+      &:hover > p {
+        opacity: 1;
+      }
 
       &:nth-child(2n) {
         border-left: 1px solid white;
@@ -121,22 +142,22 @@
       }
     }
   }
+}
 
-  .form-bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background: #EBEBEB;
-    z-index: 20;
-    animation: fadein .4s ease-out;
+.form-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #EBEBEB;
+  z-index: 20;
+  animation: fadein .4s ease-out;
 
-    &.fadeout {
-      animation: fadeout .6s ease-out;
-    }
+  &.fadeout {
+    animation: fadeout .6s ease-out;
   }
 }
 

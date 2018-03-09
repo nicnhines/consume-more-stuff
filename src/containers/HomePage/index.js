@@ -7,10 +7,44 @@ class HomePage extends Component {
     super(props);
 
     this.state = {
-      currentCategory: `electronics`
+      currentCategory: `lighting`
     }
 
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.delay = false;
+  }
+
+  componentDidMount() {
+    document.getElementById(`home_page_container`).addEventListener(`wheel`, this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    document.getElementById(`home_page_container`).removeEventListener(`wheel`, this.handleScroll.bind(this));
+  }
+
+  handleScroll(event) {
+    if (this.delay) {
+      event.preventDefault();
+      return;
+    }
+
+    this.delay = true;
+    setTimeout(() => {
+      this.delay = false;
+    }, 1500);
+
+    const categories = this.props.categories;
+    const index = categories.indexOf(this.state.currentCategory);
+
+    if (event.deltaY > 0) {
+      this.setState({ currentCategory: categories[(index + 1)  % categories.length] });
+    } else {
+      let nextIndex = index - 1;
+      if (nextIndex < 0) {
+        nextIndex = categories.length - 1;
+      }
+      this.setState({ currentCategory: categories[nextIndex] });
+    }
   }
 
   handleCategoryChange(event) {
@@ -30,13 +64,13 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
-
+    let url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${this.state.currentCategory}.jpg`
     return (
-      <div className='home_page_container'>
+      <div className='home_page_container' id='home_page_container'>
         <div 
           className='background_image'
           style={this.props.items.length ? 
-          {backgroundImage: `url("${this.props.items[0].image_url}")`} : null}>
+          {backgroundImage: `url("${url}")`} : null}>
         </div>
         <div className='current_category_content_container'>
           <h2>{this.state.currentCategory}</h2>
