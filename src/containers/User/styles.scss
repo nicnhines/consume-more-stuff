@@ -70,8 +70,11 @@ $moveRight: $tileWidth *($growFactor - 1);
     border: none;
     text-transform: uppercase;
     cursor: pointer;
+    color: inherit;
     &:hover {
+      transition: 0.25s;
       color: grey;
+      text-decoration: underline;
     }
   }
 }
@@ -161,9 +164,3 @@ $moveRight: $tileWidth *($growFactor - 1);
   }
 }
 
-.add_item_form_container {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  align-content: center;
-}

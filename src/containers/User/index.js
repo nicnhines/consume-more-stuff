@@ -79,10 +79,7 @@ class User extends Component {
       <div className="user-profile-container">
         <div className="header">
           <div className="single-user-username"> Welcome {this.props.singleUser.username} </div>
-          <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
         </div>
-        {this.state.displayAddForm && <div className="form-bg">
-          <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
         <div id="sell-sold" className="sell-sold">
           <button onClick={this.displaySell.bind(this)}>all</button>
           <button onClick={this.displaySold.bind(this)}>sold</button>
@@ -121,3 +118,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(User);
+
+
+// <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
+// {this.state.displayAddForm && <div>
+//   <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}

@@ -47,9 +47,12 @@
     background: none;
     border: none;
     text-transform: uppercase;
-    cursor: pointer; }
+    cursor: pointer;
+    color: inherit; }
     .sell-sold button:hover {
-      color: grey; }
+      transition: 0.25s;
+      color: grey;
+      text-decoration: underline; }
 
 .main {
   display: flex;
@@ -120,9 +123,3 @@
           opacity: 0; }
           .main .item-container .slider .item_detail .item_title:hover {
             opacity: 1; }
-
-.add_item_form_container {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  align-content: center; }
