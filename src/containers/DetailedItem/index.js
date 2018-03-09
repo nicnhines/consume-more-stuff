@@ -64,14 +64,17 @@ class EditItem extends Component {
       return (
         <div className="single_item_container">
           <div className="item_content_container">
-            <div 
-              className="item_image"
-              style={{ backgroundImage: `url(${this.props.singleItem.image_url})`}}>
-            </div>
-            <div className="top-row">
-              <div className="single-item-title"><h2>ITEM</h2>{this.props.singleItem.title}</div>
-              <div className="single-item-price"> <h2>PRICE</h2>{this.props.singleItem.price}</div>
-              <div className="single-item-condition"> <h2>CONDITION</h2> {this.props.singleItem.condition}</div>
+            <img className='item_image' src={this.props.singleItem.image_url} />
+            <div className="top_row">
+              <div className="single_item_title">
+                <h4>item</h4>
+                <p>{this.props.singleItem.title}</p>
+              </div>
+              <div className="single_item_price">
+                <h4>price</h4>
+                <p>{this.props.singleItem.price}</p>
+              </div>
+              <div className="single_item_condition"> <h4>CONDITION</h4><p>{this.props.singleItem.condition}</p></div>
             </div>
             <div className="middle-row">
               <div className="single-item-description">{this.props.singleItem.description}</div>

@@ -9,38 +9,6 @@ html, body, #root {
   width: 90%;
   margin: 17px; }
 
-.top-row {
-  border-bottom: white 2px solid;
-  display: flex;
-  justify-content: space-between; }
-  .top-row .single-item-title {
-    font-size: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: .4em;
-    color: #000;
-    font-family: cf_asty,Helvetica,Arial,sans-serif;
-    line-height: 1.4285;
-    letter-spacing: .05em; }
-  .top-row .single-item-price {
-    font-size: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: .4em;
-    color: #000;
-    font-family: cf_asty,Helvetica,Arial,sans-serif;
-    line-height: 1.4285;
-    letter-spacing: .05em; }
-  .top-row .single-item-condition {
-    font-size: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: .4em;
-    color: #000;
-    font-family: cf_asty,Helvetica,Arial,sans-serif;
-    line-height: 1.4285;
-    letter-spacing: .05em; }
-
 .middle-row {
   border-bottom: white 2px solid;
   display: flex;

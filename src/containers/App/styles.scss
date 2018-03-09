@@ -15,42 +15,7 @@ html, body, #root {
   }
 }
 
-.top-row {
-  border-bottom: white 2px solid;
-  display: flex;
-  justify-content: space-between;
 
-.single-item-title {
-  font-size: 8px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: .4em;
-  color: #000;
-  font-family: cf_asty,Helvetica,Arial,sans-serif;
-  line-height: 1.4285;
-  letter-spacing: .05em;
-}
-.single-item-price {
-  font-size: 8px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: .4em;
-  color: #000;
-  font-family: cf_asty,Helvetica,Arial,sans-serif;
-  line-height: 1.4285;
-  letter-spacing: .05em;
-}
-.single-item-condition {
-  font-size: 8px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: .4em;
-  color: #000;
-  font-family: cf_asty,Helvetica,Arial,sans-serif;
-  line-height: 1.4285;
-  letter-spacing: .05em;
-}
-}
 .middle-row {
   border-bottom: white 2px solid;
   display: flex;
