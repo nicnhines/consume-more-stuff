@@ -5,6 +5,7 @@ const handleError = require('../Utilities/errorHandler');
 const isAuthenticated = require('../Utilities/authenticator');
 
 const upload = require(`../Utilities/uploadToBucket`);
+const uploadPromise = require('../Utilities/uploadPromise');
 
 
 module.exports = router;
@@ -84,6 +85,9 @@ router.route('/:id')
     throw new Error(`Forbidden`);
   })
   .then(item => {
+    if (req.body.imageFile) {
+      return uploadPromise(item, req);
+    }
     return item.save(req.body, { require: true });
   })
   .then(item => {

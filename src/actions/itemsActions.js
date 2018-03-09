@@ -3,6 +3,8 @@ const HOST = '/api/items';
 
 export const LOAD_ITEMS = `LOAD_ITEMS`;
 export const LOAD_SINGLE_ITEM = `LOAD_SINGLE_ITEM`;
+export const EDIT_ITEM = `EDIT_ITEM`;
+export const ADD_ITEM = `ADD_ITEM`;
 
 export const loadItems = () => {
   return dispatch => {
@@ -16,7 +18,7 @@ export const loadItems = () => {
   }
 }
 
-export const loadSingleItem = (id) => {
+export const loadSingleItem = id => {
   return dispatch => {
     return Axios.get(`${HOST}/${id}`)
     .then(item => {
@@ -43,5 +45,23 @@ export const addItem = (newItem, callback) => {
     .catch((err) => {
       console.log(err.response);
     });
-  };
-};
+  }
+}
+
+export const editItem = (updatedItem, callback) => {
+  return dispatch => {
+    return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
+    .then(updatedItemDetails => {
+      dispatch(
+        loadSingleItem(updatedItem.id)
+      );
+      dispatch(loadItems());
+    })
+    .then(() => {
+      callback();
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+}

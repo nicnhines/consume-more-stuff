@@ -5,6 +5,51 @@ html, body, #root {
   width: 100%;
   font-family: 'LightWebFont'; }
 
+/* EDIT ITEM FORM */
+.form-background {
+  height: 100%;
+  position: fixed;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 99; }
+
+.edit-item-form {
+  width: 15rem;
+  height: 19rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background: #EBEBEB;
+  align-items: center;
+  box-shadow: 7px 7px 2px 1px rgba(53, 45, 45, 0.164);
+  margin-top: 10rem;
+  transition: 0.3s; }
+  .edit-item-form .inputField {
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    display: flex;
+    background: #EBEBEB;
+    justify-content: center;
+    margin: 0 auto; }
+  .edit-item-form input:focus,
+  .edit-item-form select:focus,
+  .edit-item-form textarea:focus,
+  .edit-item-form button:focus {
+    outline: none; }
+  .edit-item-form .submitButton {
+    display: flex;
+    justify-content: center; }
+  .edit-item-form button {
+    background: none;
+    border: none;
+    transition: 0.2s; }
+  .edit-item-form button:hover {
+    color: grey; }
+  .edit-item-form select {
+    background: none;
+    border: none; }
+
 * {
   box-sizing: border-box; }
 
@@ -15,7 +60,8 @@ html, body, #root {
   .outer_page_container .page_spacer {
     min-width: 65px; }
   .outer_page_container .app_content {
-    width: 100%; }
+    width: 100%;
+    background: #EBEBEB; }
 
 input:focus,
 select:focus,
