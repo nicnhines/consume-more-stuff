@@ -61,12 +61,13 @@ class EditItem extends Component {
   }
   render() {
     if (this.state.showDisplay === false) {
-
       return (
-        <div className="single-item-container">
-          <div className="item-content">
-            <div className="single-item-image">
-              <img src={this.props.singleItem.image_url} /> </div>
+        <div className="single_item_container">
+          <div className="item_content_container">
+            <div 
+              className="item_image"
+              style={{ backgroundImage: `url(${this.props.singleItem.image_url})`}}>
+            </div>
             <div className="top-row">
               <div className="single-item-title"><h2>ITEM</h2>{this.props.singleItem.title}</div>
               <div className="single-item-price"> <h2>PRICE</h2>{this.props.singleItem.price}</div>

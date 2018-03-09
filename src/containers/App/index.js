@@ -9,6 +9,7 @@ import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
 import '../AddItemForm/styles.css';
+import '../DetailedItem/styles.css';
 
 import { loadItems } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
