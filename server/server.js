@@ -5,10 +5,12 @@ const Redis = require(`connect-redis`)(session);
 const bodyParser = require(`body-parser`);
 const server = express();
 const apiRouter = require('./api');
+const path = require(`path`);
 
  
 const PORT = process.env.PORT || 8080;
 
+server.use(express.static(`public`));
 server.use(bodyParser.urlencoded({ limit:'50mb', extended: true }));
 server.use(bodyParser.json({ limit: '50mb' }));
 
@@ -23,6 +25,10 @@ server.use(passport.initialize());
 server.use(passport.session());
 
 server.use('/api', apiRouter);
+
+server.use(`*`, (req, res) => {
+  res.sendFile(path.join(__dirname, `..`, `public`, `index.html`));
+});
 
 
 server.listen(PORT, () => {
