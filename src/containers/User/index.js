@@ -58,8 +58,6 @@ class User extends Component {
       return <div></div>;
     }
     let items = this.props.singleUser.items;
-    console.log('items',items)
-    let sellView = this.state.filter;
     
     const UserItem = items.filter(item => {
       if(this.state.filter === "published"){ 
