@@ -11,21 +11,19 @@
     flex-flow: row;
     justify-content: space-between;
     width: 100%;
-    height: 3rem;
-    border-bottom: 1px solid white; }
+    border-bottom: 1px solid white;
+    padding: 20px; }
     .user-profile-container .header .single-user-username {
       font-size: 12px;
       text-transform: uppercase;
       text-align: center;
       font-weight: 600;
-      margin-bottom: .4em;
       color: #000;
       font-family: 'RegularWebFont';
       line-height: 1.4285;
       letter-spacing: .05em;
       width: 20%;
-      height: 40%;
-      padding: 20px; }
+      height: 40%; }
     .user-profile-container .header .add_item_button {
       display: flex;
       text-align: center;
