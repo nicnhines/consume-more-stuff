@@ -60,8 +60,8 @@ export const editItem = (updatedItem, callback) => {
     .then(() => {
       callback();
     })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-}
+    .catch((err) => {
+      console.log(err.response);
+    });
+  };
+};

@@ -13,5 +13,8 @@ export const loadSingleUser = id => {
         user: user.data
       })
     })
+    .catch(err => {
+      console.log(err)
+    })
   }
 }
