@@ -78,7 +78,7 @@ class CategoryList extends Component {
     }
 
     const currentCategory = this.props.match.params.category;
-    const aboutParagraph = `We are a curator of design, taste and style in the luxury lifestyle market, offering furniture, lighting, art, jewelry and scarves. Our collection of timeless, updated classics provide a unique point of view and an unmatched combination of inspired deisn and unparalleled quality.`;
+    const aboutParagraph = `We are a curator of design, taste and style in the luxury lifestyle market, offering furniture, lighting, art, jewelry and scarves. Our collection of timeless, updated classics provide a unique point of view and an unmatched combination of inspired design and unparalleled quality.`;
     
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;

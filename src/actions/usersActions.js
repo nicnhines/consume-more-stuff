@@ -2,7 +2,6 @@ import Axios from 'axios';
 const HOST = '/api/users'; 
 
 export const LOAD_SINGLE_USER = `LOAD_SINGLE_USER`;
-export const EDIT_USER = `EDIT_USER`;
 
 export const loadSingleUser = id => {
   return dispatch => {
@@ -12,6 +11,9 @@ export const loadSingleUser = id => {
         type: LOAD_SINGLE_USER,
         user: user.data
       })
+    })
+    .catch(err => {
+      console.log(err)
     })
   }
 }
