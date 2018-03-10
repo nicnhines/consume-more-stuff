@@ -17,6 +17,7 @@ export default (state = initialState, action = {}) => {
 
     case ADD_ITEM:
       return { ...state, items: action.item }
+      
 
     case EDIT_ITEM:
       return { ...state, singleItem: action.updatedItem}

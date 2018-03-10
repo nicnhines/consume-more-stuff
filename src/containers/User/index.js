@@ -4,7 +4,6 @@ import { loadSingleUser } from '../../actions/usersActions';
 import { loadItems } from '../../actions/itemsActions';
 
 import UserListItem from '../../components/UserListItem';
-import ConnectedAddItemForm from '../AddItemForm';
 
 class User extends Component {
   constructor(props) {
@@ -16,7 +15,6 @@ class User extends Component {
       status: this.props.status,
       filter: ""
     }
-    
   }
 
   displayAllItems(event) {
@@ -70,8 +68,8 @@ class User extends Component {
       }
     })
     .map(item => {
-          return <UserListItem key={item.id} item={item} />
-      });
+      return <UserListItem key={item.id} item={item} />
+    });
     
     return (
       <div className="user-profile-container">

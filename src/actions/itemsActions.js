@@ -35,20 +35,30 @@ export const addItem = (newItem, callback) => {
     Axios.post(HOST, newItem)
     .then(newItemDetails => {
       if(newItemDetails.data && newItemDetails.data.id) {
-        dispatch(loadItems())
+         dispatch(loadItems());
+         return newItemDetails.data.id
       }
     })
+    .then(id => {
+      callback(id);
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
   }
 }
 
-export const editItem = (updatedItem) => {
+export const editItem = (updatedItem, callback) => {
   return dispatch => {
     return Axios.put(`${HOST}/${updatedItem.id}`, updatedItem)
     .then(updatedItemDetails => {
-      console.log(`itemdata`, updatedItemDetails)
       dispatch(
         loadSingleItem(updatedItem.id)
-      )
+      );
+      dispatch(loadItems());
+    })
+    .then(() => {
+      callback();
     })
     .catch((err) => {
       console.log(err.response);

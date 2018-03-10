@@ -9,8 +9,8 @@ import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
 import '../User/styles.css'
-import '../AddItemForm/styles.css';
-import '../EditItem/styles.css';
+import '../AddEditItemForm/styles.css';
+import '../DetailedItem/styles.css';
 
 import { loadItems } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
@@ -22,8 +22,8 @@ import CategoryList from '../CategoryList';
 import LoginPage from '../LoginPage';
 import RegistrationPage from '../RegistrationPage';
 import NotFound from '../../components/NotFound';
-import EditItem from '../EditItem';
 import User from '../User';
+import DetailedItem from '../DetailedItem';
 
 class App extends Component {
   
@@ -40,8 +40,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
-            <Route exact path="/items/:id" component={EditItem}/>
             <Route path="/users/:id" component={User}/>
+            <Route exact path="/items/:id" component={DetailedItem}/>
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/register' component={RegistrationPage} />
             <Route component={NotFound} />
