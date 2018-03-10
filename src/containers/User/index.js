@@ -46,6 +46,7 @@ class User extends Component {
       displayAddForm: false
     });
   }
+  
   componentWillMount() {
     const userId = this.props.match.params.id;
     this.props.loadSingleUser(userId)
@@ -55,17 +56,10 @@ class User extends Component {
     if(!this.props.singleUser.id) {
       return <div></div>;
     }
+
     let items = this.props.singleUser.items;
-    
     const UserItem = items.filter(item => {
-      if(this.state.filter === "published"){ 
-      return item.status === "published";
-      } if(this.state.filter === "sold") {
-        return item.status === "sold";
-      }
-      if(this.state.filter === "") {
-        return item;
-      }
+      return item.status.includes(this.state.filter);
     })
     .map(item => {
       return <UserListItem key={item.id} item={item} />
@@ -93,13 +87,13 @@ class User extends Component {
   }
 }
 
-
 const mapStateToProps = state => {
   return {
     items: state.items.items,
     singleUser: state.users.singleUser
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     loadSingleUser: (id) => {
@@ -110,12 +104,8 @@ const mapDispatchToProps = dispatch => {
     }
   }
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(User);
-
-
-// <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>
-// {this.state.displayAddForm && <div>
-//   <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
