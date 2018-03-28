@@ -71,6 +71,7 @@ $moveRight: $tileWidth *($growFactor - 1);
     text-transform: uppercase;
     cursor: pointer;
     color: inherit;
+    transition: 0.25s;
     &:hover {
       transition: 0.25s;
       color: grey;

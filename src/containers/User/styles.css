@@ -46,7 +46,8 @@
     border: none;
     text-transform: uppercase;
     cursor: pointer;
-    color: inherit; }
+    color: inherit;
+    transition: 0.25s; }
     .sell-sold button:hover {
       transition: 0.25s;
       color: grey;

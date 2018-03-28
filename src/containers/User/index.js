@@ -4,6 +4,7 @@ import { loadSingleUser } from '../../actions/usersActions';
 import { loadItems } from '../../actions/itemsActions';
 
 import UserListItem from '../../components/UserListItem';
+import ConnectedAddEditItemForm from '../AddEditItemForm';
 
 class User extends Component {
   constructor(props) {
@@ -42,9 +43,16 @@ class User extends Component {
   }
 
   hideAddForm(event) {
-    this.setState({
-      displayAddForm: false
-    });
+    setTimeout(() => {
+      this.setState({
+        displayAddForm: false,
+      });
+    }, 500);
+    document.getElementById(`add_edit_item_form`).className += ` fadeout`;
+  }
+
+  handleRedirectAfterAdd(id) {
+    this.setState({ redirectToImage: id });
   }
   
   componentWillMount() {
@@ -69,6 +77,12 @@ class User extends Component {
       <div className="user-profile-container">
         <div className="header">
           <div className="single-user-username"> Welcome {this.props.singleUser.username} </div>
+          {localStorage.getItem(`user_id`) && <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>}
+          {this.state.displayAddForm && <div className="form-bg" id='add_edit_item_form'>
+          <ConnectedAddEditItemForm 
+            hideForm={this.hideAddForm.bind(this)} 
+            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
+          /></div>}
         </div>
         <div id="sell-sold" className="sell-sold">
           <button onClick={this.displaySell.bind(this)}>all</button>
