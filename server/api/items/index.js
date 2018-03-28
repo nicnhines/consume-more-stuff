@@ -4,6 +4,10 @@ const Item = require('../../db/models/Item.js');
 const handleError = require('../Utilities/errorHandler');
 const isAuthenticated = require('../Utilities/authenticator');
 
+const upload = require(`../Utilities/uploadToBucket`);
+const uploadPromise = require('../Utilities/uploadPromise');
+
+
 module.exports = router;
 
 router.route('/')
@@ -17,7 +21,7 @@ router.route('/')
     return handleError(err, res);
   });
 })
-.post(isAuthenticated, (req, res) => {
+.post(isAuthenticated, upload, (req, res) => {
   let {
     id,
     title,
@@ -25,7 +29,7 @@ router.route('/')
     price,
     condition,
     category,
-    image_url,
+    image_url
   } = req.body;
   let user_id = req.user.id;
 
@@ -81,6 +85,9 @@ router.route('/:id')
     throw new Error(`Forbidden`);
   })
   .then(item => {
+    if (req.body.imageFile) {
+      return uploadPromise(item, req);
+    }
     return item.save(req.body, { require: true });
   })
   .then(item => {
@@ -90,7 +97,6 @@ router.route('/:id')
     return handleError(err, res);
   });
 });
-
 
 
 

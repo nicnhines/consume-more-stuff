@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { loadItems } from '../../actions/itemsActions';
 import CategoryListItem from '../../components/CategoryListItem';
-import ConnectedAddItemForm from '../AddItemForm';
+import ConnectedAddEditItemForm from '../AddEditItemForm';
 
 class CategoryList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      displayAddForm: false
+      displayAddForm: false,
+      redirectToImage: false,
+      search: ``
     };
   }
 
@@ -32,10 +33,26 @@ class CategoryList extends Component {
   hideAddForm(event) {
     setTimeout(() => {
       this.setState({
-        displayAddForm: false
+        displayAddForm: false,
       });
     }, 500);
-    document.getElementById(`add_item_form`).className += ` fadeout`;
+    document.getElementById(`add_edit_item_form`).className += ` fadeout`;
+  }
+
+  handleRedirectAfterAdd(id) {
+    this.setState({ redirectToImage: id });
+  }
+
+  updateSearch(event) {
+    this.setState({
+      search: event.target.value
+    });
+  }
+
+  reset() {
+    this.setState({
+      search: ``
+    });
   }
 
   handleScroll() {
@@ -56,22 +73,36 @@ class CategoryList extends Component {
   }
 
   render() {
+    if (this.state.redirectToImage) {
+      return <Redirect to={`/items/${this.state.redirectToImage}`} />
+    }
+
     const currentCategory = this.props.match.params.category;
-    const aboutParagraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in consectetur leo, quis tempus sem. Nunc volutpat enim at tempor tempor. Ut augue odio, tempus sed dui et, ullamcorper consectetur sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean molestie et tortor eu dapibus. Nullam eu posuere erat, suscipit euismod nunc. Aliquam fringilla a ante vitae viverra. In non vestibulum elit, eu molestie augue.`;
+    const aboutParagraph = `We are a curator of design, taste and style in the luxury lifestyle market, offering furniture, lighting, art, jewelry and scarves. Our collection of timeless, updated classics provide a unique point of view and an unmatched combination of inspired design and unparalleled quality.`;
+    
     if (!this.props.categories.includes(currentCategory)) {
       return <Redirect to='/' />;
     }
-    const items = this.props.items.filter(item => item.category === currentCategory);
-    const url = items.length ? items[0].image_url : `test`;
+    
+    const items = this.props.items.filter(item => item.category === currentCategory)
+    .filter(item => {
+      return item.title.indexOf(this.state.search) !== -1 || item.description.indexOf(this.state.search) !== -1
+    });
+    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`;
+
 
     return (
       <div className='category_list_container'>
-        {this.state.displayAddForm && <div className="form-bg" id='add_item_form'>
-          <ConnectedAddItemForm hideAddForm={this.hideAddForm.bind(this)} /></div>}
+        {this.state.displayAddForm && <div className="form-bg" id='add_edit_item_form'>
+          <ConnectedAddEditItemForm 
+            hideForm={this.hideAddForm.bind(this)} 
+            redirectAfterAdd={this.handleRedirectAfterAdd.bind(this)} 
+            currentCategory={currentCategory}
+          /></div>}
         <div id='main_image'
           className='category_main_image'
-          style={{ backgroundImage: `url(${url})` }}
-        ></div>
+          style={{ backgroundImage: `url(${url})` }}>
+        </div>
         <div id='fade_out' className='fade_out'></div>
         <div className='category_spacer'>
           <div className='category_information_container'>
@@ -80,9 +111,9 @@ class CategoryList extends Component {
           </div>
         </div>
         <div id='category_header' className='category_header'>
-          <span className='all_items_button'>all items</span>
-          <span className='all_items_button' onClick={this.displayAddForm.bind(this)}>add item</span>
-          <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} />
+          <span className='all_items_button' onClick={this.reset.bind(this)}>all items</span>
+          {localStorage.getItem(`user_id`) && <span className='add_item_button' onClick={this.displayAddForm.bind(this)}>add item</span>}
+          <input className='search_bar' type='text' placeholder={`Search through ${currentCategory}...`} value={this.state.search} onChange={this.updateSearch.bind(this)} />
         </div>
         <div className='category_list_items_container'>
           {items.map(item =>
@@ -103,9 +134,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadItems: () => {
-      dispatch(loadItems());
-    }
   }
 }
 

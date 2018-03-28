@@ -1,14 +1,15 @@
 html, body, #root {
-  margin: 0;  
-  padding: 0;
-  height: 100%;
+  margin: 0px;  
+  padding: 0px;
+  min-height: 100vh;
   width: 100%;
   font-family: 'LightWebFont';
 }
-
+  
 * {
   box-sizing: border-box;
 }
+
 
 .outer_page_container {
   display: flex;
@@ -17,13 +18,15 @@ html, body, #root {
   
   .page_spacer {
     min-width: 65px;
-    height: stretch;
   }
 
   .app_content {
     width: 100%;
+    background: #EBEBEB;
   }
 }
+
+
 
 input:focus,
 select:focus,
@@ -46,3 +49,4 @@ button:focus {
   font-family: 'MediumWebFont';
   src: url("../../medium.woff2");
 }
+

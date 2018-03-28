@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { setPageToDisplay } from '../../actions/pageDisplayActions';
+import { logout } from '../../actions/authenticationActions';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -34,8 +34,15 @@ class NavigationBar extends Component {
     this.setState({ displayCategories: false });
     this.setState({ displayMenu: false });
   }
+
+  handleLogout() {
+    this.props.logout();
+    this.handleHideMenu();
+  }
   
   render() {
+    const user_id = localStorage.getItem(`user_id`);
+
     return (
       <div className='header'>
         {this.state.displayMenu ?
@@ -45,22 +52,24 @@ class NavigationBar extends Component {
           <h6 className='navigation_categories_title'>CATEGORIES</h6>
           <div className='navigation_categories_links'>
             {this.props.categories.map((category, index) => {
-              return <span key={index}><NavLink to={`category/${category}`} onClick={this.handleHideMenu.bind(this)} >{ category }</NavLink></span>;
+              return <Link to={`/category/${category}`} onClick={this.handleHideMenu} key={index}>{ category }</Link>;
             })}
           </div>
         </div>
         <div className={`navigation_menu ${this.state.displayMenu ? null : `hide_menu`}`}>
           <h6 className='navigation_menu_title'>MENU</h6>
           <div className='navigation_menu_links'>
-            <span><NavLink to="/login"  onClick={this.handleHideMenu.bind(this)}>LOGIN</NavLink></span>
+            {user_id ? <Link to={`/users/${user_id}`} onClick={this.handleHideMenu}>MY PROFILE</Link> :
+              <Link to="/login" onClick={this.handleHideMenu}>LOGIN</Link>}
             <span onClick={this.handleDisplayCategories}>CATEGORIES</span>
-            <span>ALL ITEMS</span>
+            {user_id && <Link to="/" onClick={this.handleLogout.bind(this)}>LOGOUT</Link>}
           </div>
         </div>
         <div className='base_navigation_bar'>
-          <span onClick={this.handleDisplayMenu}>Expand</span>
+          <Link to='/' className='home_button' onClick={this.handleHideMenu}>Home</Link> 
+          <span onClick={this.handleDisplayMenu} className='expand_button'>Expand</span>
         </div>
-      </div>      
+      </div>    
     );
   }
 }
@@ -73,8 +82,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setPageToDisplay: page => {
-      dispatch(setPageToDisplay(page));
+    logout: () => {
+      dispatch(logout());
     }
   }
 }

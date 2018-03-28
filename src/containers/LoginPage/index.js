@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
-import { login } from '../../actions/authenticationActions';
+import { login, logout } from '../../actions/authenticationActions';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -18,6 +18,10 @@ class LoginPage extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.logout();
   }
 
   handleChange(event) {
@@ -84,7 +88,7 @@ class LoginPage extends Component {
               value='LOGIN' />
           </form>
           <div className='login_form_links_container'>
-            <p>register</p>
+            <Link to='/register' className='register_button'><p>register</p></Link>
             <p>forgot password</p>
           </div>
           {this.props.validationError &&
@@ -108,6 +112,9 @@ const mapDispatchToProps = dispatch => {
   return {
     login: (username, password, callback) => {
       dispatch(login(username, password, callback));
+    },
+    logout: () => {
+      dispatch(logout());
     }
   }
 };

@@ -8,10 +8,13 @@ import '../HomePage/styles.css';
 import '../CategoryList/styles.css';
 import '../LoginPage/styles.css'
 import '../RegistrationPage/styles.css';
-import '../AddItemForm/styles.css';
+import '../User/styles.css'
+import '../AddEditItemForm/styles.css';
+import '../DetailedItem/styles.css';
 
-import { loadItems, loadSingleItem } from '../../actions/itemsActions';
+import { loadItems } from '../../actions/itemsActions';
 import { setPageToDisplay } from '../../actions/pageDisplayActions';
+
 
 import NavigationBar from '../NavigationBar';
 import HomePage from '../HomePage';
@@ -19,8 +22,11 @@ import CategoryList from '../CategoryList';
 import LoginPage from '../LoginPage';
 import RegistrationPage from '../RegistrationPage';
 import NotFound from '../../components/NotFound';
+import User from '../User';
+import DetailedItem from '../DetailedItem';
 
 class App extends Component {
+  
   componentWillMount() {
     this.props.loadItems();
   }
@@ -34,6 +40,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/category/:category" component={CategoryList} />
+            <Route path="/users/:id" component={User}/>
+            <Route exact path="/items/:id" component={DetailedItem}/>
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/register' component={RegistrationPage} />
             <Route component={NotFound} />
@@ -50,7 +58,7 @@ const mapStateToProps = state => {
     conditions: state.items.conditions,
     items: state.items.items,
     singleItem: state.items.singleItem,
-    currentPage: state.pageDisplay.currentPage
+    currentPage: state.pageDisplay.currentPage,
   }
 }
 
@@ -59,12 +67,9 @@ const mapDispatchToProps = dispatch => {
     loadItems: () => {
       dispatch(loadItems());
     },
-    loadSingleItem: (id) => {
-      dispatch(loadSingleItem(id))
-    },
     setPageToDisplay: page => {
       dispatch(setPageToDisplay(page));
-    }
+    },
   }
 }
 
