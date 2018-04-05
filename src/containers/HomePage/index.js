@@ -64,7 +64,7 @@ class HomePage extends Component {
       item.category === this.state.currentCategory
     );
     highlightedItem = highlightedItem[[Math.floor(Math.random() * highlightedItem.length)]];
-    let url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${this.state.currentCategory}.jpg`
+    let url = `https://s3-us-west-1.amazonaws.com/consume-more-stuff/${this.state.currentCategory}.jpg`
     return (
       <div className='home_page_container' id='home_page_container'>
         <div 

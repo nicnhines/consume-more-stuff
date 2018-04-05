@@ -88,7 +88,7 @@ class CategoryList extends Component {
     .filter(item => {
       return item.title.indexOf(this.state.search) !== -1 || item.description.indexOf(this.state.search) !== -1
     });
-    const url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${currentCategory}.jpg`;
+    const url = `https://s3-us-west-1.amazonaws.com/consume-more-stuff/${currentCategory}.jpg`;
 
 
     return (
