@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
   s3.putObject(params, (err, data) => {
     if (err) console.log(err);
     else {
-      req.body.image_url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${key}`
+      req.body.image_url = `https://s3-us-west-1.amazonaws.com/consume-more-stuff/${key}`
       next();
     }
   })

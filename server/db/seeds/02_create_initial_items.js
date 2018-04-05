@@ -11,7 +11,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/1.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/1.jpg`,
           user_id: 1
         },
         {
@@ -20,7 +20,7 @@ exports.seed = function (knex, Promise) {
           price: 1000,
           condition: `new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/2.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/2.jpg`,
           user_id: 1
         },
         {
@@ -29,7 +29,7 @@ exports.seed = function (knex, Promise) {
           price: 3000,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/3.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/3.jpg`,
           user_id: 1
         },
         {
@@ -38,7 +38,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/4.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/4.jpg`,
           user_id: 1
         },
         {
@@ -47,7 +47,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/5.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/5.jpg`,
           user_id: 1
         },
         {
@@ -56,7 +56,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/6.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/6.jpg`,
           user_id: 1
         },
         {
@@ -65,7 +65,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/7.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/7.jpg`,
           user_id: 1
         },
         {
@@ -74,7 +74,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/8.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/8.jpg`,
           user_id: 1
         },
         {
@@ -83,7 +83,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/9.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/9.jpg`,
           user_id: 1
         },
         {
@@ -92,7 +92,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `new`,
           category: `furniture`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/10.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/10.jpg`,
           user_id: 1
         },
         {
@@ -101,7 +101,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/11.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/11.jpg`,
           user_id: 1
         },
         {
@@ -110,7 +110,7 @@ exports.seed = function (knex, Promise) {
           price: 2000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/12.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/12.jpg`,
           user_id: 1
         },
         {
@@ -119,7 +119,7 @@ exports.seed = function (knex, Promise) {
           price: 2000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/13.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/13.jpg`,
           user_id: 1
         },
         {
@@ -128,7 +128,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/14.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/14.jpg`,
           user_id: 1
         },
         {
@@ -137,7 +137,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/15.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/15.jpg`,
           user_id: 1
         },
         {
@@ -146,7 +146,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/16.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/16.jpg`,
           user_id: 1
         },
         {
@@ -155,7 +155,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/17.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/17.jpg`,
           user_id: 1
         },
         {
@@ -164,7 +164,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/18.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/18.jpg`,
           user_id: 1
         },
         {
@@ -173,7 +173,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/19.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/19.jpg`,
           user_id: 1
         },
         {
@@ -182,7 +182,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `art`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/20.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/20.jpg`,
           user_id: 1
         },
         {
@@ -191,7 +191,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/21.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/21.jpg`,
           user_id: 1
         },
         {
@@ -200,7 +200,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/22.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/22.jpg`,
           user_id: 1
         },
         {
@@ -209,7 +209,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/23.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/23.jpg`,
           user_id: 1
         },
         {
@@ -218,7 +218,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/24.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/24.jpg`,
           user_id: 1
         },
         {
@@ -227,7 +227,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/25.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/25.jpg`,
           user_id: 1
         },
         {
@@ -236,7 +236,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/26.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/26.jpg`,
           user_id: 1
         },
         {
@@ -245,7 +245,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/27.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/27.jpg`,
           user_id: 1
         },
         {
@@ -254,7 +254,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/28.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/28.jpg`,
           user_id: 1
         },
         {
@@ -263,7 +263,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/29.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/29.jpg`,
           user_id: 1
         },
         {
@@ -272,7 +272,7 @@ exports.seed = function (knex, Promise) {
           price: 395,
           condition: `like new`,
           category: `scarves`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/30.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/30.jpg`,
           user_id: 1
         },
         {
@@ -281,16 +281,7 @@ exports.seed = function (knex, Promise) {
           price: 3500,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/31.jpg`,
-          user_id: 1
-        },
-        {
-          title: `emerald diamond earrings`,
-          description: `white gold with white trillion diamonds, emeralds and black enamel`,
-          price: 2500,
-          condition: `like new`,
-          category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/32.png`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/31.jpg`,
           user_id: 1
         },
         {
@@ -299,7 +290,7 @@ exports.seed = function (knex, Promise) {
           price: 3500,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/33.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/33.jpg`,
           user_id: 1
         },
         {
@@ -308,7 +299,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/34.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/34.jpg`,
           user_id: 1
         },
         {
@@ -317,7 +308,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/35.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/35.jpg`,
           user_id: 1
         },
         {
@@ -326,7 +317,7 @@ exports.seed = function (knex, Promise) {
           price: 4500,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/36.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/36.jpg`,
           user_id: 1
         },
         {
@@ -335,7 +326,7 @@ exports.seed = function (knex, Promise) {
           price: 10000,
           condition: `new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/37.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/37.jpg`,
           user_id: 1
         },
         {
@@ -344,7 +335,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/38.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/38.jpg`,
           user_id: 1
         },
         {
@@ -353,7 +344,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/39.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/39.jpg`,
           user_id: 1
         },
         {
@@ -362,7 +353,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/40.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/40.jpg`,
           user_id: 1
         },
         {
@@ -371,7 +362,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/41.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/41.jpg`,
           user_id: 1
         },
         {
@@ -380,7 +371,7 @@ exports.seed = function (knex, Promise) {
           price: 5000,
           condition: `like new`,
           category: `jewelry`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/42.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/42.jpg`,
           user_id: 1
         },
         {
@@ -389,7 +380,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/43.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/43.jpg`,
           user_id: 1
         },
         {
@@ -398,7 +389,7 @@ exports.seed = function (knex, Promise) {
           price: 3500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/44.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/44.jpg`,
           user_id: 1
         },
         {
@@ -407,7 +398,7 @@ exports.seed = function (knex, Promise) {
           price: 3500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/45.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/45.jpg`,
           user_id: 1
         },
         {
@@ -416,7 +407,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/46.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/46.jpg`,
           user_id: 1
         },
         {
@@ -425,7 +416,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/47.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/47.jpg`,
           user_id: 1
         },
         {
@@ -434,7 +425,7 @@ exports.seed = function (knex, Promise) {
           price: 3500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/48.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/48.jpg`,
           user_id: 1
         },
         {
@@ -443,7 +434,7 @@ exports.seed = function (knex, Promise) {
           price: 2500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/49.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/49.jpg`,
           user_id: 1
         },
         {
@@ -452,7 +443,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `like new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/50.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/50.jpg`,
           user_id: 1
         },
         {
@@ -461,7 +452,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/51.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/51.jpg`,
           user_id: 1
         },
         {
@@ -470,7 +461,7 @@ exports.seed = function (knex, Promise) {
           price: 1500,
           condition: `new`,
           category: `lighting`,
-          image_url: `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/52.jpg`,
+          image_url: `https://s3-us-west-1.amazonaws.com/consume-more-stuff/52.jpg`,
           user_id: 1
         },
       ]);

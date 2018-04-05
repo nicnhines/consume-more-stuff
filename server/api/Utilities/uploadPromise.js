@@ -10,7 +10,7 @@ function uploadPromise (item, req) {
     const key = Date.now().toString();
     const params = {
       Body: Buffer.from(req.body.imageFile.split(`,`)[1], `base64`),
-      Bucket: `consume.more.stuff.image.bucket`,
+      Bucket: `consume-more-stuff`,
       Key: key
     };
 
@@ -18,7 +18,7 @@ function uploadPromise (item, req) {
       if (err) {
         reject(err);
       } else {
-        req.body.image_url = `https://s3-us-west-1.amazonaws.com/consume.more.stuff.image.bucket/${key}`;
+        req.body.image_url = `https://s3-us-west-1.amazonaws.com/consume-more-stuff/${key}`;
         delete req.body.imageFile;
 
         item.save(req.body, { require: true })
